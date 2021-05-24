@@ -7,6 +7,7 @@ import Register from './components/auth/Register'
 import SongsIndex from './components/song/SongsIndex'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import AlbumIndex from './components/album/AlbumIndex'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/songs" component={SongsIndex} />
+          <Route pasth="/albums" component={AlbumIndex} />
         </Switch>
       </BrowserRouter>
     </>
