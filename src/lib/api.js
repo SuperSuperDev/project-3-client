@@ -11,8 +11,8 @@ function headers() {
 
 // * Cheese Requests
 
-export function getAllCheeses() {
-  return axios.get(`${baseUrl}/cheeses`)
+export function getAllSongs() {
+  return axios.get(`${baseUrl}/songs`)
 }
 
 export function getSingleCheese(cheeseId) {
