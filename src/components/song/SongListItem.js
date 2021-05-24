@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+
 
 function SongListItem({ _id, name, image, leadArtist, album }) {
   return (
@@ -16,7 +16,7 @@ function SongListItem({ _id, name, image, leadArtist, album }) {
               <br />
               <small className="subtitle">{leadArtist.name}</small>
               <br />
-              <small>{album}</small>
+              <small>{album.name}</small>
             </div>
           </div>
           <div className="field is-grouped has-addons">

@@ -15,7 +15,7 @@ function AlbumCard({ _id, name, image, artists }) {
             <p className="subtitle">
               {artists &&
                 artists.map((artist) => (
-                  <span key={artist._id}>{artist} </span>
+                  <span key={artist._id}>{artist.name} </span>
                 ))}
             </p>
           </div>

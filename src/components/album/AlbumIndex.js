@@ -22,6 +22,7 @@ function AlbumIndex() {
     }
 
     getData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const handleInput = (e) => {
     setSearchTerm(e.target.value)

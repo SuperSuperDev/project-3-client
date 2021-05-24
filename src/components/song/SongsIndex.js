@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { getAllSongs } from '../../lib/api'
 import SongList from './SongList'
-import SongListItem from './SongListItem'
+
 
 function SongsIndex() {
   const history = useHistory()
@@ -22,6 +22,7 @@ function SongsIndex() {
     }
 
     getData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const handleInput = (e) => {
     setSearchTerm(e.target.value)

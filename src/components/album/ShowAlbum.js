@@ -1,8 +1,7 @@
 import React from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { getSingleAlbum, deleteAlbum } from '../../lib/api'
+import { useParams } from 'react-router-dom'
+import { getSingleAlbum } from '../../lib/api'
 import Error from '../common/Error'
-import { isOwner } from '../../lib/auth'
 import SongList from '../song/SongList'
 
 
@@ -11,7 +10,7 @@ function ShowAlbum() {
   const [album, setAlbum] = React.useState(null)
   const [isError, setIsError] = React.useState(false)
   const [searchTerm, setSearchTerm] = React.useState('')
-  const isLoading = !album && !isError
+  // const isLoading = !album && !isError
 
   React.useEffect(() => {
     const getData = async () => {
@@ -28,9 +27,9 @@ function ShowAlbum() {
     getData()
   }, [albumId])
 
-  const handleDelete = async () => {
-    await deleteAlbum(album._id)
-  }
+  // const handleDelete = async () => {
+  //   await deleteAlbum(album._id)
+  // }
   
 
   const filteredSongs = album?.songs.filter((song) => {
@@ -56,6 +55,7 @@ function ShowAlbum() {
           <p className="subtitle">{album?.artists && (
             album.artists.map(artist => <span key={artist._id}>{artist.name} </span>)
           )}</p>
+          
           <div className="field is-grouped">
             <div className="control">
               <input
@@ -74,7 +74,7 @@ function ShowAlbum() {
           </div>
         </div>
       </section>
-
+      {isError && <Error />}
       <SongList songList={filteredSongs} />
     </>
   )
