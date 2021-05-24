@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { getAllSongs } from '../lib/api'
+import SongList from './SongList'
 import SongListItem from './SongListItem'
 
 function SongsIndex() {
@@ -33,8 +34,10 @@ function SongsIndex() {
   const filteredSongs = songs?.filter((song) => {
     return song.name.toLowerCase().includes(searchTerm)
   })
-
-  console.log(searchTerm)
+  // const songList = { filteredSongs }
+  // console.log(searchTerm)
+  // console.log('filtered songs', songList)
+  // console.log('sorea songlist: ', { ...songList })
 
   return (
     <>
@@ -61,23 +64,7 @@ function SongsIndex() {
         </div>
       </section>
 
-      <div className="container">
-        <div className="section">
-          <div className="columns is-multiline">
-            {filteredSongs ? (
-              filteredSongs.map((song) => (
-                <>
-                  <SongListItem key={song._id} {...song} />
-                </>
-              ))
-            ) : (
-              <>
-                <p>Loading ... ...</p>
-              </>
-            )}
-          </div>
-        </div>
-      </div>
+      <SongList songList={filteredSongs} />
     </>
   )
 }

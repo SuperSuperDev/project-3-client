@@ -9,28 +9,49 @@ function headers() {
   }
 }
 
-// * Cheese Requests
+// * Song Requests
 
 export function getAllSongs() {
   return axios.get(`${baseUrl}/songs`)
 }
 
-export function getSingleCheese(cheeseId) {
-  return axios.get(`${baseUrl}/cheeses/${cheeseId}`)
+export function getSingleSong(songId) {
+  return axios.get(`${baseUrl}/songs/${songId}`)
 }
 
-export function createCheese(formdata) {
-  return axios.post(`${baseUrl}/cheeses`, formdata, headers())
+export function createSong(formdata) {
+  return axios.post(`${baseUrl}/songs`, formdata, headers())
 }
 
-export function editCheese(id, formdata) {
-  return axios.put(`${baseUrl}/cheeses/${id}`, formdata, headers())
+export function editSong(id, formdata) {
+  return axios.put(`${baseUrl}/songs/${id}`, formdata, headers())
 }
 
-export function deleteCheese(id) {
-  return axios.delete(`${baseUrl}/cheeses/${id}`, headers())
+export function deleteSong(id) {
+  return axios.delete(`${baseUrl}/songs/${id}`, headers())
 }
 
+// * Album Requests
+// TODO: Comments Routes
+export function getAllAlbums() {
+  return axios.get(`${baseUrl}/albums`)
+}
+
+export function getSingleAlbum(albumId) {
+  return axios.get(`${baseUrl}/albums/${albumId}`)
+}
+
+export function createAlbum(formdata) {
+  return axios.post(`${baseUrl}/albums`, formdata, headers())
+}
+
+export function editAlbum(id, formdata) {
+  return axios.put(`${baseUrl}/albums/${id}`, formdata, headers())
+}
+
+export function deleteAlbum(id) {
+  return axios.delete(`${baseUrl}/albums/${id}`, headers())
+}
 
 // * Auth Requests
 
