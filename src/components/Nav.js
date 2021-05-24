@@ -38,9 +38,13 @@ function Nav() {
         </div>
         <div className={`navbar-menu ${menuIsActive ? 'is-active' : ''} `}>
           <div className="navbar-start">
-            <Link to="/" className="navbar-item">
+            <Link to="/songs" className="navbar-item">
               {' '}
-              Home
+              Songs
+            </Link>
+            <Link to="/albums" className="navbar-item">
+              {' '}
+              Albums
             </Link>
           </div>{' '}
           <div className="navbar-end">

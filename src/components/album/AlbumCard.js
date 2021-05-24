@@ -1,25 +1,29 @@
 import { Link } from 'react-router-dom'
 
-function SongCard({ _id, name, image }) {
+function AlbumCard({ _id, name, image, artists }) {
   return (
     <div
       className="column is-one-quarter-desktop is-one-third-tablet"
       key={_id}
     >
       <div className="card">
-        <Link to={`songs/${_id}`}>
+        <Link to={`albums/${_id}`}>
           <div className="card-header">
-            <div className="card-header-title"> {name}</div>
+            <div className="card-header-title ">
+              <div className="title">{name}</div>
+            </div>
+            <p className="subtitle">
+              {artists &&
+                artists.map((artist) => (
+                  <span key={artist._id}>{artist} </span>
+                ))}
+            </p>
           </div>
           <div className="card-content is-flex is-horizontal-center">
             <img src={image} />
           </div>
           <div className="card-footer">
-            <span // ! Added Footer Items
-              className="card-footer-item"
-            >
-              Add Song
-            </span>
+            <span className="card-footer-item">Add Song</span>
             <span className="card-footer-item subtitle">Like Song</span>
           </div>
         </Link>
@@ -27,4 +31,4 @@ function SongCard({ _id, name, image }) {
     </div>
   )
 }
-export default SongCard
+export default AlbumCard
