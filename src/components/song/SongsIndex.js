@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { getAllSongs } from '../lib/api'
+import { getAllSongs } from '../../lib/api'
 import SongList from './SongList'
 import SongListItem from './SongListItem'
 
