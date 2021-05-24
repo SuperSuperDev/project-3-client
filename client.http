@@ -1,0 +1,27 @@
+# GET http://localhost:4000/api/pokemon
+
+# ###
+# GET http://localhost:4000/api/pokemon/1
+
+### USER Register
+
+POST http://localhost:4000/api/register
+content-type: application/json
+
+{
+  "username": "testuser8",
+  "email": "testuser8@testuser",
+  "password": "pass",
+  "passwordConfirmation": "pass",
+  "about": "Something About Me",
+  "image": "http://image.com/someimage.jpg"
+}
+
+### USER Login
+POST http://localhost:4000/api/login
+content-type: application/json
+
+{
+  "email": "testuser8@testuser",
+  "password": "pass"
+}

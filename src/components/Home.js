@@ -4,9 +4,9 @@ function Home() {
     <>
       <section className="homepage hero is-fullheight-with-navbar">
         <div className="hero-body">
-          <Link to="/coins"className="container">
-            <div className="title has-text-centered is-1">🔮</div>
-            <h1 Link to="/coins" className="title is-1 has-text-centered has-text-white">
+          <Link to="/"className="container">
+            <div className="title has-text-centered is-1">🎶</div>
+            <h1 className="title is-1 has-text-centered">
               Music App 
             </h1>
           </Link>
