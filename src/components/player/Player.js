@@ -4,7 +4,7 @@ import 'react-jinke-music-player/assets/index.css'
 
 function Player({ audioQueue }) {
   let transformAudioQueue = null
-  console.log('audio queque', audioQueue)
+
   if (audioQueue) {
     transformAudioQueue = audioQueue.map(song => {
       return {

@@ -19,7 +19,6 @@ function ShowAlbum({ audioQueue, setAudioQueue }) {
         console.log(response.data)
         setAlbum(response.data)
         setAudioQueue(response.data.songs)
-        console.log('console.log under setAudio', response.data.songs)
       } catch (err) {
         console.log(err)
         setIsError(true)
