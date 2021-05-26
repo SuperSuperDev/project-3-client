@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getSingleAlbum } from '../../lib/api'
 import Error from '../common/Error'
 import SongList from '../song/SongList'
 
 
-function ShowAlbum() {
+function ShowAlbum({ audioQueue, setAudioQueue }) {
   const { albumId } = useParams()
   const [album, setAlbum] = React.useState(null)
   const [isError, setIsError] = React.useState(false)
@@ -18,6 +18,8 @@ function ShowAlbum() {
         const response = await getSingleAlbum(albumId)
         console.log(response.data)
         setAlbum(response.data)
+        setAudioQueue(response.data.songs)
+        console.log('console.log under setAudio', response.data.songs)
       } catch (err) {
         console.log(err)
         setIsError(true)
@@ -30,7 +32,8 @@ function ShowAlbum() {
   // const handleDelete = async () => {
   //   await deleteAlbum(album._id)
   // }
-  
+
+
 
   const filteredSongs = album?.songs.filter((song) => {
     return song.name.toLowerCase().includes(searchTerm)
@@ -55,7 +58,7 @@ function ShowAlbum() {
           <p className="subtitle">{album?.artists && (
             album.artists.map(artist => <span key={artist._id}>{artist.name} </span>)
           )}</p>
-          
+
           <div className="field is-grouped">
             <div className="control">
               <input
