@@ -1,5 +1,5 @@
 import React from 'react'
-import { useForm } from '../../hooks/useForm'
+import useForm from '../../hooks/useForm'
 import { registerUser } from '../../lib/api'
 import { useHistory } from 'react-router-dom'
 
