@@ -9,6 +9,9 @@ import SongsIndex from './components/song/SongsIndex'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import AlbumIndex from './components/album/AlbumIndex'
 import ShowAlbum from './components/album/ShowAlbum'
+import PlaylistIndex from './components/Playlist/PlaylistIndex'
+import ShowPlaylist from './components/Playlist/ShowPlaylist'
+import Player from './components/player/Player'
 
 function App() {
   return (
@@ -22,10 +25,15 @@ function App() {
           <Route path="/songs" component={SongsIndex} />
           <Route path="/albums/:albumId" component={ShowAlbum} />
           <Route path="/albums" component={AlbumIndex} />
+          <Route path="/playlists/:playlistId" component={ShowPlaylist} />
+          <Route path="/playlists" component={PlaylistIndex} />          
         </Switch>
+        <Player />
       </BrowserRouter>
     </>
   )
 }
 
 export default App
+
+// <Route path="/player" component={Player} />

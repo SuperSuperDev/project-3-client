@@ -52,7 +52,15 @@ export function editAlbum(id, formdata) {
 export function deleteAlbum(id) {
   return axios.delete(`${baseUrl}/albums/${id}`, headers())
 }
+// * Playlists
 
+export function getAllPlaylists() {
+  return axios.get(`${baseUrl}/playlist`)
+}
+
+export function getSinglePlaylist(playlistId) {
+  return axios.get(`${baseUrl}/playlist/${playlistId}`)
+}
 // * Auth Requests
 
 export function registerUser(formdata) {

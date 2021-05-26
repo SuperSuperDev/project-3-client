@@ -46,6 +46,10 @@ function Nav() {
               {' '}
               Albums
             </Link>
+            <Link to="/playlists" className="navbar-item">
+              {' '}
+              Playlists
+            </Link>
           </div>{' '}
           <div className="navbar-end">
             <div className="navbar-item">
