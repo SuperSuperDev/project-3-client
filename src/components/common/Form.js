@@ -15,12 +15,21 @@ function Form() {
   const [artists, setArtists] = useState(null)
   const [albums, setAlbums] = useState(null)
 
+  const [createArtist, setCreateArtist] = useState(false)
+
+  const [valueOfNewArtist, setValueOfNewArtist] = useState(null)
+
   const { formdata: songdata, handleChange: handleSongChange } = useForm({
     cover: '',
     artists: [],
     album: '',
   })
   const { formdata: artistdata, handleChange: handleArtistChange } = useForm({
+    cover: '',
+    artists: [],
+    album: '',
+  })
+  const { formdata: albumdata, handleChange: handleAlbumChange } = useForm({
     cover: '',
     artists: [],
     album: '',
@@ -64,15 +73,16 @@ function Form() {
 
   const handleMultiSelect = selectedArtists => {
     const values = selectedArtists ? selectedArtists.map(item => item.value) : []
-    handleChange({ target: { name: 'artists', value: values } })
+    handleSongChange({ target: { name: 'artists', value: values } })
   }
 
   const handleSelect = selectedAlbum => {
     handleChange({ target: { name: 'album', value: selectedAlbum.value } })
   }
 
-  const createdArtist = props => {
-    console.log(props)
+  const handleCreateArtist = props => {
+    setValueOfNewArtist(props)
+    setCreateArtist(true)
   }
 
 
@@ -82,15 +92,27 @@ function Form() {
       <div className="columns is-mobile">
         <div className="column is-6-tablet is-offset-3-tablet is-8-mobile is-offset-2-mobile box">
           <form onSubmit={handleSubmit}>
+            <label className="label has-text-centered">Artist</label>
             <div className="field">
               <div className="control">
-                <label className="label">Artist</label>
-                <Creatable options={artists} isMulti onChange={handleMultiSelect} onCreateOption={createdArtist} />
+                <label className="label">Name</label>
+                {!valueOfNewArtist ?
+                  <Creatable options={artists} isMulti onChange={handleMultiSelect} onCreateOption={handleCreateArtist} />
+                  :
+                  <Creatable options={artists} isMulti onChange={handleMultiSelect} onCreateOption={handleCreateArtist} value={valueOfNewArtist} />
+                }
+
               </div>
             </div>
-            <div>
+            {createArtist &&
+              <div className="field">
+                <div className="control">
+                  <label className="label">About</label>
+                  <input className="input" placeholder="About Artist" name="about" onChange={handleArtistChange} />
+                </div>
+              </div>
+            }
 
-            </div>
             <div className="field">
               <div className="control">
                 <label className="label">Albums</label>
@@ -100,13 +122,11 @@ function Form() {
             <div className="field">
               <ImageUpload
                 onUpload={handleUpload}
-
               />
             </div>
             <div className="field">
               <AudioUpload
                 onUpload={handleUpload}
-
               />
             </div>
             <div className="field">
