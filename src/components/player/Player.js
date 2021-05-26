@@ -106,7 +106,7 @@ function Player() {
     // playIndex: 0,
   
     // color of the music player theme    [ type: 'light' | 'dark' | 'auto'  default `dark` ]
-    theme: 'auto',
+    theme: 'dark',
   
     // Specifies movement boundaries. Accepted values:
     // - `parent` restricts movement within the node's offsetParent
