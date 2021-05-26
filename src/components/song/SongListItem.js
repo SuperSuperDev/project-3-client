@@ -1,20 +1,20 @@
 
 
-function SongListItem({ _id, name, image, leadArtist, album }) {
+function SongListItem({ _id, name, cover, singer, album }) {
   return (
     <div key={name} className="column is-full">
       <div className="box">
         <div className="media" key={_id}>
           <figure className="media-left">
             <p className="image is-64x64">
-              <img src={image} />
+              <img src={cover} />
             </p>
           </figure>
           <div className="media-content">
             <div className="content">
               <strong className="title">{name}</strong>
               <br />
-              <small className="subtitle">{leadArtist.name}</small>
+              <small className="subtitle">{singer.name}</small>
               <br />
               <small>{album.name}</small>
             </div>

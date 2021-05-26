@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Nav from './components/Nav'
 import Home from './components/Home'
@@ -13,7 +13,10 @@ import PlaylistIndex from './components/Playlist/PlaylistIndex'
 import ShowPlaylist from './components/Playlist/ShowPlaylist'
 import Player from './components/player/Player'
 
+
+
 function App() {
+  const [audioQueue, setAudioQueue] = useState(null)
   return (
     <>
       <BrowserRouter>
@@ -23,12 +26,14 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/songs" component={SongsIndex} />
-          <Route path="/albums/:albumId" component={ShowAlbum} />
+          <Route path="/albums/:albumId">
+            <ShowAlbum audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
+          </Route>
           <Route path="/albums" component={AlbumIndex} />
           <Route path="/playlists/:playlistId" component={ShowPlaylist} />
-          <Route path="/playlists" component={PlaylistIndex} />          
+          <Route path="/playlists" component={PlaylistIndex} />
         </Switch>
-        <Player />
+        <Player audioQueue={audioQueue} />
       </BrowserRouter>
     </>
   )
