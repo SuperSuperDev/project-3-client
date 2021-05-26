@@ -12,7 +12,7 @@ import ShowAlbum from './components/album/ShowAlbum'
 import PlaylistIndex from './components/Playlist/PlaylistIndex'
 import ShowPlaylist from './components/Playlist/ShowPlaylist'
 import Player from './components/player/Player'
-import Upload from './components/common/Upload'
+import Form from './components/common/Form'
 
 
 
@@ -33,7 +33,7 @@ function App() {
           <Route path="/albums" component={AlbumIndex} />
           <Route path="/playlists/:playlistId" component={ShowPlaylist} />
           <Route path="/playlists" component={PlaylistIndex} />
-          <Route path="/upload" component={Upload}/>
+          <Route path="/upload-song" component={Form}/>
         </Switch>
         <Player audioQueue={audioQueue} />
       </BrowserRouter>

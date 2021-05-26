@@ -61,6 +61,11 @@ export function getAllPlaylists() {
 export function getSinglePlaylist(playlistId) {
   return axios.get(`${baseUrl}/playlist/${playlistId}`)
 }
+
+export function getAllArtists() {
+  return axios.get(`${baseUrl}/artists`)
+}
+
 // * Auth Requests
 
 export function registerUser(formdata) {
