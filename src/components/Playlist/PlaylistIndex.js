@@ -1,11 +1,11 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+//import { useHistory } from 'react-router-dom'
 import { getAllPlaylists } from '../../lib/api'
 import Error from '../common/Error'
 import PlaylistGrid from './PlaylistGrid'
 
 function PlaylistIndex() {
-  const history = useHistory()
+  // const history = useHistory()
   const [playlists, setAllPlaylists] = React.useState(null)
   const [searchTerm, setSearchTerm] = React.useState('')
 
