@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
-function AlbumCard({ _id, name, image, artists }) {
+function AlbumCard({ _id, name, cover, artists, leadArtist }) {
+  console.log(artists)
   return (
     <div
       className="column is-one-quarter-desktop is-one-third-tablet"
@@ -14,13 +15,12 @@ function AlbumCard({ _id, name, image, artists }) {
             </div>
             <p className="subtitle">
               {artists &&
-                artists.map((artist) => (
-                  <span key={artist._id}>{artist.name} </span>
-                ))}
+                <span key={`card-${leadArtist._id}`}>{leadArtist.name}</span>
+              }
             </p>
           </div>
           <div className="card-content is-flex is-horizontal-center">
-            <img src={image} />
+            <img src={cover} />
           </div>
           <div className="card-footer">
             <span className="card-footer-item">Add Song</span>

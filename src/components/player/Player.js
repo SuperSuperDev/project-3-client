@@ -16,7 +16,7 @@ function Player({ audioQueue }) {
     })
   }
 
-  console.log('transformed que', transformAudioQueue)
+  console.log('transformed queue', transformAudioQueue)
 
   // const audioList1 = [
   //   {
@@ -456,9 +456,7 @@ function Player({ audioQueue }) {
     // },
   }
   return (
-    <>
-      { transformAudioQueue && <ReactJkMusicPlayer {...options} />}
-    </>
+    <ReactJkMusicPlayer {...options} />
   )
 }
 
