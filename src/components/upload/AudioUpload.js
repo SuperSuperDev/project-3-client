@@ -28,8 +28,8 @@ function AudioUpload({ onUpload }) {
 
   return (
     <>
-      {audio && <audio controls="true" src={audio} alt="uploaded profile"/>}
-      <button onClick={handleUpload} type="button" className="button is-fullwidth is-primary">Select Song</button>
+      {audio && <audio controls="true" src={audio} alt="uploaded profile" />}
+      <button onClick={handleUpload} type="button" className="button is-fullwidth is-primary">{!audio ? 'Select Song' : 'Select another song'}</button>
     </>
   )
 }

@@ -6,7 +6,7 @@ import { createArtist, getAllArtists } from '../../lib/api.js'
 import ImageUpload from '../upload/ImageUpload.js'
 
 
-function ArtistForm() {
+function ArtistForm({ selectedArtists, setSelectedArtists }) {
   const [artists, setArtists] = useState(null)
   const [hasArtist, setHasArtist] = useState(true)
 
@@ -46,7 +46,7 @@ function ArtistForm() {
 
   const handleMultiSelect = selectedArtists => {
     const values = selectedArtists ? selectedArtists.map(item => item.value) : []
-    handleChange({ target: { name: 'artists', value: values } })
+    setSelectedArtists(selectedArtists)
   }
 
   const handleSelect = selectedAlbum => {
@@ -70,68 +70,59 @@ function ArtistForm() {
       setHasArtist(false)
     }
   }
-  console.log(formdata)
   return (
-    <main className="section">
-      <div className="columns is-mobile">
-        <div className="column is-6-tablet is-offset-3-tablet is-8-mobile is-offset-2-mobile box">
-          <form onSubmit={handleSubmit}>
-            <label className="label has-text-centered">Select Artist</label>
-            {hasArtist ?
-              (
-                <div className="field">
-                  <div className="control">
-                    <label className="label">Artists</label>
-                    <Creatable options={artists} isMulti onChange={handleMultiSelect} onCreateOption={toggleCreateArtistForm} />
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <div>
-                    <p>Artist does not exist, fill form below:</p>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <label className="label">Name</label>
-                      <input
-                        className="input"
-                        placeholder="Artist Name"
-                        name="name"
-                        onChange={handleChange}
-                        value={formdata.name}
-                      />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <label className="label">About</label>
-                      <input
-                        className="input"
-                        placeholder="About Artist"
-                        name="about"
-                        onChange={handleChange}
-                        value={formdata.about}
-                      />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <label className="label">Cover</label>
-                      <ImageUpload onUpload={handleUpload} />
-                    </div>
-                  </div>
-                </>
-              )}
-            <div className="field">
-              {hasArtist ? <button className="button is-fullwidth is-dark" type="submit">
-                Submit
-              </button> : <button className="button is-fullwidth is-warning" type="button" onClick={handleCreateArtist}>Create This Artist</button>}
-
+    <>
+      <label className="label has-text-centered">Select Artist</label>
+      {hasArtist ?
+        (
+          <div className="field">
+            <div className="control">
+              <label className="label">Artists</label>
+              <Creatable options={artists} isMulti onChange={handleMultiSelect} onCreateOption={toggleCreateArtistForm} />
             </div>
-          </form>
-        </div>
+          </div>
+        ) : (
+          <>
+            <div>
+              <p>Artist does not exist, fill form below:</p>
+            </div>
+            <div className="field">
+              <div className="control">
+                <label className="label">Name</label>
+                <input
+                  className="input"
+                  placeholder="Artist Name"
+                  name="name"
+                  onChange={handleChange}
+                  value={formdata.name}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <label className="label">About</label>
+                <input
+                  className="input"
+                  placeholder="About Artist"
+                  name="about"
+                  onChange={handleChange}
+                  value={formdata.about}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <label className="label">Cover</label>
+                <ImageUpload onUpload={handleUpload} />
+              </div>
+            </div>
+          </>
+        )}
+      <div className="field">
+        {hasArtist ? '' : <button className="button is-fullwidth is-warning" type="button" onClick={handleCreateArtist}>Create This Artist</button>}
+
       </div>
-    </main>
+    </>
   )
 }
 

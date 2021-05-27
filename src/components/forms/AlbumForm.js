@@ -6,7 +6,7 @@ import { createAlbum, getAllAlbums } from '../../lib/api.js'
 import ImageUpload from '../upload/ImageUpload.js'
 
 
-function AlbumForm() {
+function AlbumForm({ selectedAlbum, setSelectedAlbum }) {
   const [albums, setAlbums] = useState(null)
   const [hasAlbum, setHasAlbum] = useState(true)
 
@@ -44,18 +44,13 @@ function AlbumForm() {
     window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
   }
 
-  const handleMultiSelect = selectedAlbums => {
-    const values = selectedAlbums ? selectedAlbums.map(item => item.value) : []
-    handleChange({ target: { name: 'albums', value: values } })
-  }
-
   const handleSelect = selectedAlbum => {
-    handleChange({ target: { name: 'album', value: selectedAlbum.value } })
+    setSelectedAlbum(selectedAlbum)
   }
 
   const handleCreateAlbum = async () => {
     try {
-      const res = await createAlbum({ ...formdata, lenght: 0 })
+      const res = await createAlbum({ ...formdata, length: 0 })
       console.log(res)
       setHasAlbum(true)
     } catch (err) {
@@ -70,69 +65,59 @@ function AlbumForm() {
       setHasAlbum(false)
     }
   }
-  console.log(formdata)
   return (
-    <main className="section">
-      <div className="columns is-mobile">
-        <div className="column is-6-tablet is-offset-3-tablet is-8-mobile is-offset-2-mobile box">
-          <form onSubmit={handleSubmit}>
-            <label className="label has-text-centered">Select Album</label>
-            {hasAlbum ?
-              (
-                <div className="field">
-                  <div className="control">
-                    <label className="label">Albums</label>
-                    <Creatable options={albums} isMulti onChange={handleMultiSelect} onCreateOption={toggleCreateAlbumForm} />
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <div>
-                    <p>Album does not exist, fill form below:</p>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <label className="label">Name</label>
-                      <input
-                        className="input"
-                        placeholder="Album Name"
-                        name="name"
-                        onChange={handleChange}
-                        value={formdata.name}
-                      />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <label className="label">Year</label>
-                      <input
-                        className="input"
-                        type="date"
-                        placeholder="About Album"
-                        name="about"
-                        onChange={handleChange}
-                        value={formdata.year}
-                      />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <label className="label">Cover</label>
-                      <ImageUpload onUpload={handleUpload} />
-                    </div>
-                  </div>
-                </>
-              )}
-            <div className="field">
-              {hasAlbum ? <button className="button is-fullwidth is-dark" type="submit">
-                Submit
-              </button> : <button className="button is-fullwidth is-warning" type="button" onClick={handleCreateAlbum}>Create This Album</button>}
-
+    <>
+      <label className="label has-text-centered">Select Album</label>
+      {hasAlbum ?
+        (
+          <div className="field">
+            <div className="control">
+              <label className="label">Albums</label>
+              <Creatable options={albums} onChange={handleSelect} onCreateOption={toggleCreateAlbumForm} />
             </div>
-          </form>
-        </div>
+          </div>
+        ) : (
+          <>
+            <div>
+              <p>Album does not exist, fill form below:</p>
+            </div>
+            <div className="field">
+              <div className="control">
+                <label className="label">Name</label>
+                <input
+                  className="input"
+                  placeholder="Album Name"
+                  name="name"
+                  onChange={handleChange}
+                  value={formdata.name}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <label className="label">Year</label>
+                <input
+                  className="input"
+                  type="date"
+                  placeholder="Year Album released"
+                  name="year"
+                  onChange={handleChange}
+                  value={formdata.year}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <label className="label">Cover</label>
+                <ImageUpload onUpload={handleUpload} />
+              </div>
+            </div>
+          </>
+        )}
+      <div className="field">
+        {hasAlbum ? '' : <button className="button is-fullwidth is-warning" type="button" onClick={handleCreateAlbum}>Create This Album</button>}
       </div>
-    </main>
+    </>
   )
 }
 

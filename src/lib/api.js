@@ -52,6 +52,15 @@ export function editAlbum(id, formdata) {
 export function deleteAlbum(id) {
   return axios.delete(`${baseUrl}/albums/${id}`, headers())
 }
+
+export function addSongToAlbum(albumId, songId) {
+  return axios.post(`${baseUrl}/albums/${albumId}/songs/${songId}`, null, headers())
+}
+
+export function addArtistToAlbum(albumId, artistId) {
+  return axios.post(`${baseUrl}/albums/${albumId}/artists/${artistId}`, null, headers())
+}
+
 // * Playlists
 
 export function getAllPlaylists() {
@@ -68,6 +77,14 @@ export function getAllArtists() {
 
 export function createArtist(data) {
   return axios.post(`${baseUrl}/artists/`, data, headers())
+}
+
+export function addSongToArtist(artistId, songId) {
+  return axios.post(`${baseUrl}/artists/${artistId}/songs/${songId}`, null, headers())
+}
+
+export function addAlbumToArtist(artistId, albumId) {
+  return axios.post(`${baseUrl}/artists/${artistId}/albums/${albumId}`, null, headers())
 }
 
 // * Auth Requests
