@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { getAllAlbums } from '../../lib/api'
+import { isAuthenticated } from '../../lib/auth'
 
 import AlbumGrid from './AlbumGrid'
 
@@ -22,7 +23,7 @@ function AlbumIndex() {
     }
 
     getData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
@@ -39,32 +40,40 @@ function AlbumIndex() {
   // console.log(searchTerm)
   // console.log('filtered songs', songList)
   // console.log('sorea songlist: ', { ...songList })
-
+  const handleCreateAlbum = () => {
+    history.push('/albums/new')
+  }
   return (
     <>
       <section className="hero is-primary">
-        <div className="hero-body">
-          <p className="title">Search Albums</p>
-          <p className="subtitle">Search through a huge collection of albums</p>
-          <div className="field is-grouped">
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder="Search by album name"
-                onChange={handleInput}
-                value={searchTerm}
-              />
-            </div>
-            <div className="control">
-              <button className="button" onClick={handleClear}>
-                Clear
+        <div className="columns">
+          <div className="hero-body">
+            <p className="title">Search Albums</p>
+            <p className="subtitle">Search through a huge collection of albums</p>
+            <div className="field is-grouped">
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Search by album name"
+                  onChange={handleInput}
+                  value={searchTerm}
+                />
+              </div>
+              <div className="control">
+                <button className="button" onClick={handleClear}>
+                  Clear
               </button>
+              </div>
             </div>
           </div>
+          {isAuthenticated() &&
+            <aside id="aside" className="column is-one-quarter">
+              <button className="button" onClick={handleCreateAlbum}>Create New Album</button>
+            </aside>
+          }
         </div>
       </section>
-
       <AlbumGrid albumList={filteredAlbums} />
     </>
   )

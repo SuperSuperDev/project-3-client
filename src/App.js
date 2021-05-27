@@ -12,10 +12,9 @@ import ShowAlbum from './components/album/ShowAlbum'
 import PlaylistIndex from './components/Playlist/PlaylistIndex'
 import ShowPlaylist from './components/Playlist/ShowPlaylist'
 import Player from './components/player/Player'
-import Form from './components/common/Form'
-import ArtistForm from './components/forms/ArtistForm'
-import AlbumForm from './components/forms/AlbumForm'
 import SongForm from './components/forms/SongForm'
+import NewAlbumForm from './components/forms/NewAlbumForm'
+import NewPlaylistForm from './components/forms/NewPlaylistForm'
 
 
 
@@ -30,10 +29,16 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/songs" component={SongsIndex} />
+          <Route exact path="/albums/new">
+            <NewAlbumForm />
+          </Route>
           <Route path="/albums/:albumId">
             <ShowAlbum audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
           </Route>
           <Route path="/albums" component={AlbumIndex} />
+          <Route exact path="/playlist/new">
+            <NewPlaylistForm />
+          </Route>
           <Route path="/playlists/:playlistId" component={ShowPlaylist} />
           <Route path="/playlists" component={PlaylistIndex} />
           <Route path="/upload-song" component={SongForm} />

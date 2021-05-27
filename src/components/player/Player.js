@@ -11,7 +11,7 @@ function Player({ audioQueue }) {
         name: song.name,
         singer: song.singer.name,
         cover: song.cover,
-        musicSrc: song.musicSrc
+        musicSrc: song.musicSrc,
       }
     })
   }
