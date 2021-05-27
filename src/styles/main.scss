@@ -1,6 +1,7 @@
 @import '~bulma/bulma.sass';
 
 
+
 #aside {
   display: flex;
   justify-content: flex-end;
@@ -9,4 +10,21 @@
   button {
     margin: 10px;
   }
+}
+
+#comments-scroll{
+  margin-top: 10px;
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
+#comments-scroll div {
+  background-color: rgb(174, 174, 179);
+  color: white;
+  padding: 8px;
+  margin: 10px;
+}
+
+#add-comment{
+  margin: 25px 10px;
 }

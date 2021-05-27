@@ -26,7 +26,7 @@ function SongListItem({ _id, name, comments, cover, singer, album }) {
               <small>{album.name}</small>
             </div>
             <div>
-              <button className="is-info" onClick={handleCommentExpand}>Expand</button>
+              <button className="button is-info" onClick={handleCommentExpand}>Show Comments</button>
               {commentHidden &&
               <SongComment commentsPassed={comments} id={_id} />
               }

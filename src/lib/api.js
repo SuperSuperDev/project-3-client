@@ -102,6 +102,10 @@ export function getCommentsForSong(songId){
   return axios.get(`${baseUrl}/songs/${songId}/comments`)
 }
 
+export function addCommentToSong(formdata, songId){
+  return axios.post(`${baseUrl}/songs/${songId}/comments`,formdata, headers())
+}
+
 // * Auth Requests
 
 export function registerUser(formdata) {
