@@ -87,6 +87,12 @@ export function addAlbumToArtist(artistId, albumId) {
   return axios.post(`${baseUrl}/artists/${artistId}/albums/${albumId}`, null, headers())
 }
 
+// * Comments
+
+export function getCommentsForSong(songId){
+  return axios.get(`${baseUrl}/songs/${songId}/comments`)
+}
+
 // * Auth Requests
 
 export function registerUser(formdata) {

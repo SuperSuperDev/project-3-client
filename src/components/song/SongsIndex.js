@@ -64,7 +64,6 @@ function SongsIndex() {
           </div>
         </div>
       </section>
-
       <SongList songList={filteredSongs} />
     </>
   )
