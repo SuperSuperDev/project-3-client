@@ -66,6 +66,10 @@ export function getAllArtists() {
   return axios.get(`${baseUrl}/artists`)
 }
 
+export function createArtist(data) {
+  return axios.post(`${baseUrl}/artists/`, data, headers())
+}
+
 // * Auth Requests
 
 export function registerUser(formdata) {
