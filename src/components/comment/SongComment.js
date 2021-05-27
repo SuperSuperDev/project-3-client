@@ -1,8 +1,8 @@
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { addCommentToSong, getCommentsForSong } from '../../lib/api'
+import { addCommentToSong, editCommentInSong, getCommentsForSong } from '../../lib/api'
 import useForm from '../../hooks/useForm'
-import { isAuthenticated } from '../../lib/auth'
+import { isAuthenticated, isOwner } from '../../lib/auth'
 
 function SongComment({ id, commentsPassed }) {
   const history = useHistory()
@@ -42,6 +42,16 @@ function SongComment({ id, commentsPassed }) {
       }
     }
   }
+  const handleEditComment = async ({ target }) => {
+    formdata.text = target.value
+    console.log(target.value)
+    // const res = await editCommentInSong()
+  }
+
+  const handleDeleteComment = target => {
+
+  }
+  console.log(formdata)
   return (
     <>
       <div id="comments-scroll">
@@ -49,6 +59,12 @@ function SongComment({ id, commentsPassed }) {
           <div key={comment._id} className="box is-primary">
             <p>{comment.username.username}</p>
             <p>{comment.text}</p>
+            {isOwner(comment.username._id) &&
+              <span>
+                <input type="button" value={comment.text} onClick={handleEditComment}>Edit</input>
+                <input type="button" onClick={handleDeleteComment}>Delete</input>
+              </span>
+            }
           </div>
         ))}
       </div>

@@ -106,6 +106,14 @@ export function addCommentToSong(formdata, songId){
   return axios.post(`${baseUrl}/songs/${songId}/comments`,formdata, headers())
 }
 
+export function editCommentInSong(formdata, songId, commentId){
+  return axios.put(`${baseUrl}/songs/${songId}/comments/${commentId}`,formdata, headers())
+}
+
+export function deleteCommentInSong(songId, commentId){
+  return axios.delete(`${baseUrl}/songs/${songId}/comments/${commentId}`, headers())
+}
+
 // * Auth Requests
 
 export function registerUser(formdata) {
