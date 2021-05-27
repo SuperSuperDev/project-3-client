@@ -1,3 +1,4 @@
+import ControlBar from '../controlBar/ControlBar'
 
 
 function SongListItem({ _id, name, cover, singer, album }) {
@@ -21,6 +22,7 @@ function SongListItem({ _id, name, cover, singer, album }) {
           </div>
           <div className="field is-grouped has-addons">
             <div className="media-right">
+              <ControlBar id={_id} type='Song'/>
               <button className="icon">🤍</button>
             </div>
             <div className="media-right">
