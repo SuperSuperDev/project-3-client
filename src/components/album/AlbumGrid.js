@@ -9,7 +9,7 @@ function AlbumGrid({ albumList }) {
           {albumList ? (
             albumList.map((album) => (
               <>
-                <AlbumCard key={album._id} { ...album } />
+                <AlbumCard key={`grid-${album._id}`} { ...album } />
               </>
             ))
             

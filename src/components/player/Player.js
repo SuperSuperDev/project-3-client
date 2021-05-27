@@ -11,12 +11,12 @@ function Player({ audioQueue }) {
         name: song.name,
         singer: song.singer.name,
         cover: song.cover,
-        musicSrc: song.musicSrc
+        musicSrc: song.musicSrc,
       }
     })
   }
 
-  console.log('transformed que', transformAudioQueue)
+  console.log('transformed queue', transformAudioQueue)
 
   // const audioList1 = [
   //   {
@@ -456,9 +456,7 @@ function Player({ audioQueue }) {
     // },
   }
   return (
-    <>
-      { transformAudioQueue && <ReactJkMusicPlayer {...options} />}
-    </>
+    <ReactJkMusicPlayer {...options} />
   )
 }
 

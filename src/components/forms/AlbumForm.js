@@ -13,7 +13,7 @@ function AlbumForm({ selectedAlbum, setSelectedAlbum }) {
   const { formdata, handleChange } = useForm({
     name: '',
     about: '',
-    cover: ''
+    cover: '',
   })
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function AlbumForm({ selectedAlbum, setSelectedAlbum }) {
         const convertedAlbums = resAlbums.data.map(album => {
           return {
             value: album._id,
-            label: album.name
+            label: album.name,
           }
         })
         setAlbums(convertedAlbums)

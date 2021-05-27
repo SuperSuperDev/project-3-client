@@ -71,6 +71,15 @@ export function getSinglePlaylist(playlistId) {
   return axios.get(`${baseUrl}/playlist/${playlistId}`)
 }
 
+export function createPlaylist(formdata) {
+  return axios.post(`${baseUrl}/playlist/`, formdata, headers())
+}
+
+export function removePlaylist(playlistId) {
+  return axios.delete(`${baseUrl}/playlist/${playlistId}`, headers())
+}
+
+// * Artist
 export function getAllArtists() {
   return axios.get(`${baseUrl}/artists`)
 }

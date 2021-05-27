@@ -13,7 +13,7 @@ function ArtistForm({ selectedArtists, setSelectedArtists }) {
   const { formdata, handleChange } = useForm({
     name: '',
     about: '',
-    cover: ''
+    cover: '',
   })
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function ArtistForm({ selectedArtists, setSelectedArtists }) {
         const convertedArtists = resArtists.data.map(artist => {
           return {
             value: artist._id,
-            label: artist.name
+            label: artist.name,
           }
         })
         setArtists(convertedArtists)

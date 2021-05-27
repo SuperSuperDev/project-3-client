@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { getSingleAlbum } from '../../lib/api'
+import React from 'react'
+import { useHistory, useParams } from 'react-router-dom'
+import { deleteAlbum, getSingleAlbum } from '../../lib/api'
+import { isOwner } from '../../lib/auth'
 import Error from '../common/Error'
 import SongList from '../song/SongList'
 
 
 function ShowAlbum({ audioQueue, setAudioQueue }) {
+  const history = useHistory()
   const { albumId } = useParams()
   const [album, setAlbum] = React.useState(null)
   const [isError, setIsError] = React.useState(false)
@@ -48,32 +50,49 @@ function ShowAlbum({ audioQueue, setAudioQueue }) {
   // console.log(searchTerm)
   // console.log('filtered songs', songList)
   // console.log('sorea songlist: ', { ...songList })
-
+  const handleRemoveAlbum = async () => {
+    try {
+      await deleteAlbum(albumId)
+      history.push('/albums')
+    } catch (err) {
+      if (err.response) {
+        console.log(err.response.data)
+      }
+      console.log(err)
+    }
+  }
   return (
     <>
       <section className="hero is-primary">
-        <div className="hero-body">
-          <p className="title">{album?.name}</p>
-          <p className="subtitle">{album?.artists && (
-            album.artists.map(artist => <span key={artist._id}>{artist.name} </span>)
-          )}</p>
+        <div className="columns">
+          <div className="hero-body">
+            <p className="title">{album?.name}</p>
+            <p className="subtitle">{album?.artists && (
+              album.artists.map(artist => <span key={artist._id}>{artist.name} </span>)
+            )}</p>
 
-          <div className="field is-grouped">
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder="Search by album name"
-                onChange={handleInput}
-                value={searchTerm}
-              />
-            </div>
-            <div className="control">
-              <button className="button" onClick={handleClear}>
-                Clear
+            <div className="field is-grouped">
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Search by song name"
+                  onChange={handleInput}
+                  value={searchTerm}
+                />
+              </div>
+              <div className="control">
+                <button className="button" onClick={handleClear}>
+                  Clear
               </button>
+              </div>
             </div>
           </div>
+          {isOwner(album?.user) &&
+            <aside id="aside" className="column">
+              <button className="button" onClick={handleRemoveAlbum}>Delete Album</button>
+            </aside>
+          }
         </div>
       </section>
       {isError && <Error />}
