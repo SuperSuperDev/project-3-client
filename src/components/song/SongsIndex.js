@@ -4,7 +4,7 @@ import { getAllSongs } from '../../lib/api'
 import SongList from './SongList'
 
 
-function SongsIndex({ ...props}) {
+function SongsIndex() {
   const history = useHistory()
   const [songs, setAllSongs] = React.useState(null)
   const [searchTerm, setSearchTerm] = React.useState('')
@@ -20,10 +20,8 @@ function SongsIndex({ ...props}) {
         history.push('./error')
       }
     }
-
     getData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [setAllSongs, history])
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -64,7 +62,7 @@ function SongsIndex({ ...props}) {
           </div>
         </div>
       </section>
-      <SongList songList={filteredSongs} {...props} />
+      <SongList songList={filteredSongs} />
     </>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, createContext } from 'react'
 
 import Nav from './components/Nav'
 import Home from './components/Home'
@@ -21,11 +21,15 @@ export const AudioQueueContext = createContext(null)
 function App() {
   const [audioQueue, setAudioQueue] = useState(null)
 
-  const updateAudioQueue = (song) => {
+  const updateAudioQueue = (song, playnow) => {
     if (!audioQueue) {
-      setAudioQueue([song])
+      setAudioQueue(song)
     } else {
-      setAudioQueue([...audioQueue, song])
+      if (playnow) {
+        setAudioQueue([...song, ...audioQueue])
+      } else {
+        setAudioQueue([...audioQueue, ...song])
+      }
     }
   }
 
@@ -38,15 +42,9 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
-            <Route path="/songs">
-              <SongsIndex updateAudioQueue={updateAudioQueue} />
-            </Route>
-            <Route exact path="/albums/new">
-              <NewAlbumForm />
-            </Route>
-            <Route path="/albums/:albumId">
-              <ShowAlbum updateAudioQueue={updateAudioQueue} />
-            </Route>
+            <Route path="/songs" component={SongsIndex} />
+            <Route exact path="/albums/new" component={NewAlbumForm} />
+            <Route path="/albums/:albumId" component={ShowAlbum} />
             <Route path="/albums" component={AlbumIndex} />
             <Route exact path="/playlist/new">
               <NewPlaylistForm />
@@ -57,7 +55,7 @@ function App() {
             <Route path="/create-album" component={NewAlbumForm} />
             <Route path="/create-playlist" component={NewPlaylistForm} />
           </Switch>
-          <Player audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
+          <Player audioQueue={audioQueue} />
         </AudioQueueContext.Provider>
       </BrowserRouter>
     </>

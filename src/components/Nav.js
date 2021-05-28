@@ -1,14 +1,11 @@
 import React from 'react'
 import { useLocation, Link, useHistory } from 'react-router-dom'
 import { isAuthenticated, removeToken, removeLikes } from '../lib/auth'
-import { AudioQueueContext } from '../App.js'
 
 function Nav() {
   const location = useLocation()
   const history = useHistory()
   const isLoggedIn = isAuthenticated()
-  const { audioQueue, updateAudioQueue } = React.useContext(AudioQueueContext)
-
   const [menuIsActive, setMenuIsActive] = React.useState(false)
   const toggleMenu = () => {
     setMenuIsActive(!menuIsActive)
