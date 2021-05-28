@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { addCommentToSong, editCommentInSong, getCommentsForSong } from '../../lib/api'
+import { addCommentToSong, deleteCommentInSong, editCommentInSong, getCommentsForSong } from '../../lib/api'
 import useForm from '../../hooks/useForm'
 import { isAuthenticated, isOwner } from '../../lib/auth'
 
@@ -8,6 +8,8 @@ function SongComment({ id, commentsPassed }) {
   const history = useHistory()
   const [comments, setAllComments] = React.useState(null)
   const [submit, setSubmit] = React.useState(false)
+  const [commentEdit, setCommentEdit] = React.useState(false)
+  const [currentCommentId, setCurrentCommentId] = React.useState('')
 
   const { formdata, handleChange } = useForm({
     text: '',
@@ -42,16 +44,36 @@ function SongComment({ id, commentsPassed }) {
       }
     }
   }
-  const handleEditComment = async ({ target }) => {
-    formdata.text = target.value
-    console.log(target.value)
-    // const res = await editCommentInSong()
+  const editComment = (event) => {
+    setCommentEdit(true)
+    const commentId = event.target.value.split('-')[0]
+    const text = event.target.value.split('-')[1]
+    formdata.text = text
+    setSubmit(!submit)
+    setCurrentCommentId(commentId)
   }
 
-  const handleDeleteComment = target => {
-
+  const handleEditComment = async (event) => {
+    event.preventDefault()
+    try {
+      const res = await editCommentInSong(formdata, id, currentCommentId)
+      console.log(res.data)
+      formdata.text = ''
+      setSubmit(!submit)
+    } catch (err) {
+      console.log(err?.response.data)
+    }
   }
-  console.log(formdata)
+
+  const handleDeleteComment = async (event) => {
+    const commentId = event.target.value
+    try {
+      await deleteCommentInSong(id, commentId)
+      setSubmit(!submit)
+    } catch (err) {
+      console.log(err?.response.data)
+    }
+  }
   return (
     <>
       <div id="comments-scroll">
@@ -61,8 +83,8 @@ function SongComment({ id, commentsPassed }) {
             <p>{comment.text}</p>
             {isOwner(comment.username._id) &&
               <span>
-                <input type="button" value={comment.text} onClick={handleEditComment}>Edit</input>
-                <input type="button" onClick={handleDeleteComment}>Delete</input>
+                <button type="button" value={`${comment._id}-${comment.text}`} onClick={editComment}>Edit</button>
+                <button type="button" value={comment._id} onClick={handleDeleteComment}>Delete</button>
               </span>
             }
           </div>
@@ -88,7 +110,10 @@ function SongComment({ id, commentsPassed }) {
                   </div>
                 </div>
                 <div className="field">
-                  <button type="submit" className="button is-link">Add Comment</button>
+                  {!commentEdit ?
+                    <button type="submit" className="button is-link">Add Comment</button>
+                    : <button type="button" onClick={handleEditComment} className="button is-warning">Edit Comment</button>
+                  }
                 </div>
               </form>
             </div>
