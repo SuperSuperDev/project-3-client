@@ -35,13 +35,6 @@ function SongListItem({ _id, name, comments, cover, singer, album }) {
           <div className="field is-grouped has-addons">
             <div className="media-right">
               <ControlBar id={_id} type='Song'/>
-              <button className="icon">🤍</button>
-            </div>
-            <div className="media-right">
-              <button className="icon">➕</button>
-            </div>
-            <div className="media-right">
-              <button className="icon">▶️</button>
             </div>
           </div>
         </div>

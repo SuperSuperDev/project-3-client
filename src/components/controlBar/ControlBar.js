@@ -3,7 +3,7 @@ function ControlBar({ id, type }) {
   return (
     <>
       <div className="media-right">
-        <button className="icon">🤍 - {id} - {type}</button>
+        <button className="icon"><i className="far fa-heart"></i>🤍 - {id} - {type}</button>
       </div>
       <div className="media-right">
         <button className="icon">➕</button>
