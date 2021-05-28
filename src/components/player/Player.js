@@ -218,22 +218,22 @@ function Player({ audioQueue }) {
     showPlay: true,
 
     // reload button display of the audio player panel   [type `Boolean` default `true`]
-    showReload: true,
+    showReload: false,
 
     // download button display of the audio player panel   [type `Boolean` default `true`]
-    showDownload: true,
+    showDownload: false,
 
     // loop button display of the audio player panel   [type `Boolean` default `true`]
     showPlayMode: true,
 
     // theme toggle switch  display of the audio player panel   [type `Boolean` default `true`]
-    showThemeSwitch: true,
+    showThemeSwitch: false,
 
     // lyric display of the audio player panel   [type `Boolean` default `false`]
-    showLyric: true,
+    showLyric: false,
 
     // destroy player button display  [type `Boolean` default `false`]
-    showDestroy: true,
+    showDestroy: false,
 
     // Extensible custom content       [type 'Array' default '-' ]
     extendsContent: null,
