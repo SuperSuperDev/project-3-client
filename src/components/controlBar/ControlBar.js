@@ -23,9 +23,9 @@ function ControlBar({ id, type, likesCount }) {
     try {
       const res = await addLike(type, id, e.target.value)
       console.log(res.data)
-      setIsLiked(!isLiked)
-      setLikes(res.data.likes)
       
+      setLikes(res.data.likes)
+      setIsLiked(!isLiked)
       console.log('Data Likes', res.data.likes)
     } catch (err) {
       console.log(err)

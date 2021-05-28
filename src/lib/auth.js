@@ -15,7 +15,8 @@ export function setLikes(likes){
 }
 
 export function getLikes(){
-  console.log(JSON.parse(window.localStorage.getItem('likes')))
+  // console.log(JSON.parse(window.localStorage.getItem('likes')))
+  return JSON.parse(window.localStorage.getItem('likes'))
 }
 
 function getPayload() {

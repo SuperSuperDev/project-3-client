@@ -19,7 +19,7 @@ function Login() {
       const res = await loginUser(formdata)
       
       setToken(res.data.token)
-      setLikes([res.data.likes])
+      setLikes(res.data.likes)
       history.push('/')
     } catch (err) {
       setIsError(true)
