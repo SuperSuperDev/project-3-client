@@ -1,12 +1,9 @@
 import React from 'react'
-import { getLikes, setLikes, isAuthenticated } from '../../lib/auth'
-import { useHistory } from 'react-router-dom'
+import { getLikes, isAuthenticated } from '../../lib/auth'
 import { addLike } from '../../lib/api'
 
-function LikeBtn({ id, type, likesCount }) {
-  const [likes, setLikes] = React.useState([])
+function LikeBtn({ id, type }) {
   const [isLiked, setIsLiked] = React.useState(false)
-  const history = useHistory()
   const loggedIn = isAuthenticated()
 
   // check if user likes this Item
@@ -17,6 +14,7 @@ function LikeBtn({ id, type, likesCount }) {
     } else {
       setIsLiked(false)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleClick = async (e) => {
