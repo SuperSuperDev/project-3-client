@@ -7,15 +7,15 @@ export function getToken() {
 }
 
 export function removeToken() {
-  window.localStorage.removeItem('token')
+  localStorage.removeItem('token')
 }
 
 export function setLikes(likes){
-  window.localStorage.setItem('likes', likes )
+  localStorage.setItem('likes', JSON.stringify(likes) )
 }
 
 export function getLikes(){
-  return window.localStorage.getItem('likes')
+  console.log(JSON.parse(window.localStorage.getItem('likes')))
 }
 
 function getPayload() {
