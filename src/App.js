@@ -15,6 +15,7 @@ import Player from './components/player/Player'
 import SongForm from './components/forms/SongForm'
 import NewAlbumForm from './components/forms/NewAlbumForm'
 import NewPlaylistForm from './components/forms/NewPlaylistForm'
+import UserDashboard from './components/dashboard/UserDashboard'
 
 export const AudioQueueContext = createContext(null)
 
@@ -54,6 +55,7 @@ function App() {
             <Route path="/upload-song" component={SongForm} />
             <Route path="/create-album" component={NewAlbumForm} />
             <Route path="/create-playlist" component={NewPlaylistForm} />
+            <Route path="/dashboard" component={UserDashboard} />
           </Switch>
           <Player audioQueue={audioQueue} />
         </AudioQueueContext.Provider>
