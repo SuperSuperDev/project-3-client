@@ -2,7 +2,7 @@ import React from 'react'
 import SongComment from '../comment/SongComment'
 import ControlBar from '../controlBar/ControlBar'
 
-function SongListItem({ _id, name, comments, cover, singer, album, likesCount }) {
+function SongListItem({ _id, name, comments, cover, singer, album, likesCount, setAudioQueue, audioQueue, musicSrc }) {
   const [commentHidden, setCommentHidden] = React.useState(false)
   const handleCommentExpand = () => {
     setCommentHidden(!commentHidden)
@@ -28,13 +28,23 @@ function SongListItem({ _id, name, comments, cover, singer, album, likesCount })
             <div>
               <button className="button is-info" onClick={handleCommentExpand}>Show Comments</button>
               {commentHidden &&
-              <SongComment commentsPassed={comments} id={_id} />
+                <SongComment commentsPassed={comments} id={_id} />
               }
             </div>
           </div>
           <div className="field is-grouped has-addons">
             <div className="media-right">
-              <ControlBar id={_id} type='Song' likesCount={likesCount} />
+              <ControlBar
+                id={_id}
+                type='Song'
+                likesCount={likesCount}
+                setAudioQueue={setAudioQueue}
+                audioQueue={audioQueue}
+                cover={cover}
+                name={name}
+                singer={singer}
+                musicSrc={musicSrc}
+              />
             </div>
           </div>
         </div>

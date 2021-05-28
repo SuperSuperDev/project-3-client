@@ -28,7 +28,9 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/songs" component={SongsIndex} />
+          <Route path="/songs">
+            <SongsIndex audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
+          </Route>
           <Route exact path="/albums/new">
             <NewAlbumForm />
           </Route>

@@ -4,7 +4,7 @@ import { getAllSongs } from '../../lib/api'
 import SongList from './SongList'
 
 
-function SongsIndex() {
+function SongsIndex({ audioQueue, setAudioQueue }) {
   const history = useHistory()
   const [songs, setAllSongs] = React.useState(null)
   const [searchTerm, setSearchTerm] = React.useState('')
@@ -22,7 +22,7 @@ function SongsIndex() {
     }
 
     getData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
@@ -64,7 +64,7 @@ function SongsIndex() {
           </div>
         </div>
       </section>
-      <SongList songList={filteredSongs} />
+      <SongList songList={filteredSongs} audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
     </>
   )
 }
