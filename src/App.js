@@ -15,6 +15,8 @@ import Player from './components/player/Player'
 import SongForm from './components/forms/SongForm'
 import NewAlbumForm from './components/forms/NewAlbumForm'
 import NewPlaylistForm from './components/forms/NewPlaylistForm'
+import AlbumForm from './components/forms/AlbumForm'
+import ArtistForm from './components/forms/ArtistForm'
 
 
 
@@ -42,6 +44,8 @@ function App() {
           <Route path="/playlists/:playlistId" component={ShowPlaylist} />
           <Route path="/playlists" component={PlaylistIndex} />
           <Route path="/upload-song" component={SongForm} />
+          <Route path="/create-album" component={NewAlbumForm} />
+          <Route path="/create-playlist" component={NewPlaylistForm} />
         </Switch>
         <Player audioQueue={audioQueue} />
       </BrowserRouter>

@@ -50,6 +50,22 @@ function Nav() {
               {' '}
               Playlists
             </Link>
+            {isAuthenticated() &&
+              <>
+                <Link to="/upload-song" className="navbar-item">
+                  {' '}
+              Upload Song
+                </Link>
+                <Link to="/create-album" className="navbar-item">
+                  {' '}
+              Create Album
+                </Link>
+                <Link to="/create-playlist" className="navbar-item">
+                  {' '}
+              Create Playlist
+                </Link>
+              </>
+            }
           </div>{' '}
           <div className="navbar-end">
             <div className="navbar-item">
