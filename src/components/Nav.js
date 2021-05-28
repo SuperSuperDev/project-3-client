@@ -23,7 +23,7 @@ function Nav() {
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             {' '}
-            🎶 {' '}Home
+            🎶 {' '}Dashboard
           </Link>
           <span
             className={`navbar-burger ${menuIsActive ? 'is-active' : ''} `}
@@ -62,7 +62,7 @@ function Nav() {
                 </Link>
                 <Link to="/create-playlist" className="navbar-item">
                   {' '}
-              Create Playlist
+              Create Album
                 </Link>
               </>
             }

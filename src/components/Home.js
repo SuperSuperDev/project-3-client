@@ -7,7 +7,7 @@ function Home() {
           <Link to="/"className="container">
             <div className="title has-text-centered is-1">🎶</div>
             <h1 className="title is-1 has-text-centered">
-              Music App 
+              Cloudify
             </h1>
           </Link>
         </div>
