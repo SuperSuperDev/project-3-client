@@ -87,7 +87,7 @@ function ArtistForm({ selectedArtists, setSelectedArtists }) {
               <p>Artist does not exist, fill form below:</p>
             </div>
             <div className="field">
-              <div className="control">
+              <div className="control">gco 
                 <label className="label">Name</label>
                 <input
                   className="input"
