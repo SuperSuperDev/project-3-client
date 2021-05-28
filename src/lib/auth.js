@@ -10,6 +10,14 @@ export function removeToken() {
   window.localStorage.removeItem('token')
 }
 
+export function setLikes(likes){
+  window.localStorage.setItem('likes', likes )
+}
+
+export function getLikes(){
+  return window.localStorage.getItem('likes')
+}
+
 function getPayload() {
   const token = getToken()
   if (!token) return false
@@ -30,3 +38,4 @@ export function isOwner(userId) {
   if (!payload) return false
   return userId === payload.userId
 }
+
