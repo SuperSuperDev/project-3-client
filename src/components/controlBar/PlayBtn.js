@@ -1,4 +1,4 @@
-function PlayBtn({ setAudioQueue, audioQueue, type, name, singer, cover, musicSrc }) {
+function PlayBtn(props) {
 
 
   const handleClick = () => {
@@ -8,16 +8,15 @@ function PlayBtn({ setAudioQueue, audioQueue, type, name, singer, cover, musicSr
     // console.log('here in play name', name)
     // console.log('here in play type', type)
     const song = {
-      name: name,
-      singer: singer,
-      cover: cover,
-      musicSrc: musicSrc,
+      name: props.name,
+      singer: props.singer.name,
+      cover: props.cover,
+      musicSrc: props.musicSrc,
     }
-    if (!audioQueue) {
-      setAudioQueue([song])
-    }
-  }
 
+    props.updateAudioQueue(song)
+
+  }
   return (
     <button className="button" onClick={handleClick}>▶️</button>
   )

@@ -1,5 +1,5 @@
 import SongListItem from './SongListItem'
-function SongList({ songList, setAudioQueue, audioQueue }) {
+function SongList({ songList, ...props  }) {
   console.log('songList: ', songList)
   return (
 
@@ -9,7 +9,7 @@ function SongList({ songList, setAudioQueue, audioQueue }) {
           {songList ? (
             songList.map((song) => (
               <>
-                <SongListItem key={song._id} {...song} setAudioQueue={setAudioQueue} audioQueue={audioQueue} />
+                <SongListItem key={song._id} {...song} {...props}  />
               </>
             ))
 

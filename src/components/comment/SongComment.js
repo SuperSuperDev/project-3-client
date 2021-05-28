@@ -1,10 +1,10 @@
 import React from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { addCommentToSong, deleteCommentInSong, editCommentInSong, getCommentsForSong } from '../../lib/api'
 import useForm from '../../hooks/useForm'
 import { isAuthenticated, isOwner } from '../../lib/auth'
 
-function SongComment({ id, commentsPassed }) {
+function SongComment({ id }) {
   const history = useHistory()
   const [comments, setAllComments] = React.useState(null)
   const [submit, setSubmit] = React.useState(false)
@@ -29,7 +29,7 @@ function SongComment({ id, commentsPassed }) {
       }
     }
     getData()
-  }, [submit])
+  }, [submit, history, id])
   const handleAddComment = async event => {
     event.preventDefault()
     try {

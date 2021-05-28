@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, createContext } from 'react'
 
 import Nav from './components/Nav'
 import Home from './components/Home'
@@ -15,41 +15,50 @@ import Player from './components/player/Player'
 import SongForm from './components/forms/SongForm'
 import NewAlbumForm from './components/forms/NewAlbumForm'
 import NewPlaylistForm from './components/forms/NewPlaylistForm'
-import AlbumForm from './components/forms/AlbumForm'
-import ArtistForm from './components/forms/ArtistForm'
 
-
+export const AudioQueueContext = createContext(null)
 
 function App() {
   const [audioQueue, setAudioQueue] = useState(null)
+
+  const updateAudioQueue = (song) => {
+    if (!audioQueue) {
+      setAudioQueue([song])
+    } else {
+      setAudioQueue([...audioQueue, song])
+    }
+  }
+
   return (
     <>
       <BrowserRouter>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/register" component={Register} />
-          <Route path="/login" component={Login} />
-          <Route path="/songs">
-            <SongsIndex audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
-          </Route>
-          <Route exact path="/albums/new">
-            <NewAlbumForm />
-          </Route>
-          <Route path="/albums/:albumId">
-            <ShowAlbum audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
-          </Route>
-          <Route path="/albums" component={AlbumIndex} />
-          <Route exact path="/playlist/new">
-            <NewPlaylistForm />
-          </Route>
-          <Route path="/playlists/:playlistId" component={ShowPlaylist} />
-          <Route path="/playlists" component={PlaylistIndex} />
-          <Route path="/upload-song" component={SongForm} />
-          <Route path="/create-album" component={NewAlbumForm} />
-          <Route path="/create-playlist" component={NewPlaylistForm} />
-        </Switch>
-        <Player audioQueue={audioQueue} />
+        <AudioQueueContext.Provider value={{ audioQueue, updateAudioQueue }}>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/register" component={Register} />
+            <Route path="/login" component={Login} />
+            <Route path="/songs">
+              <SongsIndex updateAudioQueue={updateAudioQueue} />
+            </Route>
+            <Route exact path="/albums/new">
+              <NewAlbumForm />
+            </Route>
+            <Route path="/albums/:albumId">
+              <ShowAlbum updateAudioQueue={updateAudioQueue} />
+            </Route>
+            <Route path="/albums" component={AlbumIndex} />
+            <Route exact path="/playlist/new">
+              <NewPlaylistForm />
+            </Route>
+            <Route path="/playlists/:playlistId" component={ShowPlaylist} />
+            <Route path="/playlists" component={PlaylistIndex} />
+            <Route path="/upload-song" component={SongForm} />
+            <Route path="/create-album" component={NewAlbumForm} />
+            <Route path="/create-playlist" component={NewPlaylistForm} />
+          </Switch>
+          <Player audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
+        </AudioQueueContext.Provider>
       </BrowserRouter>
     </>
   )

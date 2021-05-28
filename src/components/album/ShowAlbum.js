@@ -6,7 +6,7 @@ import Error from '../common/Error'
 import SongList from '../song/SongList'
 
 
-function ShowAlbum({ audioQueue, setAudioQueue }) {
+function ShowAlbum() {
   const history = useHistory()
   const { albumId } = useParams()
   const [album, setAlbum] = React.useState(null)
@@ -20,7 +20,6 @@ function ShowAlbum({ audioQueue, setAudioQueue }) {
         const response = await getSingleAlbum(albumId)
         console.log(response.data)
         setAlbum(response.data)
-        setAudioQueue([...response.data.songs])
       } catch (err) {
         console.log(err)
         setIsError(true)
@@ -84,7 +83,7 @@ function ShowAlbum({ audioQueue, setAudioQueue }) {
               <div className="control">
                 <button className="button" onClick={handleClear}>
                   Clear
-              </button>
+                </button>
               </div>
             </div>
           </div>
