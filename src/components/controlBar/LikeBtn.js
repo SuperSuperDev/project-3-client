@@ -1,5 +1,5 @@
 import React from 'react'
-import { getLikes, setLikes } from '../../lib/auth'
+import { getLikes, setLikes, isAuthenticated } from '../../lib/auth'
 import { useHistory } from 'react-router-dom'
 import { addLike } from '../../lib/api'
 
@@ -7,10 +7,12 @@ function LikeBtn({ id, type, likesCount }) {
   const [likes, setLikes] = React.useState([])
   const [isLiked, setIsLiked] = React.useState(false)
   const history = useHistory()
+  const loggedIn = isAuthenticated()
 
   // check if user likes this Item
+  
   React.useEffect(() => {
-    if (getLikes().includes(id)) {
+    if (loggedIn === true && getLikes().includes(id)) {
       setIsLiked(true)
     } else {
       setIsLiked(false)
@@ -31,13 +33,19 @@ function LikeBtn({ id, type, likesCount }) {
   }
   return (
     <>
-      {
-        isLiked ? (
-          <button className="button is-danger" value="minus" onClick={handleClick} >🤍</button>
-        ) : (
-          <button className="button" value="plus" onClick={handleClick}>🤍</button>
-        )
-      }
+      {isLiked ? (
+        <button
+          className="button is-danger"
+          value="minus"
+          onClick={handleClick}
+        >
+          🤍
+        </button>
+      ) : (
+        <button className="button" value="plus" onClick={handleClick}>
+          🤍
+        </button>
+      )}
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation, Link, useHistory } from 'react-router-dom'
-import { isAuthenticated, removeToken } from '../lib/auth'
+import { isAuthenticated, removeLikes, removeToken } from '../lib/auth'
 
 function Nav() {
   const location = useLocation()
@@ -12,6 +12,7 @@ function Nav() {
   }
   const handleLogout = () => {
     removeToken()
+    removeLikes()
     history.push('/')
   }
   React.useEffect(() => {

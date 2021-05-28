@@ -19,6 +19,10 @@ export function getLikes(){
   return window.localStorage.getItem('likes')
 }
 
+export function removeLikes() {
+  return window.localStorage.removeItem('likes')
+}
+
 
 function getPayload() {
   const token = getToken()
