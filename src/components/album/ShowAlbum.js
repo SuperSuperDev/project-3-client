@@ -20,7 +20,6 @@ function ShowAlbum({ audioQueue, setAudioQueue }) {
         const response = await getSingleAlbum(albumId)
         console.log(response.data)
         setAlbum(response.data)
-        setAudioQueue([...response.data.songs])
       } catch (err) {
         console.log(err)
         setIsError(true)

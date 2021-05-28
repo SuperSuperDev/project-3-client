@@ -8,6 +8,7 @@ function LikeBtn({ id, type, likesCount }) {
   const [isLiked, setIsLiked] = React.useState(false)
   const history = useHistory()
 
+  console.log('id is ', id)
   // check if user likes this Item
   React.useEffect(() => {
     if (getLikes().includes(id)) {

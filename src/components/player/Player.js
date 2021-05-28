@@ -1,23 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactJkMusicPlayer from 'react-jinke-music-player'
 import 'react-jinke-music-player/assets/index.css'
 
 function Player({ audioQueue }) {
-  let transformAudioQueue = null
-
-  if (audioQueue) {
-    transformAudioQueue = audioQueue.map(song => {
-      return {
-        name: song.name,
-        singer: song.singer.name,
-        cover: song.cover,
-        musicSrc: song.musicSrc,
-      }
-    })
-  }
-
-  console.log('transformed queue', transformAudioQueue)
-
   // const audioList1 = [
   //   {
   //     name: 'Despacito',
@@ -114,7 +99,7 @@ function Player({ audioQueue }) {
 
   const options = {
     // audio lists model
-    audioLists: transformAudioQueue,
+    audioLists: audioQueue,
 
     // default play index of the audio player  [type `number` default `0`]
     defaultPlayIndex: 0,
@@ -155,7 +140,7 @@ function Player({ audioQueue }) {
 
     // Play your new play list right after your new play list is loaded turn false.
     // [type `boolean`, default `false`]
-    autoPlayInitLoadPlayList: false,
+    autoPlayInitLoadPlayList: true,
 
     // Whether to load audio immediately after the page loads.  [type `Boolean | String`, default `false`]
     // "auto|metadata|none" "true| false"
@@ -165,7 +150,7 @@ function Player({ audioQueue }) {
     glassBg: false,
 
     // The next time you access the player, do you keep the last state  [type `Boolean` default `false`]
-    remember: true,
+    remember: false,
 
     // The Audio Can be deleted  [type `Boolean`, default `true`]
     remove: true,
@@ -268,8 +253,8 @@ function Player({ audioQueue }) {
 
     // Audio volume with fade in and fade out [type `{ fadeIn: number, fadeOut: number }` default `{ fadeIn: 0, fadeOut: 0 }`]
     volumeFade: {
-      fadeIn: 1000,
-      fadeOut: 1000,
+      fadeIn: 0,
+      fadeOut: 0,
     },
     /**
      * Restarts the current track when trying to play previous song, if the current time of the song is more than 1 second
@@ -415,9 +400,9 @@ function Player({ audioQueue }) {
     //   return <a href="#">{audioInfo.name}</a>
     // },
 
-    // onPlayIndexChange (playIndex) {
-    //   console.log('onPlayIndexChange: ', playIndex);
-    // }
+    onPlayIndexChange(playIndex) {
+      console.log('onPlayIndexChange: ', playIndex);
+    }
 
     // transform audio info like return a Promise
 

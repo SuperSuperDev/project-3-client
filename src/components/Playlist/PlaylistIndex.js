@@ -60,7 +60,7 @@ function PlaylistIndex() {
               <div className="control">
                 <button className="button" onClick={handleClear}>
                   Clear
-              </button>
+                </button>
               </div>
             </div>
           </div>
