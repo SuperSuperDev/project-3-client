@@ -2,7 +2,7 @@ import React from 'react'
 import SongComment from '../comment/SongComment'
 import ControlBar from '../controlBar/ControlBar'
 
-function SongListItem({ _id, name, comments, cover, singer, album }) {
+function SongListItem({ _id, name, comments, cover, singer, album, likesCount }) {
   const [commentHidden, setCommentHidden] = React.useState(false)
   const handleCommentExpand = () => {
     setCommentHidden(!commentHidden)
@@ -34,7 +34,7 @@ function SongListItem({ _id, name, comments, cover, singer, album }) {
           </div>
           <div className="field is-grouped has-addons">
             <div className="media-right">
-              <ControlBar id={_id} type='Song'/>
+              <ControlBar id={_id} type='Song' likesCount={likesCount} />
             </div>
           </div>
         </div>

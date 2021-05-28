@@ -123,3 +123,6 @@ export function registerUser(formdata) {
 export function loginUser(formdata) {
   return axios.post(`${baseUrl}/login`, formdata)
 }
+export function addLike(type, id, plusOrMinus) {
+  return axios.post(`${baseUrl}/like/${type}/${id}/${plusOrMinus}`, null, headers())
+}

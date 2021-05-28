@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 import { loginUser } from '../../lib/api'
-import { setToken } from '../../lib/auth'
+import { setToken, setLikes } from '../../lib/auth'
 import  useForm  from '../../hooks/useForm'
 
 function Login() {
@@ -17,7 +17,9 @@ function Login() {
 
     try {
       const res = await loginUser(formdata)
+      
       setToken(res.data.token)
+      setLikes(res.data.likes)
       history.push('/')
     } catch (err) {
       setIsError(true)
