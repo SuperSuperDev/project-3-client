@@ -16,6 +16,7 @@ import SongForm from './components/forms/SongForm'
 import NewAlbumForm from './components/forms/NewAlbumForm'
 import NewPlaylistForm from './components/forms/NewPlaylistForm'
 import SecureRoute from './components/common/SecureRoute'
+import UserDashboard from './components/dashboard/UserDashboard'
 
 export const AudioQueueContext = createContext(null)
 
@@ -61,6 +62,7 @@ function App() {
             <SecureRoute path="/upload-song" component={SongForm} />
             <SecureRoute path="/albums/new" component={NewAlbumForm} />
             <SecureRoute path="/playlist/new" component={NewPlaylistForm} />
+            <SecureRoute path="/dashboard" component={UserDashboard} />
           </Switch>
           <Player audioQueue={audioQueue} />
         </AudioQueueContext.Provider>

@@ -10,6 +10,7 @@ function UserDashboard() {
   if (!isAuthenticated()){
     history.push('/login')
   } 
+  console.log('USERDASHBOARD')
   
   return (
     <>
