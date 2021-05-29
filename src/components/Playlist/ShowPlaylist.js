@@ -86,7 +86,7 @@ function ShowPlaylist() {
               </div>
             </div>
           </div>
-          {(playlist?.public || isOwner(playlist?.users[0]._id)) &&
+          {(isOwner(playlist?.users[0]._id)) &&
             <aside id="aside" className="column">
               <button className="button" onClick={handleRemovePlaylist}>Delete Playlist</button>
             </aside>

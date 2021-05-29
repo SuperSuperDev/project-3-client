@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, createContext } from 'react'
 
 import Nav from './components/Nav'
 import Home from './components/Home'
@@ -22,11 +22,15 @@ export const AudioQueueContext = createContext(null)
 function App() {
   const [audioQueue, setAudioQueue] = useState(null)
 
-  const updateAudioQueue = (song) => {
+  const updateAudioQueue = (song, playnow) => {
     if (!audioQueue) {
-      setAudioQueue([song])
+      setAudioQueue(song)
     } else {
-      setAudioQueue([...audioQueue, song])
+      if (playnow) {
+        setAudioQueue([...song, ...audioQueue])
+      } else {
+        setAudioQueue([...audioQueue, ...song])
+      }
     }
   }
 
@@ -58,7 +62,7 @@ function App() {
             <SecureRoute path="/albums/new" component={NewAlbumForm} />
             <SecureRoute path="/playlist/new" component={NewPlaylistForm} />
           </Switch>
-          <Player audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
+          <Player audioQueue={audioQueue} />
         </AudioQueueContext.Provider>
       </BrowserRouter>
     </>

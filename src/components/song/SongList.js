@@ -1,5 +1,5 @@
 import SongListItem from './SongListItem'
-function SongList({ songList, ...props  }) {
+function SongList({ songList }) {
   console.log('songList: ', songList)
   return (
 
@@ -9,7 +9,7 @@ function SongList({ songList, ...props  }) {
           {songList ? (
             songList.map((song) => (
               <>
-                <SongListItem key={song._id} {...song} {...props}  />
+                <SongListItem key={song._id} {...song} />
               </>
             ))
 
