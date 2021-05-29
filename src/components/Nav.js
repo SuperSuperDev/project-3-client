@@ -61,13 +61,13 @@ function Nav() {
                   {' '}
                   Upload Song
                 </Link>
-                <Link to="/create-album" className="navbar-item">
+                <Link to="/albums/new" className="navbar-item">
                   {' '}
                   Create Album
                 </Link>
-                <Link to="/create-playlist" className="navbar-item">
+                <Link to="/playlist/new" className="navbar-item">
                   {' '}
-                  Create Album
+              Create Playlist
                 </Link>
               </>
             )}

@@ -6,10 +6,6 @@ import React from 'react'
 
 function NewPlaylistForm(stopPushHistory) {
   const history = useHistory()
-  console.log(stopPushHistory ? 'pushHistory is true' : 'push History is false')
-  const [isHistoryPush, setIsHistoryPush] = React.useState(true)
-  console.log('isHistoryPush: ', isHistoryPush)
-  console.log('puishHistory: ', { stopPushHistory })
   const [showSuccessMessage, setShowSuccessMessage] = React.useState(false)
   const { formdata, handleChange } = useForm({
     name: '',
