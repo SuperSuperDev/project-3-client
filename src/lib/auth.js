@@ -24,7 +24,7 @@ export function removeLikes() {
 }
 
 
-function getPayload() {
+export function getPayload() {
   const token = getToken()
   if (!token) return false
   const parts = token.split('.')

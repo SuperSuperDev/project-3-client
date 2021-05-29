@@ -24,7 +24,7 @@ function Nav() {
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             {' '}
-            🎶 {' '}Dashboard
+            🎶 Cloudify
           </Link>
           <span
             className={`navbar-burger ${menuIsActive ? 'is-active' : ''} `}
@@ -51,22 +51,26 @@ function Nav() {
               {' '}
               Playlists
             </Link>
-            {isAuthenticated() &&
+            {isAuthenticated() && (
               <>
+                <Link to="/dashboard" className="navbar-item">
+                  {' '}
+                  My Cloudify Dashboard
+                </Link>
                 <Link to="/upload-song" className="navbar-item">
                   {' '}
-              Upload Song
+                  Upload Song
                 </Link>
                 <Link to="/create-album" className="navbar-item">
                   {' '}
-              Create Album
+                  Create Album
                 </Link>
                 <Link to="/create-playlist" className="navbar-item">
                   {' '}
-              Create Album
+                  Create Album
                 </Link>
               </>
-            }
+            )}
           </div>{' '}
           <div className="navbar-end">
             <div className="navbar-item">

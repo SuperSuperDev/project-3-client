@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function PlaylistCard({ _id, name, image, playlists }) {
+function PlaylistCard({ _id, name, cover, playlists }) {
   return (
     <div
       className="column is-one-quarter-desktop is-one-third-tablet"
@@ -20,7 +20,7 @@ function PlaylistCard({ _id, name, image, playlists }) {
             </p> */}
           </div>
           <div className="card-content is-flex is-horizontal-center">
-            <img src={image} />
+            <img src={cover} />
             {
               (playlists && 
               playlists.songs.map((song) => (

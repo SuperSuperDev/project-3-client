@@ -16,7 +16,7 @@ function SongListItem(props) {
       <div className="box">
         <div className="media" key={props._id}>
           <figure className="media-left">
-            <p className="image is-64x64">
+            <p className="image is-256x256-is-mobile">
               <img src={props.cover} />
             </p>
           </figure>

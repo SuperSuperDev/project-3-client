@@ -1,12 +1,11 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+
 import { getAllPlaylists } from '../../lib/api'
-import { isAuthenticated } from '../../lib/auth'
+import { isAuthenticated, isOwner } from '../../lib/auth'
 import Error from '../common/Error'
 import PlaylistGrid from '../Playlist/PlaylistGrid'
 
-function PlaylistIndex() {
-  const history = useHistory()
+function UserPlaylist() {
   const [playlists, setAllPlaylists] = React.useState(null)
   const [searchTerm, setSearchTerm] = React.useState('')
 
@@ -14,10 +13,13 @@ function PlaylistIndex() {
     const getData = async () => {
       try {
         const response = await getAllPlaylists()
-        console.log(response.data)
+        console.log('Response Data UserPLaylist: ', response.data)
         setAllPlaylists(response.data)
       } catch (err) {
-        console.log(err)
+        <>
+          console.log(err)
+          <Error />
+        </>
       }
     }
 
@@ -33,7 +35,10 @@ function PlaylistIndex() {
   }
 
   const filteredPlaylists = playlists?.filter((playlist) => {
-    return playlist.name.toLowerCase().includes(searchTerm)
+    return (
+      playlist.name.toLowerCase().includes(searchTerm) &&
+      isOwner(playlist.users[0]._id)
+    )
   })
 
   const handleCreatePlaylist = () => {
@@ -42,11 +47,13 @@ function PlaylistIndex() {
 
   return (
     <>
-      <section className="hero is-primary">
+      <section className="hero is-primary is-small">
         <div className="columns">
           <div className="hero-body">
-            <p className="title">User Playlists</p>
-            <p className="subtitle">Search through a huge collection of user playlists</p>
+            <p className="title">My Playlists</p>
+            <p className="subtitle">
+              Search through a huge collection of user playlists
+            </p>
             <div className="field is-grouped">
               <div className="control">
                 <input
@@ -60,24 +67,30 @@ function PlaylistIndex() {
               <div className="control">
                 <button className="button" onClick={handleClear}>
                   Clear
-              </button>
+                </button>
               </div>
             </div>
           </div>
-          {isAuthenticated() &&
+          {isAuthenticated() && (
             <aside id="aside" className="column is-one-quarter">
-              <button className="button" onClick={handleCreatePlaylist}>Create New Playlist</button>
+              <button className="button" onClick={handleCreatePlaylist}>
+                Create New Playlist
+              </button>
             </aside>
-          }
+          )}
         </div>
       </section>
       {playlists ? (
         <PlaylistGrid playlistList={filteredPlaylists} />
       ) : (
-        <Error />
+        <>
+          
+          <p>You have not added any playlists yet</p>
+          <Error />
+        </>
       )}
     </>
   )
 }
 
-export default PlaylistIndex
+export default UserPlaylist
