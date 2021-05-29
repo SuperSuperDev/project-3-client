@@ -5,6 +5,7 @@ import PlayBtn from '../controlBar/PlayBtn'
 import PlaylistBtn from '../controlBar/PlaylistBtn'
 import LikeBtn from '../controlBar/LikeBtn'
 import { isOwner } from '../../lib/auth'
+import { editSong } from '../../lib/api'
 
 function SongListItem(props) {
   const [commentHidden, setCommentHidden] = React.useState(false)
@@ -12,12 +13,17 @@ function SongListItem(props) {
     setCommentHidden(!commentHidden)
   }
   const [shadowDeleted, setShadowDeleted] = React.useState(false)
-
+  console.log(props)
   const handleShadowDelete = async () => {
     setShadowDeleted(!shadowDeleted)
+    try {
+      const res = await editSong(props._id, { ...props, isDeleted: true })
+      console.log(res)
+    } catch (e) {
+      console.log(e?.resposne.data)
+    }
+
   }
-
-
   return (
     <>
       {!shadowDeleted &&
