@@ -14,7 +14,7 @@ function NewPlaylistForm(stopPushHistory) {
     cover: '',
     public: false,
   })
-  const[usersPlaylists, setUsersPlaylists] = React.useState([])
+  
   const handleUpload = (url) => {
     handleChange({ target: { name: 'cover', value: url } })
   }

@@ -16,15 +16,12 @@ function UserPlaylist() {
         console.log('Response Data UserPLaylist: ', response.data)
         setAllPlaylists(response.data)
       } catch (err) {
-        <>
-          console.log(err)
-          <Error />
-        </>
+        console.log(err)
+        
       }
     }
 
     getData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
@@ -37,7 +34,7 @@ function UserPlaylist() {
   const filteredPlaylists = playlists?.filter((playlist) => {
     return (
       playlist.name.toLowerCase().includes(searchTerm) &&
-      isOwner(playlist.users[0]._id)
+      isOwner(playlist.user._id)
     )
   })
 
@@ -84,7 +81,6 @@ function UserPlaylist() {
         <PlaylistGrid playlistList={filteredPlaylists} />
       ) : (
         <>
-          
           <p>You have not added any playlists yet</p>
           <Error />
         </>
