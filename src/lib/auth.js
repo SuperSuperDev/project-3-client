@@ -9,12 +9,26 @@ export function getToken() {
 export function removeToken() {
   localStorage.removeItem('token')
 }
+// * Current User Playlists
+export function setPlaylists(playlists){
+  localStorage.setItem('playlists', JSON.stringify(playlists))
+}
 
+export function getPlaylists() {
+  return localStorage.getItem('playlists')
+}
+
+export function removePlaylists() {
+  return localStorage.removeItem('playlists')
+}
+
+
+// * Current User Likes
 export function setLikes(likes){
   localStorage.setItem('likes', JSON.stringify(likes) )
 }
 
-export function getLikes(){
+export function getLikes() {
   // console.log(JSON.parse(window.localStorage.getItem('likes')))
   return window.localStorage.getItem('likes')
 }

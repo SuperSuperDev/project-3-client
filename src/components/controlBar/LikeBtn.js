@@ -26,7 +26,7 @@ function LikeBtn({ id, type }) {
       localStorage.setItem('likes', JSON.stringify(res.data.likes))
       setIsLiked(!isLiked)
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err.res.data)
     }
   }
   return (

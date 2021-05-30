@@ -1,8 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 import { loginUser } from '../../lib/api'
-import { setToken, setLikes } from '../../lib/auth' 
-import  useForm  from '../../hooks/useForm'
+import { setToken, setLikes, setPlaylists } from '../../lib/auth'
+import useForm from '../../hooks/useForm'
 
 function Login() {
   const history = useHistory()
@@ -14,16 +14,19 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    const log = []
     try {
       const res = await loginUser(formdata)
-      
+
       setToken(res.data.token)
       setLikes(res.data.likes)
+      setPlaylists(res.data.playlists)
+      log.push(res.data)
       history.push('/')
     } catch (err) {
       setIsError(true)
     }
+    console.log(log)
   }
 
   return (
