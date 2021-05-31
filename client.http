@@ -1,11 +1,12 @@
-# GET http://localhost:4000/api/pokemon
-
-# ###
-# GET http://localhost:4000/api/pokemon/1
+@baseUrl = http://localhost:4000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGIzNmE2M2UwNWI1ZTk4N2M3MjBhYjQiLCJpYXQiOjE2MjI0NTA4ODMsImV4cCI6MTYyMjQ5NDA4M30.zx2l05tNSrFo7bfCegcaYIxJrirK2dny2D6coLzQiTA
+###
+Get {{baseUrl}}/getusersplaylist
+Authorization: Bearer {{token}}
 
 ### USER Register
 
-POST http://localhost:4000/api/register
+POST {{baseUrl}}/register
 content-type: application/json
 
 {
@@ -18,7 +19,7 @@ content-type: application/json
 }
 
 ### USER Login
-POST http://localhost:4000/api/login
+POST {{baseUrl}}/login
 content-type: application/json
 
 {

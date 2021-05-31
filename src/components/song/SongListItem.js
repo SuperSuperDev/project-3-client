@@ -69,18 +69,18 @@ function SongListItem(props) {
                   </span>
                 )}
               </div>
-            </div>
-            <div className="field is-grouped has-addons">
-              <div className="media-right">
-                <ControlBar>
-                  <PlaylistBtn />
-                  <PlayBtn {...props} />
-                  <LikeBtn
-                    id={props._id}
-                    type='Song'
-                    likesCount={props.likesCount}
-                  />
-                </ControlBar>
+              <div className="field is-grouped has-addons">
+                <div className="media-right">
+                  <ControlBar>
+                    <PlaylistBtn {...props}/>
+                    <PlayBtn {...props} />
+                    <LikeBtn
+                      id={props._id}
+                      type='Song'
+                      likesCount={props.likesCount}
+                    />
+                  </ControlBar>
+                </div>
               </div>
             </div>
           </div>

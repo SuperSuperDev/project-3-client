@@ -9,6 +9,13 @@ function headers() {
   }
 }
 
+export function getUsersPlaylist() {
+  return axios.get(`${baseUrl}/getusersplaylist`, headers())
+}
+export function addSongToPlaylist(playlistId, songId) {
+  return axios .post(`${baseUrl}/playlist/${playlistId}/songs/${songId}`, null, headers())
+}
+// * Song Requests
 
 //! Song Requests
 export function getAllSongs() {
