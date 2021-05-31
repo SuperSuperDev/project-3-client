@@ -1,7 +1,7 @@
-import { useHistory } from "react-router"
-import useForm from "../../hooks/useForm"
-import { createPlaylist } from "../../lib/api"
-import ImageUpload from "../upload/ImageUpload"
+import { useHistory } from 'react-router'
+import useForm from '../../hooks/useForm'
+import { createPlaylist } from '../../lib/api'
+import ImageUpload from '../upload/ImageUpload'
 
 function NewPlaylistForm() {
   const history = useHistory()
