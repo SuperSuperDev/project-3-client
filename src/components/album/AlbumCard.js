@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 function AlbumCard({ _id, name, cover, artists, leadArtist }) {
   console.log(artists)
+  console.log('Lead ARTIST', leadArtist)
   return (
     <div
       className="column is-one-quarter-desktop is-one-third-tablet"

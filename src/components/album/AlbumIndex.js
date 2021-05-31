@@ -45,8 +45,8 @@ function AlbumIndex() {
       <section className="hero is-primary">
         <div className="columns">
           <div className="hero-body">
-            <p className="title">Search Albums</p>
-            <p className="subtitle">Search through a huge collection of albums</p>
+            <p className="title has-text-light">Search Albums</p>
+            <p className="subtitle has-text-light">Search through a huge collection of albums</p>
             <div className="field is-grouped">
               <div className="control">
                 <input
