@@ -1,6 +1,19 @@
 @import '~bulma/bulma.sass';
-@import '~bulmaswatch/lux/_variables.scss';
-@import '~bulmaswatch/lux/_overrides.scss';
+@import '~bulmaswatch/slate/_variables.scss';
+@import '~bulmaswatch/slate/_overrides.scss';
+
+html {
+  background-color: #272b30;
+} 
+
+
+body{
+  background-color: #272b30;
+}
+
+#nav {
+  background-color: #272b30;
+}
 
 #aside {
   display: flex;

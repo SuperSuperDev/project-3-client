@@ -43,11 +43,11 @@ function PlaylistIndex() {
   
   return (
     <>
-      <section className="hero is-primary">
+      <section className="hero">
         <div className="columns">
           <div className="hero-body">
-            <p className="title">User Playlists</p>
-            <p className="subtitle">Search through a huge collection of user playlists</p>
+            <p className="title has-text-light">User Playlists</p>
+            <p className="subtitle has-text-light">Search through a huge collection of user playlists</p>
             <div className="field is-grouped">
               <div className="control">
                 <input

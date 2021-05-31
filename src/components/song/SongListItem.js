@@ -7,7 +7,6 @@ import LikeBtn from '../controlBar/LikeBtn'
 import { isOwner } from '../../lib/auth'
 import { editSong } from '../../lib/api'
 
-
 function SongListItem(props) {
   const [commentHidden, setCommentHidden] = React.useState(false)
 
@@ -20,7 +19,6 @@ function SongListItem(props) {
     setShadowDeleted(!shadowDeleted)
     try {
       await editSong(props._id, { ...props, isDeleted: true })
-
     } catch (e) {
       console.log(e?.response.data)
     }
@@ -38,7 +36,9 @@ function SongListItem(props) {
             </figure>
             <div className="media-content">
               <div className="content">
-                <strong className="title">{props.name}</strong>
+                <strong id="song-title" className="title">
+                  {props.name}
+                </strong>
                 <br />
                 <small className="subtitle">{props.singer.name}</small>
                 <br />
@@ -52,10 +52,7 @@ function SongListItem(props) {
                   Show Comments
                 </button>
                 {commentHidden && (
-                  <SongComment
-                    commentsPassed={props.comments}
-                    id={props._id}
-                  />
+                  <SongComment commentsPassed={props.comments} id={props._id} />
                 )}
                 {isOwner(props.user) && (
                   <span>
@@ -73,11 +70,11 @@ function SongListItem(props) {
             <div className="field is-grouped has-addons">
               <div className="media-right">
                 <ControlBar>
-                  <PlaylistBtn />
+                  <PlaylistBtn {...props} />
                   <PlayBtn {...props} />
                   <LikeBtn
                     id={props._id}
-                    type='Song'
+                    type="Song"
                     likesCount={props.likesCount}
                   />
                 </ControlBar>
@@ -91,4 +88,3 @@ function SongListItem(props) {
 }
 
 export default SongListItem
-

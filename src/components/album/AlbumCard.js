@@ -35,7 +35,7 @@ function AlbumCard({ _id, name, cover, artists, leadArtist }) {
           </div>
           <p className="subtitle">
             {artists &&
-              <span key={`card-${leadArtist._id}`}>{leadArtist.name}</span>
+              <span key={`card-${leadArtist?._id}`}>{leadArtist?.name}</span>
             }
           </p>
         </div>

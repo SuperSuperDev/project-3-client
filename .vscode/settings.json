@@ -1,19 +1,19 @@
 {
   "workbench.colorCustomizations": {
-    "statusBar.background": "#8F427F",
-    "titleBar.activeBackground": "#8F427F",
-    "titleBar.inactiveBackground": "#8F427F",
-    "statusBar.foreground": "#15202B",
+    "statusBar.background": "#22742d",
+    "titleBar.activeBackground": "#22742d",
+    "titleBar.inactiveBackground": "#22742d",
+    "statusBar.foreground": "#15202b",
     "titleBar.inactiveForeground": "#15202b99",
-    "titleBar.activeForeground": "#15202B",
-    "activityBar.activeBackground": "#8F427F",
-    "activityBar.activeBorder": "#657E01",
-    "activityBar.background": "#8F427F",
-    "activityBar.foreground": "#15202B",
+    "titleBar.activeForeground": "#15202b",
+    "activityBar.activeBackground": "#22742d",
+    "activityBar.activeBorder": "#657e01",
+    "activityBar.background": "#22742d",
+    "activityBar.foreground": "#15202b",
     "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#657E01",
-    "activityBarBadge.foreground": "#E7E7E7",
-    "statusBarItem.hoverBackground": "#8F427F"
+    "activityBarBadge.background": "#657e01",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#22742d"
   },
   "window.title": "MUSIC FRONTEND",
   "peacock.color": "#FE5EDE"
