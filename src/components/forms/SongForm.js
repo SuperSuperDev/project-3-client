@@ -9,7 +9,8 @@ import ArtistForm from './ArtistForm.js'
 
 
 function SongForm() {
-  const [setSongs] = useState(null)
+  // eslint-disable-next-line no-unused-vars
+  const [songs, setSongs] = useState(null)
 
   const [selectedArtists, setSelectedArtists] = useState(null)
   const [selectedAlbum, setSelectedAlbum] = useState(null)
