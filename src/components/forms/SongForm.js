@@ -1,8 +1,8 @@
-import { useEffect,  useState } from 'react'
+import { useEffect, useState } from 'react'
 import Creatable from 'react-select/creatable'
 
 import useForm from '../../hooks/useForm.js'
-import { addAlbumToArtist, addArtistToAlbum, addSongToAlbum, addSongToArtist, createSong, getAllSongs } from '../../lib/api.js'
+import { createSong, getAllSongs } from '../../lib/api.js'
 import AudioUpload from '../upload/AudioUpload.js'
 import ImageUpload from '../upload/ImageUpload.js'
 import AlbumForm from './AlbumForm.js'
@@ -30,7 +30,7 @@ function SongForm() {
         const convertedSongs = resSongs.data.map(song => {
           return {
             value: song._id,
-            label: song.name
+            label: song.name,
           }
         })
         setSongs(convertedSongs)
@@ -51,22 +51,14 @@ function SongForm() {
   const handleSubmit = async event => {
     event.preventDefault()
 
-    window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
+    // window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
     try {
       const artistsArray = selectedArtists ? selectedArtists.map(item => item.value) : []
-      const res = await createSong({ ...formdata, artists: artistsArray, album: selectedAlbum.value })
-      console.log(res.data)
-      await addSongToAlbum(selectedAlbum.value, res.data._id)
-      await addSongToArtist(res.data.singer, res.data._id)
-      await addAlbumToArtist(res.data.singer, selectedAlbum.value)
-      await addArtistToAlbum(selectedAlbum.value, res.data.singer)
-      await addSongToAlbum(selectedAlbum.value, res.data._id)
-      console.log('success')
+      await createSong({ ...formdata, artists: artistsArray, album: selectedAlbum.value })
     } catch (err) {
       console.log(err.response.data)
     }
   }
-
   const handleSelect = selectedArtist => {
     handleChange({ target: { name: 'singer', value: selectedArtist.value } })
   }
