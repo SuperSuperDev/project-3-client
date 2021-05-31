@@ -1,6 +1,6 @@
 @import '~bulma/bulma.sass';
-
-
+@import '~bulmaswatch/lux/_variables.scss';
+@import '~bulmaswatch/lux/_overrides.scss';
 
 #aside {
   display: flex;
@@ -11,6 +11,8 @@
     margin: 10px;
   }
 }
+
+
 
 #comments-scroll{
   margin-top: 10px;
@@ -32,3 +34,8 @@
 #delete-song-button{
   margin-left: 10px;
 }
+
+#song-title{
+  text-transform: capitalize;
+}
+

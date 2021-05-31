@@ -1,7 +1,7 @@
 function Error() {
   return (
     <h2 className="subtitle has-text-centered is-fullwidth">
-There has been an error!
+        There has been an error!
       <span role="img" aria-label="sad-emoji">
         {' '}
         😞

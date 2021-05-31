@@ -12,31 +12,27 @@ function ShowPlaylist() {
   const [playlist, setPlaylist] = React.useState(null)
   const [isError, setIsError] = React.useState(false)
   const [searchTerm, setSearchTerm] = React.useState('')
-  // const isLoading = !album && !isError
+
 
   React.useEffect(() => {
     const getData = async () => {
       try {
         const response = await getSinglePlaylist(playlistId)
-        console.log('playlist data', response.data)
         setPlaylist(response.data)
+
       } catch (err) {
         console.log(err)
         setIsError(true)
       }
     }
-
     getData()
   }, [playlistId])
-
-  // const handleDelete = async () => {
-  //   await deleteAlbum(album._id)
-  // }
 
 
   const filteredSongs = playlist?.songs.filter((song) => {
     return song.name.toLowerCase().includes(searchTerm)
   })
+
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -44,14 +40,13 @@ function ShowPlaylist() {
   const handleClear = () => {
     setSearchTerm('')
   }
-  // const songList = { filteredSongs }
-  // console.log(searchTerm)
-  // console.log('filtered songs', songList)
-  // console.log('sorea songlist: ', { ...songList })
+
+  
   const handleRemovePlaylist = async () => {
     try {
       await removePlaylist(playlistId)
       history.push('/playlists')
+
     } catch (err) {
       if (err.response) {
         console.log(err.response.data)
@@ -59,6 +54,7 @@ function ShowPlaylist() {
       console.log(err)
     }
   }
+  
   return (
     <>
       <section className="hero is-primary">
@@ -93,8 +89,8 @@ function ShowPlaylist() {
           }
         </div>
       </section>
-      { isError && <Error />}
-      <SongList songList={filteredSongs} />
+      { isError ? <Error /> : <SongList songList={filteredSongs} />}
+
     </>
   )
 }

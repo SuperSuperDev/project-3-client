@@ -12,7 +12,7 @@ function ShowAlbum() {
   const [album, setAlbum] = React.useState(null)
   const [isError, setIsError] = React.useState(false)
   const [searchTerm, setSearchTerm] = React.useState('')
-  // const isLoading = !album && !isError
+
 
   React.useEffect(() => {
     const getData = async () => {
@@ -25,19 +25,14 @@ function ShowAlbum() {
         setIsError(true)
       }
     }
-
     getData()
   }, [albumId])
-
-  // const handleDelete = async () => {
-  //   await deleteAlbum(album._id)
-  // }
-
 
 
   const filteredSongs = album?.songs.filter((song) => {
     return song.name.toLowerCase().includes(searchTerm)
   })
+
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -45,14 +40,12 @@ function ShowAlbum() {
   const handleClear = () => {
     setSearchTerm('')
   }
-  // const songList = { filteredSongs }
-  // console.log(searchTerm)
-  // console.log('filtered songs', songList)
-  // console.log('sorea songlist: ', { ...songList })
+
   const handleRemoveAlbum = async () => {
     try {
       await deleteAlbum(albumId)
       history.push('/albums')
+
     } catch (err) {
       if (err.response) {
         console.log(err.response.data)
@@ -60,6 +53,7 @@ function ShowAlbum() {
       console.log(err)
     }
   }
+  
   return (
     <>
       <section className="hero is-primary">

@@ -20,10 +20,10 @@ function PlaylistIndex() {
         console.log(err)
       }
     }
-
     getData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -40,6 +40,7 @@ function PlaylistIndex() {
     history.push('/playlist/new')
   }
 
+  
   return (
     <>
       <section className="hero is-primary">

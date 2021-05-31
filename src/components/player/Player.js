@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactJkMusicPlayer from 'react-jinke-music-player'
 import 'react-jinke-music-player/assets/index.css'
 
 function Player({ audioQueue }) {
+  console.log(audioQueue)
   const options = {
     // audio lists model
-    audioLists: audioQueue,
+    // audioLists: audioQueue,
 
     // default play index of the audio player  [type `number` default `0`]
     defaultPlayIndex: 0,
@@ -37,7 +38,7 @@ function Player({ audioQueue }) {
      * (C) is playing
      */
     // [type `boolean`, default `false`]
-    quietUpdate: false,
+    quietUpdate: true,
 
     // Replace a new playlist with the first loaded playlist
     // instead of adding it at the end of it.
@@ -112,7 +113,7 @@ function Player({ audioQueue }) {
     showReload: false,
 
     // download button display of the audio player panel   [type `Boolean` default `true`]
-    showDownload: false,
+    showDownload: true,
 
     // loop button display of the audio player panel   [type `Boolean` default `true`]
     showPlayMode: true,
@@ -347,7 +348,7 @@ function Player({ audioQueue }) {
     // },
   }
   return (
-    <ReactJkMusicPlayer {...options} />
+    <ReactJkMusicPlayer {...options} audioLists={audioQueue ? audioQueue : []} />
   )
 }
 

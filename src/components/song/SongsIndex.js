@@ -40,7 +40,7 @@ function SongsIndex() {
 
   return (
     <>
-      <section className="hero is-primary">
+      <section className="hero is-info">
         <div className="hero-body">
           <p className="title">Search Songs</p>
           <p className="subtitle">Search through a huge collection of songs</p>

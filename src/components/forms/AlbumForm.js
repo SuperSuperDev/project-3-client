@@ -1,15 +1,12 @@
-import { useEffect, useState } from 'react'
 import Creatable from 'react-select/creatable'
-
 import useForm from '../../hooks/useForm.js'
-import { createAlbum, getAllAlbums } from '../../lib/api.js'
 import ImageUpload from '../upload/ImageUpload.js'
+import { useEffect, useState } from 'react'
+import { createAlbum, getAllAlbums } from '../../lib/api.js'
 
-
-function AlbumForm({ selectedAlbum, setSelectedAlbum }) {
+function AlbumForm({ setSelectedAlbum }) {
   const [albums, setAlbums] = useState(null)
   const [hasAlbum, setHasAlbum] = useState(true)
-
   const { formdata, handleChange } = useForm({
     name: '',
     about: '',
@@ -34,14 +31,9 @@ function AlbumForm({ selectedAlbum, setSelectedAlbum }) {
     getData()
   }, [hasAlbum])
 
+
   const handleUpload = (files) => {
     handleChange({ target: { name: 'cover', value: files } })
-  }
-
-  const handleSubmit = event => {
-    event.preventDefault()
-
-    window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
   }
 
   const handleSelect = selectedAlbum => {
@@ -50,9 +42,9 @@ function AlbumForm({ selectedAlbum, setSelectedAlbum }) {
 
   const handleCreateAlbum = async () => {
     try {
-      const res = await createAlbum({ ...formdata, length: 0 })
-      console.log(res)
+      await createAlbum({ ...formdata, length: 0 })
       setHasAlbum(true)
+
     } catch (err) {
       console.log(err.response.data)
     }
@@ -65,6 +57,7 @@ function AlbumForm({ selectedAlbum, setSelectedAlbum }) {
       setHasAlbum(false)
     }
   }
+  
   return (
     <>
       <label className="label has-text-centered">Select Album</label>

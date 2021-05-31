@@ -9,21 +9,22 @@ function UserAlbums() {
   const [albums, setAllAlbums] = React.useState(null)
   const [searchTerm, setSearchTerm] = React.useState('')
 
+  
   React.useEffect(() => {
     const getData = async () => {
       try {
         const response = await getAllAlbums()
-        console.log(response.data)
         setAllAlbums(response.data)
+
       } catch (err) {
         console.log(err)
         history.push('./error')
       }
     }
-
     getData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [history])
+
+
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -33,16 +34,13 @@ function UserAlbums() {
   }
 
   const filteredAlbums = albums?.filter((album) => {
-    return album.name.toLowerCase().includes(searchTerm) &&
-    isOwner(album.user)
+    return album.name.toLowerCase().includes(searchTerm) && isOwner(album.user)
   })
-  // const songList = { filteredSongs }
-  // console.log(searchTerm)
-  // console.log('filtered songs', songList)
-  // console.log('sorea songlist: ', { ...songList })
+  
   const handleCreateAlbum = () => {
     history.push('/albums/new')
   }
+
   return (
     <>
       <section className="hero is-primary is-small">

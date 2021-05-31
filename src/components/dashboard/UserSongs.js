@@ -1,9 +1,10 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { getAllSongs } from '../../lib/api'
 import SongList from '../song/SongList'
 import Error from '../common/Error'
+import { useHistory } from 'react-router-dom'
+import { getAllSongs } from '../../lib/api'
 import { isOwner } from '../../lib/auth'
+
 
 function UserSongs() {
   const history = useHistory()
@@ -14,17 +15,18 @@ function UserSongs() {
     const getData = async () => {
       try {
         const response = await getAllSongs()
-        console.log(response.data)
         setAllSongs(response.data)
+        
       } catch (err) {
         <>
-          console.log(err)
           <Error />
         </>
       }
     }
     getData()
   }, [setAllSongs, history])
+
+
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -36,10 +38,6 @@ function UserSongs() {
   const filteredSongs = songs?.filter((song) => {
     return song.name.toLowerCase().includes(searchTerm) && isOwner(song.user)
   })
-  // const songList = { filteredSongs }
-  // console.log(searchTerm)
-  // console.log('filtered songs', songList)
-  // console.log('sorea songlist: ', { ...songList })
 
   return (
     <>

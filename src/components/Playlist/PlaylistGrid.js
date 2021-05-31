@@ -1,18 +1,17 @@
 import PlaylistCard from './PlaylistCard'
+
 function PlaylistGrid({ playlistList }) {
-  console.log('playlistList: ', playlistList)
   return (
-    
     <div className="container">
       <div className="section">
         <div className="columns is-multiline">
           {playlistList ? (
             playlistList.map((playlist) => (
-              <>
-                <PlaylistCard key={playlist._id} { ...playlist } />
-              </>
+              <div key={playlist._id} className="column is-one-quarter-desktop is-one-third-tablet">
+                <PlaylistCard  {...playlist} />
+              </div>
             ))
-            
+
           ) : (
             <>
               <p>Loading ... ...</p>

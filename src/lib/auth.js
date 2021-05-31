@@ -23,20 +23,18 @@ export function removePlaylists() {
 }
 
 
-// * Current User Likes
+//! Current User Likes
 export function setLikes(likes){
   localStorage.setItem('likes', JSON.stringify(likes) )
 }
 
 export function getLikes() {
-  // console.log(JSON.parse(window.localStorage.getItem('likes')))
   return window.localStorage.getItem('likes')
 }
 
 export function removeLikes() {
   return window.localStorage.removeItem('likes')
 }
-
 
 export function getPayload() {
   const token = getToken()

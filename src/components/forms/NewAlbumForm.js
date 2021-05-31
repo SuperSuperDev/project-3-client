@@ -1,10 +1,10 @@
-import { useState } from "react"
-import { useHistory } from "react-router"
-import Creatable from "react-select/creatable"
-import useForm from "../../hooks/useForm"
-import { createAlbum } from "../../lib/api"
-import ImageUpload from "../upload/ImageUpload"
-import ArtistForm from "./ArtistForm"
+import { useState } from 'react'
+import { useHistory } from 'react-router'
+import Creatable from 'react-select/creatable'
+import useForm from '../../hooks/useForm'
+import { createAlbum } from '../../lib/api'
+import ImageUpload from '../upload/ImageUpload'
+import ArtistForm from './ArtistForm'
 
 function NewAlbumForm() {
   const history = useHistory()

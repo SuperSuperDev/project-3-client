@@ -1,9 +1,9 @@
 import React from 'react'
-
-import { getAllPlaylists } from '../../lib/api'
-import { isAuthenticated, isOwner } from '../../lib/auth'
 import Error from '../common/Error'
 import PlaylistGrid from '../Playlist/PlaylistGrid'
+import { getAllPlaylists } from '../../lib/api'
+import { isAuthenticated, isOwner } from '../../lib/auth'
+
 
 function UserPlaylist() {
   const [playlists, setAllPlaylists] = React.useState(null)
@@ -13,16 +13,16 @@ function UserPlaylist() {
     const getData = async () => {
       try {
         const response = await getAllPlaylists()
-        console.log('Response Data UserPLaylist: ', response.data)
         setAllPlaylists(response.data)
+
       } catch (err) {
         console.log(err)
-        
       }
     }
-
     getData()
   }, [])
+
+
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -34,7 +34,7 @@ function UserPlaylist() {
   const filteredPlaylists = playlists?.filter((playlist) => {
     return (
       playlist.name.toLowerCase().includes(searchTerm) &&
-      isOwner(playlist.user._id)
+      isOwner(playlist.user._id ? playlist.user._id : playlist.user)
     )
   })
 

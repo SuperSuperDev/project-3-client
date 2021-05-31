@@ -2,8 +2,8 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { getAllAlbums } from '../../lib/api'
 import { isAuthenticated } from '../../lib/auth'
-
 import AlbumGrid from './AlbumGrid'
+
 
 function AlbumIndex() {
   const history = useHistory()
@@ -21,10 +21,9 @@ function AlbumIndex() {
         history.push('./error')
       }
     }
-
     getData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [history])
+
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -36,13 +35,11 @@ function AlbumIndex() {
   const filteredAlbums = albums?.filter((album) => {
     return album.name.toLowerCase().includes(searchTerm)
   })
-  // const songList = { filteredSongs }
-  // console.log(searchTerm)
-  // console.log('filtered songs', songList)
-  // console.log('sorea songlist: ', { ...songList })
+
   const handleCreateAlbum = () => {
     history.push('/albums/new')
   }
+  
   return (
     <>
       <section className="hero is-primary">
