@@ -49,7 +49,7 @@ function PlaylistCard({ _id, name, cover }) {
       <div className="card-footer">
         <button className="card-footer-item button is-warning" onClick={addPlaylistToQueue}>Add To Queue</button>
       </div>
-    </div >
+    </div>
   )
 }
 

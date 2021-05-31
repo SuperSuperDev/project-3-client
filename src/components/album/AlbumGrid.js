@@ -1,7 +1,6 @@
 import AlbumCard from './AlbumCard'
 
 function AlbumGrid({ albumList }) {
-  console.log('albumList: ', albumList)
   return (
     <div className="container">
       <div className="section">
