@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import { AudioQueueContext } from '../../App.js'
 import { getAllSongsInPlaylist } from '../../lib/api.js'
 
-function PlaylistCard({ _id, name, cover, songs }) {
+function PlaylistCard({ _id, name, cover }) {
   const { updateAudioQueue } = React.useContext(AudioQueueContext)
+  const [songs, setSongs] = React.useState(null)
   const addPlaylistToQueue = async () => {
-    const playlist = await getAllSongsInPlaylist(_id)
-    const songsToAddToQueue = playlist.songs.map(song => {
+    const songsToAddToQueue = songs.map(song => {
       return {
         name: song.name,
         singer: song.singer.name,
@@ -17,6 +17,17 @@ function PlaylistCard({ _id, name, cover, songs }) {
     })
     updateAudioQueue(songsToAddToQueue, false)
   }
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await getAllSongsInPlaylist(_id)
+        setSongs(res.data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getData()
+  }, [_id])
   return (
     <div className="card">
       <Link to={`playlists/${_id}`}>
@@ -33,21 +44,12 @@ function PlaylistCard({ _id, name, cover, songs }) {
         </div>
         <div className="card-content is-flex is-horizontal-center">
           <img src={cover} />
-          {
-            (songs &&
-              songs.map((song) => (
-                <p key={song.name}>
-                  <strong>{song.name}</strong>
-                </p>
-              ))
-            )
-          }
         </div>
       </Link>
       <div className="card-footer">
         <button className="card-footer-item button is-warning" onClick={addPlaylistToQueue}>Add To Queue</button>
       </div>
-    </div>
+    </div >
   )
 }
 

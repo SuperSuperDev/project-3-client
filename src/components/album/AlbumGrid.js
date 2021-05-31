@@ -10,9 +10,9 @@ function AlbumGrid({ albumList }) {
           {albumList ? (
             
             albumList.map((album) => (
-              <>
-                <AlbumCard key={`grid-${album._id}`} {...album} />
-              </>
+              <div key={`grid-${album._id}`} className="column is-one-quarter-desktop is-one-third-tablet">
+                <AlbumCard {...album} />
+              </div>
             ))
           ) : (
             <>

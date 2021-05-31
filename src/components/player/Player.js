@@ -38,7 +38,7 @@ function Player({ audioQueue }) {
      * (C) is playing
      */
     // [type `boolean`, default `false`]
-    quietUpdate: false,
+    quietUpdate: true,
 
     // Replace a new playlist with the first loaded playlist
     // instead of adding it at the end of it.
@@ -113,7 +113,7 @@ function Player({ audioQueue }) {
     showReload: false,
 
     // download button display of the audio player panel   [type `Boolean` default `true`]
-    showDownload: false,
+    showDownload: true,
 
     // loop button display of the audio player panel   [type `Boolean` default `true`]
     showPlayMode: true,
