@@ -66,7 +66,7 @@ function SongForm() {
   }
 
   return (
-    <main id="song-form" className="section">
+    <main id="song-form"className="section">
       <div className="columns is-mobile">
         <div className="column is-6-tablet is-offset-3-tablet is-8-mobile is-offset-2-mobile box">
           <form onSubmit={handleSubmit}>
