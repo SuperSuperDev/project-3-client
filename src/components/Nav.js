@@ -24,7 +24,7 @@ function Nav() {
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             {' '}
-            🎶 {' '}Dashboard
+            🎶 {' '}Cloudify
           </Link>
           <span
             className={`navbar-burger ${menuIsActive ? 'is-active' : ''} `}
