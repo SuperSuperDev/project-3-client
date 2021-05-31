@@ -27,7 +27,7 @@ function SongListItem(props) {
   return (
     <>
       {!shadowDeleted && (
-        <div className="box">
+        <div id="song-item" className="box">
           <div className="media" key={props._id}>
             <figure className="media-left">
               <p className="image is-64x64">
@@ -36,11 +36,11 @@ function SongListItem(props) {
             </figure>
             <div className="media-content">
               <div className="content">
-                <strong id="song-title" className="title">
+                <strong id="song-title" className="title has-text-light">
                   {props.name}
                 </strong>
                 <br />
-                <small className="subtitle">{props.singer.name}</small>
+                <small className="subtitle has-text-light">{props.singer.name}</small>
                 <br />
                 <small>{props.album.name}</small>
               </div>

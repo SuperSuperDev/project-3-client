@@ -29,11 +29,11 @@ function PlaylistCard({ _id, name, cover }) {
     getData()
   }, [_id])
   return (
-    <div className="card">
+    <div id="playlist-card" className="card">
       <Link to={`playlists/${_id}`}>
         <div className="card-header">
           <div className="card-header-title ">
-            <div className="title">{name}</div>
+            <div className="title has-text-light">{name}</div>
           </div>
           {/* <p className="subtitle">
               {playlists &&

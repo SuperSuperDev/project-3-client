@@ -32,13 +32,13 @@ function AlbumCard({ _id, name, cover, artists, leadArtist }) {
   }
 
   return (
-    <div className="card">
+    <div id="album-card" className="card">
       <Link to={`albums/${_id}`}>
         <div className="card-header">
           <div className="card-header-title ">
-            <div className="title">{name}</div>
+            <div className="title has-text-light">{name}</div>
           </div>
-          <p className="subtitle">
+          <p className="subtitle has-text-light">
             {artists &&
               <span key={`card-${leadArtist?._id}`}>{leadArtist?.name}</span>
             }
