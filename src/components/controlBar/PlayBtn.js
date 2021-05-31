@@ -2,7 +2,6 @@ import React from 'react'
 import { AudioQueueContext } from '../../App.js'
 
 function PlayBtn(props) {
-
   const { updateAudioQueue } = React.useContext(AudioQueueContext)
   const handleClick = () => {
     const song = {
@@ -11,10 +10,9 @@ function PlayBtn(props) {
       cover: props.cover,
       musicSrc: props.musicSrc,
     }
-
     updateAudioQueue([song])
-
   }
+  
   return (
     <button className="button" onClick={handleClick}>▶️</button>
   )

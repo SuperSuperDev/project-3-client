@@ -6,7 +6,7 @@ import { createArtist, getAllArtists } from '../../lib/api.js'
 import ImageUpload from '../upload/ImageUpload.js'
 
 
-function ArtistForm({ selectedArtists, setSelectedArtists }) {
+function ArtistForm({ setSelectedArtists }) {
   const [artists, setArtists] = useState(null)
   const [hasArtist, setHasArtist] = useState(true)
 
@@ -34,30 +34,21 @@ function ArtistForm({ selectedArtists, setSelectedArtists }) {
     getData()
   }, [hasArtist])
 
+
   const handleUpload = (files) => {
     handleChange({ target: { name: 'cover', value: files } })
   }
 
-  const handleSubmit = event => {
-    event.preventDefault()
-
-    window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
-  }
-
   const handleMultiSelect = selectedArtists => {
-    const values = selectedArtists ? selectedArtists.map(item => item.value) : []
+    selectedArtists ? selectedArtists.map(item => item.value) : []
     setSelectedArtists(selectedArtists)
-  }
-
-  const handleSelect = selectedAlbum => {
-    handleChange({ target: { name: 'album', value: selectedAlbum.value } })
   }
 
   const handleCreateArtist = async () => {
     try {
-      const res = await createArtist(formdata)
-      console.log(res)
+      await createArtist(formdata)
       setHasArtist(true)
+      
     } catch (err) {
       console.log(err)
     }

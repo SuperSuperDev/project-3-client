@@ -13,16 +13,16 @@ function UserPlaylist() {
     const getData = async () => {
       try {
         const response = await getAllPlaylists()
-        console.log('Response Data UserPLaylist: ', response.data)
         setAllPlaylists(response.data)
+
       } catch (err) {
         console.log(err)
-        
       }
     }
-
     getData()
   }, [])
+
+
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
