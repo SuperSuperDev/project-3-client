@@ -9,7 +9,9 @@ export function getToken() {
 export function removeToken() {
   localStorage.removeItem('token')
 }
-// * Current User Playlists
+
+
+//! Current User Playlists
 export function setPlaylists(playlists){
   localStorage.setItem('playlists', JSON.stringify(playlists))
 }
@@ -23,20 +25,18 @@ export function removePlaylists() {
 }
 
 
-// * Current User Likes
+//! Current User Likes
 export function setLikes(likes){
   localStorage.setItem('likes', JSON.stringify(likes) )
 }
 
 export function getLikes() {
-  // console.log(JSON.parse(window.localStorage.getItem('likes')))
   return window.localStorage.getItem('likes')
 }
 
 export function removeLikes() {
   return window.localStorage.removeItem('likes')
 }
-
 
 export function getPayload() {
   const token = getToken()

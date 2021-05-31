@@ -7,21 +7,25 @@ import LikeBtn from '../controlBar/LikeBtn'
 import { isOwner } from '../../lib/auth'
 import { editSong } from '../../lib/api'
 
+
 function SongListItem(props) {
   const [commentHidden, setCommentHidden] = React.useState(false)
+
   const handleCommentExpand = () => {
     setCommentHidden(!commentHidden)
   }
+
   const [shadowDeleted, setShadowDeleted] = React.useState(false)
   const handleShadowDelete = async () => {
     setShadowDeleted(!shadowDeleted)
     try {
-      const res = await editSong(props._id, { ...props, isDeleted: true })
-      console.log(res)
+      await editSong(props._id, { ...props, isDeleted: true })
+
     } catch (e) {
       console.log(e?.response.data)
     }
   }
+
   return (
     <>
       {!shadowDeleted && (
@@ -87,3 +91,4 @@ function SongListItem(props) {
 }
 
 export default SongListItem
+

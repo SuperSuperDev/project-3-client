@@ -4,14 +4,15 @@ import NewPlaylistForm from '../forms/NewPlaylistForm'
 function PlaylistBtn() {
   const [modalIsActive, setModalIsActive] = React.useState(false)
   const [dropDownIsActive, setDropDownIsActive] = React.useState(false)
+
   const toggleNewPlaylistModal = () => {
-    console.log('Button CLicked')
     setModalIsActive(!modalIsActive)
   }
+
   const toggleDropDown = () => {
-    console.log('Button CLicked')
     setDropDownIsActive(!dropDownIsActive)
   }
+  
   return (
     <>
       <div className={`dropdown ${dropDownIsActive && 'is-active'}`}>

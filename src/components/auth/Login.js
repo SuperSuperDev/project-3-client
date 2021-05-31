@@ -15,18 +15,20 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const log = []
+
     try {
       const res = await loginUser(formdata)
-
+      
       setToken(res.data.token)
       setLikes(res.data.likes)
       setPlaylists(res.data.playlists)
+
       log.push(res.data)
       history.push('/')
+
     } catch (err) {
       setIsError(true)
     }
-    console.log(log)
   }
 
   return (

@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function ControlBar({ children }) {
   return (
     <div className="field is-grouped has-addons">

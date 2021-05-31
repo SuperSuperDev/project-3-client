@@ -22,6 +22,8 @@ function SongsIndex() {
     }
     getData()
   }, [setAllSongs, history])
+
+  
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -33,14 +35,10 @@ function SongsIndex() {
   const filteredSongs = songs?.filter((song) => {
     return song.name.toLowerCase().includes(searchTerm)
   })
-  // const songList = { filteredSongs }
-  // console.log(searchTerm)
-  // console.log('filtered songs', songList)
-  // console.log('sorea songlist: ', { ...songList })
 
   return (
     <>
-      <section className="hero is-primary">
+      <section className="hero is-info">
         <div className="hero-body">
           <p className="title">Search Songs</p>
           <p className="subtitle">Search through a huge collection of songs</p>

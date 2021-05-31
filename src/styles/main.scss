@@ -1,6 +1,6 @@
 @import '~bulma/bulma.sass';
-
-
+@import '~bulmaswatch/lux/_variables.scss';
+@import '~bulmaswatch/lux/_overrides.scss';
 
 #aside {
   display: flex;

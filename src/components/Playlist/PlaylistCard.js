@@ -50,4 +50,5 @@ function PlaylistCard({ _id, name, cover, songs }) {
     </div>
   )
 }
+
 export default PlaylistCard
