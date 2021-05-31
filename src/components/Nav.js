@@ -1,35 +1,30 @@
 import React from 'react'
 import { useLocation, Link, useHistory } from 'react-router-dom'
-import { isAuthenticated, removeToken, removeLikes, removePlaylists } from '../lib/auth'
+import { isAuthenticated, removeToken, removeLikes } from '../lib/auth'
 
 function Nav() {
   const location = useLocation()
   const history = useHistory()
   const isLoggedIn = isAuthenticated()
   const [menuIsActive, setMenuIsActive] = React.useState(false)
-
   const toggleMenu = () => {
     setMenuIsActive(!menuIsActive)
   }
-
   const handleLogout = () => {
     removeToken()
     removeLikes()
-    removePlaylists()
     history.push('/')
   }
-
   React.useEffect(() => {
     setMenuIsActive(false)
   }, [location.pathname])
-  
   return (
-    <nav className="navbar is-dark">
+    <nav id="nav" className="navbar">
       <div className="container">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             {' '}
-            🎶 Cloudify
+            🎶 {' '}Dashboard
           </Link>
           <span
             className={`navbar-burger ${menuIsActive ? 'is-active' : ''} `}
@@ -56,26 +51,22 @@ function Nav() {
               {' '}
               Playlists
             </Link>
-            {isAuthenticated() && (
+            {isAuthenticated() &&
               <>
-                <Link to="/dashboard" className="navbar-item">
-                  {' '}
-                  My Cloudify Dashboard
-                </Link>
                 <Link to="/upload-song" className="navbar-item">
                   {' '}
-                  Upload Song
+              Upload Song
                 </Link>
                 <Link to="/albums/new" className="navbar-item">
                   {' '}
-                  Create Album
+              Create Album
                 </Link>
                 <Link to="/playlist/new" className="navbar-item">
                   {' '}
               Create Playlist
                 </Link>
               </>
-            )}
+            }
           </div>{' '}
           <div className="navbar-end">
             <div className="navbar-item">

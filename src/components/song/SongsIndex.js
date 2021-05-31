@@ -40,10 +40,10 @@ function SongsIndex() {
 
   return (
     <>
-      <section className="hero is-info">
-        <div className="hero-body">
-          <p className="title">Search Songs</p>
-          <p className="subtitle">Search through a huge collection of songs</p>
+      <section className="hero">
+        <div className="hero-body ">
+          <p className="title has-text-light">Search Songs</p>
+          <p className="subtitle has-text-light">Search through a huge collection of songs</p>
           <div className="field is-grouped">
             <div className="control">
               <input

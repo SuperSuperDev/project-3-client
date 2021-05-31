@@ -1,6 +1,15 @@
 @import '~bulma/bulma.sass';
-@import '~bulmaswatch/lux/_variables.scss';
-@import '~bulmaswatch/lux/_overrides.scss';
+@import '~bulmaswatch/slate/_variables.scss';
+@import '~bulmaswatch/slate/_overrides.scss';
+
+body{
+  height: 100vh;
+  background-color: #272b30;
+}
+
+#nav {
+  background-color: #272b30;
+}
 
 #aside {
   display: flex;
@@ -11,8 +20,6 @@
     margin: 10px;
   }
 }
-
-
 
 #comments-scroll{
   margin-top: 10px;
@@ -34,8 +41,3 @@
 #delete-song-button{
   margin-left: 10px;
 }
-
-#song-title{
-  text-transform: capitalize;
-}
-
