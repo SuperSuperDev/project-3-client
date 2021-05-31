@@ -48,6 +48,10 @@ export function getSingleAlbum(albumId) {
   return axios.get(`${baseUrl}/albums/${albumId}`)
 }
 
+export function getAllSongsInAlbum(albumId) {
+  return axios.get(`${baseUrl}/albums/${albumId}/songs`)
+}
+
 export function createAlbum(formdata) {
   return axios.post(`${baseUrl}/albums`, formdata, headers())
 }
@@ -67,7 +71,6 @@ export function addSongToAlbum(albumId, songId) {
 export function addArtistToAlbum(albumId, artistId) {
   return axios.post(`${baseUrl}/albums/${albumId}/artists/${artistId}`, null, headers())
 }
-
 
 //! Playlists
 export function getAllPlaylists() {
@@ -110,7 +113,7 @@ export function addAlbumToArtist(artistId, albumId) {
 
 
 //! Comments
-export function getCommentsForSong(songId){
+export function getCommentsForSong(songId) {
   return axios.get(`${baseUrl}/songs/${songId}/comments`)
 }
 

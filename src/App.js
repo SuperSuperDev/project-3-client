@@ -25,9 +25,15 @@ function App() {
   const [audioQueue, setAudioQueue] = React.useState(null)
 
   const updateAudioQueue = (song, playnow) => {
+
     if (!audioQueue) {
       setAudioQueue(song)
     } else {
+      const hasSong = audioQueue.findIndex(savedSong => savedSong.name === song.name)
+      if (hasSong !== -1) {
+        console.log('already exists')
+        return null
+      }
       if (playnow) {
         setAudioQueue([...song, ...audioQueue])
       } else {
@@ -65,7 +71,7 @@ function App() {
             <SecureRoute path="/playlist/new" component={NewPlaylistForm} />
             <SecureRoute path="/dashboard" component={UserDashboard} />
           </Switch>
-          <Player audioQueue={audioQueue} />
+          <Player audioQueue={audioQueue} setAudioQueue={setAudioQueue} />
         </AudioQueueContext.Provider>
       </BrowserRouter>
     </>

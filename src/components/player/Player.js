@@ -2,7 +2,7 @@ import React from 'react'
 import ReactJkMusicPlayer from 'react-jinke-music-player'
 import 'react-jinke-music-player/assets/index.css'
 
-function Player({ audioQueue }) {
+function Player({ audioQueue, setAudioQueue }) {
   console.log(audioQueue)
   const options = {
     // audio lists model
@@ -205,6 +205,7 @@ function Player({ audioQueue }) {
 
     // audio load abort
     onAudioAbort(currentPlayId, audioLists, audioInfo) {
+      setAudioQueue(audioLists)
       console.log('audio abort', currentPlayId, audioLists, audioInfo)
     },
 
