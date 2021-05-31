@@ -38,7 +38,7 @@ function SongListItem(props) {
             </figure>
             <div className="media-content">
               <div className="content">
-                <strong className="title">{props.name}</strong>
+                <strong id="song-title"className="title">{props.name}</strong>
                 <br />
                 <small className="subtitle">{props.singer.name}</small>
                 <br />
