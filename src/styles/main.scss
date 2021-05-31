@@ -25,6 +25,26 @@ body{
   }
 }
 
+#song-title{
+  text-transform: capitalize;
+}
+
+#song-item{
+  background-color: #3a3f44;
+}
+
+#playlist-card{
+  background-color: #3a3f44;
+}
+
+#album-card{
+  background-color: #3a3f44;
+}
+
+
+
+
+
 #comments-scroll{
   margin-top: 10px;
   overflow-y: scroll;

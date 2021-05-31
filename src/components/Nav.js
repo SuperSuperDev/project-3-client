@@ -41,7 +41,7 @@ function Nav() {
           <div className="navbar-start">
             <Link to="/songs" className="navbar-item">
               {' '}
-              Songs
+               Songs
             </Link>
             <Link to="/albums" className="navbar-item">
               {' '}
