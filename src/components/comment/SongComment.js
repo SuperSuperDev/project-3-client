@@ -1,8 +1,9 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { addCommentToSong, deleteCommentInSong, editCommentInSong, getCommentsForSong } from '../../lib/api'
-import useForm from '../../hooks/useForm'
 import { isAuthenticated, isOwner } from '../../lib/auth'
+import useForm from '../../hooks/useForm'
+
 
 function SongComment({ id }) {
   const history = useHistory()
@@ -19,7 +20,6 @@ function SongComment({ id }) {
     const getData = async () => {
       try {
         const response = await getCommentsForSong(id)
-        console.log(response.data)
         const reversedArray = response.data.reverse()
         setAllComments(reversedArray)
 
@@ -30,12 +30,12 @@ function SongComment({ id }) {
     }
     getData()
   }, [submit, history, id])
+
   const handleAddComment = async event => {
     event.preventDefault()
     try {
-      const res = await addCommentToSong(formdata, id)
+      await addCommentToSong(formdata, id)
       setSubmit(!submit)
-      console.log(res.data)
     } catch (err) {
       if (err.repsonse) {
         console.log(err.repsonse.data)
@@ -44,10 +44,13 @@ function SongComment({ id }) {
       }
     }
   }
+
   const editComment = (event) => {
     setCommentEdit(true)
+
     const commentId = event.target.value.split('-')[0]
     const text = event.target.value.split('-')[1]
+
     formdata.text = text
     setSubmit(!submit)
     setCurrentCommentId(commentId)
@@ -56,10 +59,10 @@ function SongComment({ id }) {
   const handleEditComment = async (event) => {
     event.preventDefault()
     try {
-      const res = await editCommentInSong(formdata, id, currentCommentId)
-      console.log(res.data)
+      await editCommentInSong(formdata, id, currentCommentId)
       formdata.text = ''
       setSubmit(!submit)
+
     } catch (err) {
       console.log(err?.response.data)
     }
@@ -70,10 +73,12 @@ function SongComment({ id }) {
     try {
       await deleteCommentInSong(id, commentId)
       setSubmit(!submit)
+
     } catch (err) {
       console.log(err?.response.data)
     }
   }
+  
   return (
     <>
       <div id="comments-scroll">

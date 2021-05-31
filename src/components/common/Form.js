@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Creatable from 'react-select/creatable'
-
 import ImageUpload from '../upload/ImageUpload.js'
 import AudioUpload from '../upload/AudioUpload.js'
-
 import useForm from '../../hooks/useForm.js'
 import { getAllAlbums, getAllArtists } from '../../lib/api.js'
 
-
-
 function Form() {
-
   const [artists, setArtists] = useState(null)
   const [albums, setAlbums] = useState(null)
-
   const [createArtist, setCreateArtist] = useState(false)
-
   const [valueOfNewArtist, setValueOfNewArtist] = useState(null)
 
   const { formdata: songdata, handleChange: handleSongChange } = useForm({
@@ -23,7 +16,8 @@ function Form() {
     artists: [],
     album: '',
   })
-  const { formdata: artistdata, handleChange: handleArtistChange } = useForm({
+  
+  const { handleChange: handleArtistChange } = useForm({
     cover: '',
     artists: [],
     album: '',

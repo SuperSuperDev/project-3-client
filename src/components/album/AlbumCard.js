@@ -31,4 +31,5 @@ function AlbumCard({ _id, name, cover, artists, leadArtist }) {
     </div>
   )
 }
+
 export default AlbumCard
