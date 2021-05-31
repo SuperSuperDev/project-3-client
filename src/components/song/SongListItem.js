@@ -50,7 +50,7 @@ function SongListItem(props) {
                   onClick={handleCommentExpand}
                 >
                   Show Comments
-                  </button>
+                </button>
                 {commentHidden && (
                   <SongComment
                     commentsPassed={props.comments}
@@ -65,7 +65,7 @@ function SongListItem(props) {
                       className="button is-danger"
                     >
                       🗑
-                      </button>
+                    </button>
                   </span>
                 )}
               </div>
