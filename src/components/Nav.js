@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation, Link, useHistory } from 'react-router-dom'
-import { isAuthenticated, removeToken, removeLikes } from '../lib/auth'
+import { isAuthenticated, removeToken, removeLikes, removePlaylists } from '../lib/auth'
 
 function Nav() {
   const location = useLocation()
@@ -13,6 +13,7 @@ function Nav() {
   const handleLogout = () => {
     removeToken()
     removeLikes()
+    removePlaylists()
     history.push('/')
   }
   React.useEffect(() => {
@@ -24,7 +25,7 @@ function Nav() {
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             {' '}
-            🎶 {' '}Dashboard
+            🎶 Cloudify
           </Link>
           <span
             className={`navbar-burger ${menuIsActive ? 'is-active' : ''} `}
@@ -51,22 +52,26 @@ function Nav() {
               {' '}
               Playlists
             </Link>
-            {isAuthenticated() &&
+            {isAuthenticated() && (
               <>
+                <Link to="/dashboard" className="navbar-item">
+                  {' '}
+                  My Cloudify Dashboard
+                </Link>
                 <Link to="/upload-song" className="navbar-item">
                   {' '}
-              Upload Song
+                  Upload Song
                 </Link>
-                <Link to="/create-album" className="navbar-item">
+                <Link to="/albums/new" className="navbar-item">
                   {' '}
-              Create Album
+                  Create Album
                 </Link>
-                <Link to="/create-playlist" className="navbar-item">
+                <Link to="/playlist/new" className="navbar-item">
                   {' '}
-              Create Album
+              Create Playlist
                 </Link>
               </>
-            }
+            )}
           </div>{' '}
           <div className="navbar-end">
             <div className="navbar-item">

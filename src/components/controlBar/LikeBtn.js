@@ -6,7 +6,6 @@ function LikeBtn({ id, type }) {
   const [isLiked, setIsLiked] = React.useState(false)
   const loggedIn = isAuthenticated()
 
-  console.log('id is ', id)
   // check if user likes this Item
   
   React.useEffect(() => {
@@ -27,7 +26,7 @@ function LikeBtn({ id, type }) {
       localStorage.setItem('likes', JSON.stringify(res.data.likes))
       setIsLiked(!isLiked)
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err.res)
     }
   }
   return (

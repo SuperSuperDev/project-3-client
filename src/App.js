@@ -15,6 +15,8 @@ import Player from './components/player/Player'
 import SongForm from './components/forms/SongForm'
 import NewAlbumForm from './components/forms/NewAlbumForm'
 import NewPlaylistForm from './components/forms/NewPlaylistForm'
+import SecureRoute from './components/common/SecureRoute'
+import UserDashboard from './components/dashboard/UserDashboard'
 
 export const AudioQueueContext = createContext(null)
 
@@ -42,18 +44,25 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
-            <Route path="/songs" component={SongsIndex} />
-            <Route exact path="/albums/new" component={NewAlbumForm} />
-            <Route path="/albums/:albumId" component={ShowAlbum} />
-            <Route path="/albums" component={AlbumIndex} />
-            <Route exact path="/playlist/new">
-              <NewPlaylistForm />
+            <Route path="/songs">
+              <SongsIndex updateAudioQueue={updateAudioQueue} />
             </Route>
+            <SecureRoute exact path="/albums/new">
+              <NewAlbumForm />
+            </SecureRoute>
+            <Route path="/albums/:albumId">
+              <ShowAlbum updateAudioQueue={updateAudioQueue} />
+            </Route>
+            <Route path="/albums" component={AlbumIndex} />
+            <SecureRoute exact path="/playlist/new">
+              <NewPlaylistForm />
+            </SecureRoute>
             <Route path="/playlists/:playlistId" component={ShowPlaylist} />
             <Route path="/playlists" component={PlaylistIndex} />
-            <Route path="/upload-song" component={SongForm} />
-            <Route path="/create-album" component={NewAlbumForm} />
-            <Route path="/create-playlist" component={NewPlaylistForm} />
+            <SecureRoute path="/upload-song" component={SongForm} />
+            <SecureRoute path="/albums/new" component={NewAlbumForm} />
+            <SecureRoute path="/playlist/new" component={NewPlaylistForm} />
+            <SecureRoute path="/dashboard" component={UserDashboard} />
           </Switch>
           <Player audioQueue={audioQueue} />
         </AudioQueueContext.Provider>
