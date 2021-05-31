@@ -1,8 +1,7 @@
 import PlaylistCard from './PlaylistCard'
+
 function PlaylistGrid({ playlistList }) {
-  console.log('playlistList: ', playlistList)
   return (
-    
     <div className="container">
       <div className="section">
         <div className="columns is-multiline">

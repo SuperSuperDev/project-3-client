@@ -1,9 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router'
-import useForm from '../../hooks/useForm'
 import { createPlaylist } from '../../lib/api'
 import ImageUpload from '../upload/ImageUpload'
-
+import useForm from '../../hooks/useForm'
 
 
 function NewPlaylistForm(stopPushHistory) {
@@ -15,6 +14,7 @@ function NewPlaylistForm(stopPushHistory) {
     cover: '',
     public: false,
   })
+  
   
   const handleUpload = (url) => {
     handleChange({ target: { name: 'cover', value: url } })
@@ -28,14 +28,13 @@ function NewPlaylistForm(stopPushHistory) {
     event.preventDefault()
     try {
       const res = await createPlaylist(formdata)
-      setPlaylists(res.data.playlists)
       !stopPushHistory ? history.push(`/playlist/${res.data._id}`) : setShowSuccessMessage(true)
+
     } catch (err) {
       console.log(err.response.data)
     }
   }
 
-  
 
   return (
     <main className="section">

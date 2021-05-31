@@ -12,12 +12,6 @@ function PlaylistCard({ _id, name, cover, playlists }) {
             <div className="card-header-title ">
               <div className="title">{name}</div>
             </div>
-            {/* <p className="subtitle">
-              {playlists &&
-                playlists.map((playlist) => (
-                  <span key={playlist._id}>{playlist.name} </span>
-                ))}
-            </p> */}
           </div>
           <div className="card-content is-flex is-horizontal-center">
             <img src={cover} />
@@ -27,9 +21,7 @@ function PlaylistCard({ _id, name, cover, playlists }) {
                 <p key={song.name}>
                   <strong>{song.name}</strong>
                 </p>
-              )),
-              console.log(playlists)
-              )
+              )))
             }
           </div>
           <div className="card-footer">
@@ -41,4 +33,5 @@ function PlaylistCard({ _id, name, cover, playlists }) {
     </div>
   )
 }
+
 export default PlaylistCard

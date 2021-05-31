@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Creatable from 'react-select/creatable'
-
 import useForm from '../../hooks/useForm.js'
 import { createSong, getAllSongs } from '../../lib/api.js'
 import AudioUpload from '../upload/AudioUpload.js'
@@ -10,7 +9,7 @@ import ArtistForm from './ArtistForm.js'
 
 
 function SongForm() {
-  const [songs, setSongs] = useState(null)
+  const [setSongs] = useState(null)
 
   const [selectedArtists, setSelectedArtists] = useState(null)
   const [selectedAlbum, setSelectedAlbum] = useState(null)
@@ -39,7 +38,8 @@ function SongForm() {
       }
     }
     getData()
-  }, [])
+  }, [setSongs])
+
 
   const handleUploadImage = (files) => {
     handleChange({ target: { name: 'cover', value: files } })
@@ -48,22 +48,23 @@ function SongForm() {
     handleChange({ target: { name: 'musicSrc', value: files } })
   }
 
+
   const handleSubmit = async event => {
     event.preventDefault()
-
-    // window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
     try {
       const artistsArray = selectedArtists ? selectedArtists.map(item => item.value) : []
       await createSong({ ...formdata, artists: artistsArray, album: selectedAlbum.value })
+
     } catch (err) {
       console.log(err.response.data)
     }
   }
+
+
   const handleSelect = selectedArtist => {
     handleChange({ target: { name: 'singer', value: selectedArtist.value } })
   }
 
-  console.log(formdata)
   return (
     <main className="section">
       <div className="columns is-mobile">

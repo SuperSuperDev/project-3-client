@@ -22,7 +22,7 @@ function UserAlbums() {
       }
     }
     getData()
-  }, [])
+  }, [history])
 
 
   const handleInput = (e) => {

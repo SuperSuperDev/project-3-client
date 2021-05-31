@@ -13,7 +13,7 @@ function LikeBtn({ id, type }) {
     } else {
       setIsLiked(false)
     }
-  }, [])
+  }, [id, loggedIn])
 
   const handleClick = async (e) => {
     e.preventDefault()

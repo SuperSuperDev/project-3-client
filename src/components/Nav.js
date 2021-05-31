@@ -7,18 +7,22 @@ function Nav() {
   const history = useHistory()
   const isLoggedIn = isAuthenticated()
   const [menuIsActive, setMenuIsActive] = React.useState(false)
+
   const toggleMenu = () => {
     setMenuIsActive(!menuIsActive)
   }
+
   const handleLogout = () => {
     removeToken()
     removeLikes()
     removePlaylists()
     history.push('/')
   }
+
   React.useEffect(() => {
     setMenuIsActive(false)
   }, [location.pathname])
+  
   return (
     <nav className="navbar is-dark">
       <div className="container">

@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react'
+import React, { createContext } from 'react'
 
 import Nav from './components/Nav'
 import Home from './components/Home'
@@ -20,8 +20,9 @@ import UserDashboard from './components/dashboard/UserDashboard'
 
 export const AudioQueueContext = createContext(null)
 
+
 function App() {
-  const [audioQueue, setAudioQueue] = useState(null)
+  const [audioQueue, setAudioQueue] = React.useState(null)
 
   const updateAudioQueue = (song, playnow) => {
     if (!audioQueue) {
@@ -72,5 +73,3 @@ function App() {
 }
 
 export default App
-
-// <Route path="/player" component={Player} />

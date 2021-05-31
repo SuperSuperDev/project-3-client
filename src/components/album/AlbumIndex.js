@@ -22,7 +22,7 @@ function AlbumIndex() {
       }
     }
     getData()
-  }, [])
+  }, [history])
 
   const handleInput = (e) => {
     setSearchTerm(e.target.value)

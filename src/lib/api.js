@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getToken } from './auth'
-
 const baseUrl = '/api'
+
 
 function headers() {
   return {
@@ -9,8 +9,8 @@ function headers() {
   }
 }
 
-// * Song Requests
 
+//! Song Requests
 export function getAllSongs() {
   return axios.get(`${baseUrl}/songs`)
 }
@@ -31,8 +31,8 @@ export function deleteSong(id) {
   return axios.delete(`${baseUrl}/songs/${id}`, headers())
 }
 
-// * Album Requests
-// TODO: Comments Routes
+
+//! Album Requests
 export function getAllAlbums() {
   return axios.get(`${baseUrl}/albums`)
 }
@@ -61,8 +61,8 @@ export function addArtistToAlbum(albumId, artistId) {
   return axios.post(`${baseUrl}/albums/${albumId}/artists/${artistId}`, null, headers())
 }
 
-// * Playlists
 
+//! Playlists
 export function getAllPlaylists() {
   return axios.get(`${baseUrl}/playlist`)
 }
@@ -79,7 +79,8 @@ export function removePlaylist(playlistId) {
   return axios.delete(`${baseUrl}/playlist/${playlistId}`, headers())
 }
 
-// * Artist
+
+//! Artist
 export function getAllArtists() {
   return axios.get(`${baseUrl}/artists`)
 }
@@ -96,8 +97,8 @@ export function addAlbumToArtist(artistId, albumId) {
   return axios.post(`${baseUrl}/artists/${artistId}/albums/${albumId}`, null, headers())
 }
 
-// * Comments
 
+//! Comments
 export function getCommentsForSong(songId){
   return axios.get(`${baseUrl}/songs/${songId}/comments`)
 }
@@ -114,8 +115,8 @@ export function deleteCommentInSong(songId, commentId){
   return axios.delete(`${baseUrl}/songs/${songId}/comments/${commentId}`, headers())
 }
 
-// * Auth Requests
 
+//! Auth Requests
 export function registerUser(formdata) {
   return axios.post(`${baseUrl}/register`, formdata)
 }

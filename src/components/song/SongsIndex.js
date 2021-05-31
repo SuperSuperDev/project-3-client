@@ -22,6 +22,8 @@ function SongsIndex() {
     }
     getData()
   }, [setAllSongs, history])
+
+  
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -33,10 +35,6 @@ function SongsIndex() {
   const filteredSongs = songs?.filter((song) => {
     return song.name.toLowerCase().includes(searchTerm)
   })
-  // const songList = { filteredSongs }
-  // console.log(searchTerm)
-  // console.log('filtered songs', songList)
-  // console.log('sorea songlist: ', { ...songList })
 
   return (
     <>
