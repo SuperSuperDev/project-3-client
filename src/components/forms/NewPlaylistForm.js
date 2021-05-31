@@ -33,8 +33,6 @@ function NewPlaylistForm(stopPushHistory) {
       console.log(err.response.data)
     }
   }
-
-
   return (
     <main className="section">
       <div className="columns is-mobile">

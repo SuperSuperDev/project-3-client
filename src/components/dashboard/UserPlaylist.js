@@ -14,7 +14,6 @@ function UserPlaylist() {
       try {
         const response = await getAllPlaylists()
         setAllPlaylists(response.data)
-
       } catch (err) {
         console.log(err)
       }

@@ -1,4 +1,5 @@
 import SongListItem from './SongListItem'
+import Loader from 'react-loader-spinner'
 
 function SongList({ songList }) {
   const filteredSongList = songList?.filter(song => !song.isDeleted)
@@ -13,9 +14,15 @@ function SongList({ songList }) {
               </div>
             ))
           ) : (
-            <>
-              <p>Loading ... ...</p>
-            </>
+            <div id="loader">
+              <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={150}
+                width={150}
+                timeout={3000} //3 secs
+              />
+            </div>
           )}
         </div>
       </div>

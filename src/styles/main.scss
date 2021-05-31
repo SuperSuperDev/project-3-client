@@ -4,10 +4,10 @@
 
 html {
   background-color: #272b30;
-} 
+}
 
 
-body{
+body {
   background-color: #272b30;
 }
 
@@ -25,19 +25,19 @@ body{
   }
 }
 
-#song-title{
+#song-title {
   text-transform: capitalize;
 }
 
-#song-item{
+#song-item {
   background-color: #3a3f44;
 }
 
-#playlist-card{
+#playlist-card {
   background-color: #3a3f44;
 }
 
-#album-card{
+#album-card {
   background-color: #3a3f44;
 }
 
@@ -45,7 +45,7 @@ body{
 
 
 
-#comments-scroll{
+#comments-scroll {
   margin-top: 10px;
   overflow-y: scroll;
   max-height: 200px;
@@ -58,10 +58,18 @@ body{
   margin: 10px;
 }
 
-#add-comment{
+#add-comment {
   margin: 25px 10px;
 }
 
-#delete-song-button{
+#delete-song-button {
   margin-left: 10px;
+}
+
+#loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

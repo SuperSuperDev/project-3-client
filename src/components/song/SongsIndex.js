@@ -13,7 +13,6 @@ function SongsIndex() {
     const getData = async () => {
       try {
         const response = await getAllSongs()
-        console.log(response.data)
         setAllSongs(response.data)
       } catch (err) {
         console.log(err)

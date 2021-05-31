@@ -55,7 +55,6 @@ function SongForm() {
     try {
       const artistsArray = selectedArtists ? selectedArtists.map(item => item.value) : []
       await createSong({ ...formdata, artists: artistsArray, album: selectedAlbum.value })
-
     } catch (err) {
       console.log(err.response.data)
     }

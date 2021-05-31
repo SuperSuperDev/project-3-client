@@ -14,7 +14,6 @@ function AlbumIndex() {
     const getData = async () => {
       try {
         const response = await getAllAlbums()
-        console.log(response.data)
         setAllAlbums(response.data)
       } catch (err) {
         console.log(err)

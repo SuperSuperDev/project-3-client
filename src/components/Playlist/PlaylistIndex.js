@@ -1,14 +1,17 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 import { getAllPlaylists } from '../../lib/api'
 import { isAuthenticated } from '../../lib/auth'
 import Error from '../common/Error'
 import PlaylistGrid from './PlaylistGrid'
 
+
 function PlaylistIndex() {
   const history = useHistory()
   const [playlists, setAllPlaylists] = React.useState(null)
   const [searchTerm, setSearchTerm] = React.useState('')
+  const [isError, setIsError] = React.useState(false)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -18,6 +21,7 @@ function PlaylistIndex() {
         setAllPlaylists(response.data)
       } catch (err) {
         console.log(err)
+        setIsError(true)
       }
     }
     getData()
@@ -40,7 +44,7 @@ function PlaylistIndex() {
     history.push('/playlist/new')
   }
 
-  
+
   return (
     <>
       <section className="hero">
@@ -72,11 +76,24 @@ function PlaylistIndex() {
           }
         </div>
       </section>
-      {playlists ? (
-        <PlaylistGrid playlistList={filteredPlaylists} />
-      ) : (
-        <Error />
-      )}
+      {!isError ?
+        <>
+          {
+            filteredPlaylists ? <PlaylistGrid playlistList={filteredPlaylists} /> :
+              <div id="loader">
+                <Loader
+                  type="Puff"
+                  color="#00BFFF"
+                  height={150}
+                  width={150}
+                  timeout={3000} //3 secs
+                />
+              </div>
+          }
+        </>
+        : (
+          <Error />
+        )}
     </>
   )
 }

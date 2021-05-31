@@ -10,8 +10,6 @@ function UserDashboard() {
   if (!isAuthenticated()){
     history.push('/login')
   } 
-  
-  
   return (
     <>
       <h1>User Dashboard</h1>

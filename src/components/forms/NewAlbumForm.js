@@ -39,9 +39,6 @@ function NewAlbumForm() {
   const handleSelect = target => {
     handleChange({ target: { name: 'leadArtist', value: target.value } })
   }
-
-  console.log(formdata)
-
   return (
     <main className="section">
       <div className="columns is-mobile">

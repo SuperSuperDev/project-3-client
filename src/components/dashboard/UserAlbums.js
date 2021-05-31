@@ -15,7 +15,6 @@ function UserAlbums() {
       try {
         const response = await getAllAlbums()
         setAllAlbums(response.data)
-
       } catch (err) {
         console.log(err)
         history.push('./error')

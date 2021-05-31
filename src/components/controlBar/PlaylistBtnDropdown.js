@@ -19,7 +19,6 @@ function PlaylistBtnDropdown(props) {
       try {
         if (loggedIn) {
           const response = await getUsersPlaylist()
-          console.log(response.data)
           setUsersPlaylists(response.data)
         }
       } catch (err) {
@@ -38,12 +37,9 @@ function PlaylistBtnDropdown(props) {
     e.preventDefault()
     const playlistId = e.target.id
     const songId = props._id
-    console.log('Clicked', playlistId)
-    console.log('Props: ', songId)
     try {
       if (loggedIn) {
-        const res = await addSongToPlaylist(playlistId, songId)
-        console.log(res)
+        await addSongToPlaylist(playlistId, songId)
         setPlaylistUpdated(true)
       }
     } catch (err) {

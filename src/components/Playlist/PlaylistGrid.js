@@ -1,4 +1,5 @@
 import PlaylistCard from './PlaylistCard'
+import Loader from 'react-loader-spinner'
 
 function PlaylistGrid({ playlistList }) {
   return (
@@ -13,9 +14,15 @@ function PlaylistGrid({ playlistList }) {
             ))
 
           ) : (
-            <>
-              <p>Loading ... ...</p>
-            </>
+            <div id="loader">
+              <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                timeout={3000} //3 secs
+              />
+            </div>
           )}
         </div>
       </div>

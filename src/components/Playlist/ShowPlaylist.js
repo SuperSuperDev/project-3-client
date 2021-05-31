@@ -19,7 +19,6 @@ function ShowPlaylist() {
       try {
         const response = await getSinglePlaylist(playlistId)
         setPlaylist(response.data)
-
       } catch (err) {
         console.log(err)
         setIsError(true)

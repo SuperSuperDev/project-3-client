@@ -44,7 +44,6 @@ function AlbumForm({ setSelectedAlbum }) {
     try {
       await createAlbum({ ...formdata, length: 0 })
       setHasAlbum(true)
-
     } catch (err) {
       console.log(err.response.data)
     }
