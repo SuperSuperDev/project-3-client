@@ -28,7 +28,7 @@ function NewPlaylistForm(stopPushHistory) {
     event.preventDefault()
     try {
       const res = await createPlaylist(formdata)
-      setPlaylists(res.data.playlists)
+      setPlaylists(res.data)
       !stopPushHistory ? history.push(`/playlist/${res.data._id}`) : setShowSuccessMessage(true)
     } catch (err) {
       console.log(err.response.data)

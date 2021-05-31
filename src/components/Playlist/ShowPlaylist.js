@@ -93,8 +93,8 @@ function ShowPlaylist() {
           }
         </div>
       </section>
-      { isError && <Error />}
-      <SongList songList={filteredSongs} />
+      { isError ? <Error /> : <SongList songList={filteredSongs} />}
+
     </>
   )
 }

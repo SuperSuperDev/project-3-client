@@ -71,6 +71,10 @@ export function getSinglePlaylist(playlistId) {
   return axios.get(`${baseUrl}/playlist/${playlistId}`)
 }
 
+export function getAllSongsInPlaylist(playlistId) {
+  return axios.get(`${baseUrl}/playlist/${playlistId}/songs`)
+}
+
 export function createPlaylist(formdata) {
   return axios.post(`${baseUrl}/playlist/`, formdata, headers())
 }
@@ -98,19 +102,19 @@ export function addAlbumToArtist(artistId, albumId) {
 
 // * Comments
 
-export function getCommentsForSong(songId){
+export function getCommentsForSong(songId) {
   return axios.get(`${baseUrl}/songs/${songId}/comments`)
 }
 
-export function addCommentToSong(formdata, songId){
-  return axios.post(`${baseUrl}/songs/${songId}/comments`,formdata, headers())
+export function addCommentToSong(formdata, songId) {
+  return axios.post(`${baseUrl}/songs/${songId}/comments`, formdata, headers())
 }
 
-export function editCommentInSong(formdata, songId, commentId){
-  return axios.put(`${baseUrl}/songs/${songId}/comments/${commentId}`,formdata, headers())
+export function editCommentInSong(formdata, songId, commentId) {
+  return axios.put(`${baseUrl}/songs/${songId}/comments/${commentId}`, formdata, headers())
 }
 
-export function deleteCommentInSong(songId, commentId){
+export function deleteCommentInSong(songId, commentId) {
   return axios.delete(`${baseUrl}/songs/${songId}/comments/${commentId}`, headers())
 }
 

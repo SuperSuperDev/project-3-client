@@ -12,7 +12,7 @@ function PlayBtn(props) {
       musicSrc: props.musicSrc,
     }
 
-    updateAudioQueue([song])
+    updateAudioQueue([song], true)
 
   }
   return (

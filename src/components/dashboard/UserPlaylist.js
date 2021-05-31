@@ -17,7 +17,7 @@ function UserPlaylist() {
         setAllPlaylists(response.data)
       } catch (err) {
         console.log(err)
-        
+
       }
     }
 
@@ -34,7 +34,7 @@ function UserPlaylist() {
   const filteredPlaylists = playlists?.filter((playlist) => {
     return (
       playlist.name.toLowerCase().includes(searchTerm) &&
-      isOwner(playlist.user._id)
+      isOwner(playlist.user._id ? playlist.user._id : playlist.user)
     )
   })
 

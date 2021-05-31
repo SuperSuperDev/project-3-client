@@ -9,9 +9,9 @@ function SongList({ songList }) {
         <div className="columns is-multiline">
           {filteredSongList ? (
             filteredSongList.map((song) => (
-              <>
-                <SongListItem key={song._id} {...song} />
-              </>
+              <div key={song._id} className="column is-full">
+                <SongListItem  {...song} />
+              </div>
             ))
 
           ) : (
