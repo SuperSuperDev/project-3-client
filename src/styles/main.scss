@@ -2,8 +2,12 @@
 @import '~bulmaswatch/slate/_variables.scss';
 @import '~bulmaswatch/slate/_overrides.scss';
 
+html {
+  background-color: #272b30;
+} 
+
+
 body{
-  height: 100vh;
   background-color: #272b30;
 }
 
