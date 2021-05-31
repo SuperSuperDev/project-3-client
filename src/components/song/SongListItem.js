@@ -71,7 +71,7 @@ function SongListItem(props) {
               <div className="field is-grouped has-addons">
                 <div className="media-right">
                   <ControlBar>
-                    <PlaylistBtn />
+                    <PlaylistBtn {...props}/>
                     <PlayBtn {...props} />
                     <LikeBtn
                       id={props._id}
