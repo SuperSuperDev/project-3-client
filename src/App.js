@@ -29,15 +29,15 @@ function App() {
     if (!audioQueue) {
       setAudioQueue(song)
     } else {
-      const hasSong = audioQueue.findIndex(savedSong => savedSong.name === song.name)
-      if (hasSong !== -1) {
-        console.log('already exists')
-        return null
-      }
+      const filteredSongs = song.filter(song => {
+        const hasSong = audioQueue.findIndex(savedSong => savedSong.name === song.name)
+        if (hasSong === -1) return true
+        return false
+      })
       if (playnow) {
-        setAudioQueue([...song, ...audioQueue])
+        setAudioQueue([...filteredSongs, ...audioQueue])
       } else {
-        setAudioQueue([...audioQueue, ...song])
+        setAudioQueue([...audioQueue, ...filteredSongs])
       }
     }
   }

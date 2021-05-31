@@ -21,9 +21,14 @@ function AlbumCard({ _id, name, cover, artists, leadArtist }) {
 
   const addAlbumToQueue = () => {
     const songsToPlay = songs.map(song => {
-
+      return {
+        name: song.name,
+        cover: song.cover,
+        singer: song.singer.name,
+        musicSrc: song.musicSrc,
+      }
     })
-    updateAudioQueue(songs, false)
+    updateAudioQueue(songsToPlay, false)
   }
 
   return (
