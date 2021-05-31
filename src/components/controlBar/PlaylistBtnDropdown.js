@@ -17,9 +17,11 @@ function PlaylistBtnDropdown(props) {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const response = await getUsersPlaylist()
-        console.log(response.data)
-        setUsersPlaylists(response.data)
+        if (loggedIn) {
+          const response = await getUsersPlaylist()
+          console.log(response.data)
+          setUsersPlaylists(response.data)
+        }
       } catch (err) {
         console.log(err)
       }
@@ -39,9 +41,11 @@ function PlaylistBtnDropdown(props) {
     console.log('Clicked', playlistId)
     console.log('Props: ', songId)
     try {
-      const res = await addSongToPlaylist(playlistId, songId)
-      console.log(res)
-      setPlaylistUpdated(true)
+      if (loggedIn) {
+        const res = await addSongToPlaylist(playlistId, songId)
+        console.log(res)
+        setPlaylistUpdated(true)
+      }
     } catch (err) {
       console.log(err.res)
     }
