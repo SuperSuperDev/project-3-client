@@ -2,7 +2,7 @@ import React from 'react'
 
 function ControlBar({ children }) {
   return (
-    <div className="field is-grouped has-addons">
+    <div className="field">
       <div className="buttons">
         {children}
       </div>

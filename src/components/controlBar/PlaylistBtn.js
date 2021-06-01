@@ -9,7 +9,7 @@ function PlaylistBtn(props) {
 
   return (
     <>
-      <div className={`dropdown ${dropDownIsActive && 'is-active'}`}>
+      <div className={`dropdown is-right ${dropDownIsActive && 'is-active'}`}>
         <div className="dropdown-trigger">
           <button
             onClick={toggleDropDown}
