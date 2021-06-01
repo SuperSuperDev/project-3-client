@@ -18,6 +18,7 @@ function ShowAlbum() {
     const getData = async () => {
       try {
         const response = await getSingleAlbum(albumId)
+        console.log(response.data)
         setAlbum(response.data)
       } catch (err) {
         console.log(err)
@@ -52,7 +53,7 @@ function ShowAlbum() {
       console.log(err)
     }
   }
-  
+
   return (
     <>
       <section id="album-show">
