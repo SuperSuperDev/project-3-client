@@ -15,13 +15,27 @@ function SongListItem(props) {
   }
 
   const [shadowDeleted, setShadowDeleted] = React.useState(false)
+  const [openModal, setOpenModal] = React.useState(false)
+
   const handleShadowDelete = async () => {
     setShadowDeleted(!shadowDeleted)
     try {
       await editSong(props._id, { ...props, isDeleted: true })
+      setOpenModal(false)
     } catch (e) {
       console.log(e?.response.data)
     }
+  }
+  const handleConfirm = () => {
+    handleShadowDelete()
+  }
+
+  const handleReject = () => {
+    setOpenModal(false)
+  }
+
+  const handleOpenModal = () => {
+    setOpenModal(true)
   }
 
   return (
@@ -78,13 +92,12 @@ function SongListItem(props) {
                 </div>
               )}
             </div>
-
             <div className="field has-addons">
               <div className="media-right">
                 {isOwner(props.user) && (
                   <span>
                     <button
-                      onClick={handleShadowDelete}
+                      onClick={handleOpenModal}
                       id="delete-song-button"
                       className="button is-danger"
                     >
@@ -92,11 +105,30 @@ function SongListItem(props) {
                     </button>
                   </span>
                 )}
+                <div className={`modal ${openModal && 'is-active'}`}>
+                  <div className="modal-background" onClick={handleReject}></div>
+                  <div className="modal-content">
+                    <div className="box">
+                      <label className="label has-text-centered">Are you sure you want to delete this song?</label>
+                      <br />
+                      <div className="buttons is-centered">
+                        <button className="button is-danger" onClick={handleConfirm}>Yes</button>
+                        <button className="button is-warning" onClick={handleReject}>No</button>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={handleReject}
+                    className="modal-close is-large"
+                    aria-label="close"
+                  ></button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      )}
+      )
+      }
     </>
   )
 }
