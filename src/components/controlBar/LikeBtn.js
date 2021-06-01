@@ -20,10 +20,10 @@ function LikeBtn({ id, type, likesCount }) {
     e.preventDefault()
     try {
       const res = await addLike(type, id, e.target.value)
-      console.log(res)
+      
       localStorage.setItem('likes', JSON.stringify(res.data.likes))
       setIsLiked(!isLiked)
-      console.log(e.target.value)
+      
       if (e.target.value === 'plus') {
         setLikesNum(likesNum - 1)
       } else {
