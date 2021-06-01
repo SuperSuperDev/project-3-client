@@ -17,12 +17,11 @@ function Register() {
     try {
       await registerUser(formdata)
       history.push('/login')
-      
+
     } catch (err) {
-      setFormErrors(err.response.data.formErrors)
+      setFormErrors(err.response.data.errors)
     }
   }
-
   return (
     <section className="section">
       <div className="container">
@@ -80,9 +79,7 @@ function Register() {
               <div className="control">
                 <input
                   type="password"
-                  className={`input ${
-                    formErrors.passwordConfirmation ? 'is-danger' : ''
-                  }`}
+                  className={`input ${formErrors.passwordConfirmation ? 'is-danger' : ''}`}
                   placeholder="Password Confirmation"
                   onChange={handleChange}
                   name="passwordConfirmation"

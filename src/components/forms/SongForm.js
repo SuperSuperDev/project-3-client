@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
 import Creatable from 'react-select/creatable'
 import useForm from '../../hooks/useForm.js'
 import { createSong, getAllSongs } from '../../lib/api.js'
@@ -11,6 +12,7 @@ import ArtistForm from './ArtistForm.js'
 function SongForm() {
   // eslint-disable-next-line no-unused-vars
   const [songs, setSongs] = useState(null)
+  const history = useHistory()
 
   const [selectedArtists, setSelectedArtists] = useState(null)
   const [selectedAlbum, setSelectedAlbum] = useState(null)
@@ -55,6 +57,7 @@ function SongForm() {
     try {
       const artistsArray = selectedArtists ? selectedArtists.map(item => item.value) : []
       await createSong({ ...formdata, artists: artistsArray, album: selectedAlbum.value })
+      history.push('/songs')
     } catch (err) {
       console.log(err.response.data)
     }
@@ -66,7 +69,7 @@ function SongForm() {
   }
 
   return (
-    <main id="song-form"className="section">
+    <main id="song-form" className="section">
       <div className="columns is-mobile">
         <div className="column is-6-tablet is-offset-3-tablet is-8-mobile is-offset-2-mobile box">
           <form onSubmit={handleSubmit}>
@@ -136,7 +139,7 @@ function SongForm() {
           </form>
         </div>
       </div>
-    </main>
+    </main >
   )
 }
 
