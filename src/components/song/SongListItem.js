@@ -30,7 +30,7 @@ function SongListItem(props) {
         <div id="song-item" className="box">
           <div className="media" key={props._id}>
             <figure className="media-left">
-              <p className="image is-64x64">
+              <p className="image is-128x128">
                 <img src={props.cover} />
               </p>
             </figure>
@@ -40,20 +40,46 @@ function SongListItem(props) {
                   {props.name}
                 </strong>
                 <br />
-                <small className="subtitle has-text-light">{props.singer.name}</small>
+                <small className="subtitle has-text-light">
+                  {props.singer.name}
+                </small>
                 <br />
                 <small>{props.album.name}</small>
               </div>
-              <div>
-                <button
-                  className="button is-info"
-                  onClick={handleCommentExpand}
-                >
-                  Show Comments
-                </button>
-                {commentHidden && (
-                  <SongComment commentsPassed={props.comments} id={props._id} />
-                )}
+              <div className="level">
+                <div className="level-left">
+                  <div className="level-item">
+                    <div className="buttons">
+                      <button
+                        className="button is-info"
+                        onClick={handleCommentExpand}
+                      >
+                        Comments
+                      </button>
+                      {commentHidden && (
+                        <SongComment
+                          commentsPassed={props.comments}
+                          id={props._id}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div className="level-right">
+                    <ControlBar>
+                      <PlaylistBtn {...props} />
+                      <PlayBtn {...props} />
+                      <LikeBtn
+                        id={props._id}
+                        type="Song"
+                        likesCount={props.likesCount}
+                      />
+                    </ControlBar>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="field has-addons">
+              <div className="media-right">
                 {isOwner(props.user) && (
                   <span>
                     <button
@@ -65,19 +91,6 @@ function SongListItem(props) {
                     </button>
                   </span>
                 )}
-              </div>
-            </div>
-            <div className="field is-grouped has-addons">
-              <div className="media-right">
-                <ControlBar>
-                  <PlaylistBtn {...props} />
-                  <PlayBtn {...props} />
-                  <LikeBtn
-                    id={props._id}
-                    type="Song"
-                    likesCount={props.likesCount}
-                  />
-                </ControlBar>
               </div>
             </div>
           </div>
