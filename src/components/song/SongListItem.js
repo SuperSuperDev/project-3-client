@@ -100,9 +100,7 @@ function SongListItem(props) {
                       onClick={handleOpenModal}
                       id="delete-song-button"
                       className="button is-danger"
-                    >
-                      🗑
-                    </button>
+                    >🗑</button>
                   </span>
                 )}
                 <div className={`modal ${openModal && 'is-active'}`}>

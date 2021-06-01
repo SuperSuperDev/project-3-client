@@ -132,36 +132,15 @@ height: 100%;
 background: linear-gradient(0deg, #000, #272727);
 }
 
-.dropdown-content:before, .dropdown-content:after {
-content: '';
-position: absolute;
-left: -2px;
-top: -2px;
-background: linear-gradient(45deg, #fb009288, #0000ff, #00ff0091,#ffff00c4, #ff0000a1, #fb0092a8, 
-#0000ff9d, #00ff00,#ffff00, #ff0000);
-background-size: 400%;
-width: calc(100% + 4px);
-height: calc(100% + 4px);
-z-index: -1;
-animation: steam 30s linear infinite;
-}
 
-@keyframes steam {
-0% {
-background-position: 0 0;
-}
-50% {
-background-position: 400% 0;
-}
-100% {
-background-position: 0 0;
-}
-}
-
-.dropdown-content:after {
-filter: blur(3px);
-}
 
 #add-button{
   margin-right: 8px;
+}
+
+#artist-name {
+  margin-right: 5px; 
+}
+.input.input {
+  color: black;
 }
