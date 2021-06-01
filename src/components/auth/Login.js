@@ -32,10 +32,10 @@ function Login() {
   }
 
   return (
-    <section className="section">
-      <div className="container">
+    <section  className="section">
+      <div  className="container">
         <div className="columns">
-          <form
+          <form id="login"
             className="column is-half is-offset-one-quarter"
             onSubmit={handleSubmit}
           >

@@ -55,11 +55,11 @@ function ShowAlbum() {
   
   return (
     <>
-      <section className="hero is-primary">
+      <section id="album-show">
         <div className="columns">
           <div className="hero-body">
-            <p className="title">{album?.name}</p>
-            <p className="subtitle">{album?.artists && (
+            <p className="title has-text-light">{album?.name}</p>
+            <p className="subtitle has-text-light">{album?.artists && (
               album.artists.map(artist => <span key={artist._id}>{artist.name} </span>)
             )}</p>
 

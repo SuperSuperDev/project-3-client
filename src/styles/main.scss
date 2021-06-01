@@ -33,6 +33,10 @@ body {
   background-color: #3a3f44;
 }
 
+#song-form{
+  background-color: #3a3f44;
+}
+
 #playlist-card {
   background-color: #3a3f44;
 }
@@ -40,6 +44,25 @@ body {
 #album-card {
   background-color: #3a3f44;
 }
+
+#show-playlist{
+  background-color: #3a3f44;
+}
+
+#album-show{
+  background-color: #3a3f44;
+}
+
+#login {
+  background-color: #3a3f44;
+  border-radius: 5px;
+}
+
+#register {
+  background-color: #3a3f44;
+}
+
+
 
 #comments-scroll {
   margin-top: 10px;
@@ -97,7 +120,8 @@ EDIT ON
 body {
 margin: 0;
 padding: 0;
-background-color: #000;
+
+background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 }
 
 .dropdown-content {
@@ -138,3 +162,6 @@ background-position: 0 0;
 filter: blur(5px);
 }
 
+#add-button{
+  margin-right: 8px;
+}

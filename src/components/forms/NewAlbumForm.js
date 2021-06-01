@@ -84,7 +84,7 @@ function NewAlbumForm() {
               </div>
             </div>
             <div className="field">
-              <button className="button is-fullwidth is-dark" type="submit">
+              <button className="button is-fullwidth is-warning" type="submit">
                 Submit
               </button>
             </div>
