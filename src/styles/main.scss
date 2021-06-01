@@ -137,8 +137,8 @@ content: '';
 position: absolute;
 left: -2px;
 top: -2px;
-background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
-#0000ff, #00ff00,#ffff00, #ff0000);
+background: linear-gradient(45deg, #fb009288, #0000ff, #00ff0091,#ffff00c4, #ff0000a1, #fb0092a8, 
+#0000ff9d, #00ff00,#ffff00, #ff0000);
 background-size: 400%;
 width: calc(100% + 4px);
 height: calc(100% + 4px);
@@ -159,7 +159,7 @@ background-position: 0 0;
 }
 
 .dropdown-content:after {
-filter: blur(5px);
+filter: blur(3px);
 }
 
 #add-button{
