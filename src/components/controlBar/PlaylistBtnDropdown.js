@@ -68,7 +68,7 @@ function PlaylistBtnDropdown(props) {
             {!playlistUpdated ? (
               usersPlaylists?.map((playlist) => (
                 <li key={playlist._id} className="dropdpwn-item">
-                  <button className="button" value={playlist._id}>
+                  <button className="button is-dark is-fullwidth" value={playlist._id}>
                     <span className="icon is-32x32">
                       <img src={playlist.cover} />
                     </span>
@@ -89,7 +89,7 @@ function PlaylistBtnDropdown(props) {
       {loggedIn ? (
         <div className="box">
           <button
-            className="button is-primary"
+            className="button is-warning is-fullwidth"
             onClick={toggleNewPlaylistModal}
           >
             <span className="icon">➕ </span>
