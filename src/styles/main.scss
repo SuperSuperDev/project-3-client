@@ -33,6 +33,10 @@ body {
   background-color: #3a3f44;
 }
 
+#song-form{
+  background-color: #3a3f44;
+}
+
 #playlist-card {
   background-color: #3a3f44;
 }
@@ -40,6 +44,25 @@ body {
 #album-card {
   background-color: #3a3f44;
 }
+
+#show-playlist{
+  background-color: #3a3f44;
+}
+
+#album-show{
+  background-color: #3a3f44;
+}
+
+#login {
+  background-color: #3a3f44;
+  border-radius: 5px;
+}
+
+#register {
+  background-color: #3a3f44;
+}
+
+
 
 #comments-scroll {
   margin-top: 10px;
@@ -70,6 +93,6 @@ body {
   align-items: center;
 }
 
-#song-form {
-  background-color: #3a3f44 !important;
+#add-button{
+  margin-right: 8px;
 }
