@@ -87,9 +87,7 @@ function SongListItem(props) {
                       onClick={handleShadowDelete}
                       id="delete-song-button"
                       className="button is-danger"
-                    >
-                      🗑
-                    </button>
+                    >🗑</button>
                   </span>
                 )}
               </div>
