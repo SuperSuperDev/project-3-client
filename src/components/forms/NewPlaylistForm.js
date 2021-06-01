@@ -14,8 +14,8 @@ function NewPlaylistForm(stopPushHistory) {
     cover: '',
     public: false,
   })
-  
-  
+
+
   const handleUpload = (url) => {
     handleChange({ target: { name: 'cover', value: url } })
   }
@@ -27,6 +27,7 @@ function NewPlaylistForm(stopPushHistory) {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
+      if (!formdata.cover) formdata.cover = undefined
       const res = await createPlaylist(formdata)
       !stopPushHistory ? history.push(`/playlist/${res.data._id}`) : setShowSuccessMessage(true)
     } catch (err) {

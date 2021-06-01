@@ -45,7 +45,7 @@ function PlaylistBtnDropdown(props) {
         setPlaylistUpdated(true)
       }
     } catch (err) {
-      console.log(err.res)
+      console.log(err.response.data)
     }
   }
 

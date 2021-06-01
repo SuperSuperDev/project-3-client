@@ -40,7 +40,7 @@ function ShowPlaylist() {
     setSearchTerm('')
   }
 
-  
+
   const handleRemovePlaylist = async () => {
     try {
       await removePlaylist(playlistId)
@@ -53,7 +53,7 @@ function ShowPlaylist() {
       console.log(err)
     }
   }
-  
+
   return (
     <>
       <section className="hero is-primary">
@@ -81,7 +81,7 @@ function ShowPlaylist() {
               </div>
             </div>
           </div>
-          {(isOwner(playlist?.users[0]._id)) &&
+          {(isOwner(playlist?.users[0]._id || playlist?.user._id)) &&
             <aside id="aside" className="column">
               <button className="button" onClick={handleRemovePlaylist}>Delete Playlist</button>
             </aside>
