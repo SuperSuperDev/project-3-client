@@ -56,12 +56,6 @@ function SongListItem(props) {
                       >
                         Comments
                       </button>
-                      {commentHidden && (
-                        <SongComment
-                          commentsPassed={props.comments}
-                          id={props._id}
-                        />
-                      )}
                     </div>
                   </div>
                   <div className="level-right">
@@ -77,7 +71,14 @@ function SongListItem(props) {
                   </div>
                 </div>
               </div>
+
+              {commentHidden && (
+                <div className="box">
+                  <SongComment commentsPassed={props.comments} id={props._id} />
+                </div>
+              )}
             </div>
+
             <div className="field has-addons">
               <div className="media-right">
                 {isOwner(props.user) && (
