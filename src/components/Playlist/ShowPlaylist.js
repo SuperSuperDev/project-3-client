@@ -18,6 +18,7 @@ function ShowPlaylist() {
     const getData = async () => {
       try {
         const response = await getSinglePlaylist(playlistId)
+        response.data.users = [response.data.user]
         setPlaylist(response.data)
       } catch (err) {
         console.log(err)
@@ -53,7 +54,7 @@ function ShowPlaylist() {
       console.log(err)
     }
   }
-
+  const user = playlist?.users[0]._id || playlist?.user._id
   return (
     <>
       <section>
@@ -81,7 +82,7 @@ function ShowPlaylist() {
               </div>
             </div>
           </div>
-          {(isOwner(playlist?.users[0]._id || playlist?.user._id)) &&
+          {(isOwner(user)) &&
             <aside id="aside" className="column">
               <button className="button" onClick={handleRemovePlaylist}>Delete Playlist</button>
             </aside>

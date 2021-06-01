@@ -72,7 +72,7 @@ function SongForm() {
     <main className="section">
       <div className="columns is-mobile">
         <div className="column is-6-tablet is-offset-3-tablet is-8-mobile is-offset-2-mobile box">
-          <form  onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <ArtistForm selectedArtists={selectedArtists} setSelectedArtists={setSelectedArtists} />
             <AlbumForm setSelectedAlbum={setSelectedAlbum} selectedAlbum={selectedAlbum} />
             <label className="label has-text-centered">Select Song</label>
