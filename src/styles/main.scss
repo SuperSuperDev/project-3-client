@@ -33,7 +33,7 @@ body {
   background-color: #3a3f44;
 }
 
-#song-form{
+#song-form {
   background-color: #3a3f44;
 }
 
@@ -45,11 +45,11 @@ body {
   background-color: #3a3f44;
 }
 
-#show-playlist{
+#show-playlist {
   background-color: #3a3f44;
 }
 
-#album-show{
+#album-show {
   background-color: #3a3f44;
 }
 
@@ -101,8 +101,8 @@ body {
 
 .dropdown-content {
   background-color: #2d3436;
-background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
-padding: 0.7em;
+  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+  padding: 0.7em;
 }
 
 .label {
@@ -110,37 +110,36 @@ padding: 0.7em;
 }
 
 
-HTML CSS 
+HTML CSS Result Skip Results Iframe EDIT ON body {
+  margin: 0;
+  padding: 0;
 
-Result
-Skip Results Iframe
-
-EDIT ON
-
-body {
-margin: 0;
-padding: 0;
-
-background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 }
 
 .dropdown-content {
-position: relative;
-margin: 0px auto 0;
-width: 100%;
-height: 100%;
-background: linear-gradient(0deg, #000, #272727);
+  position: relative;
+  margin: 0px auto 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, #000, #272727);
 }
 
 
 
-#add-button{
+#add-button {
   margin-right: 8px;
 }
 
 #artist-name {
-  margin-right: 5px; 
+  margin-right: 5px;
 }
+
 .input.input {
   color: black;
+}
+
+#genre-filter {
+  max-height: 200px;
+  overflow-y: auto;
 }

@@ -50,15 +50,26 @@ function SongListItem(props) {
             </figure>
             <div className="media-content">
               <div className="content">
-                <strong id="song-title" className="title has-text-light">
-                  {props.name}
-                </strong>
-                <br />
-                <small className="subtitle has-text-light">
-                  {props.singer.name}
-                </small>
-                <br />
-                <small className="has-text-light">{props.album.name}</small>
+                <p>
+                  <strong id="song-title" className="title has-text-light">
+                    {props.name}
+                  </strong>
+                </p>
+                <p>
+                  <small className="subtitle has-text-grey">
+                    Artist: {props.singer.name}
+                  </small>
+                </p>
+                <p>
+                  <small className="subtitle has-text-grey">
+                    Genre: {props.genre}
+                  </small>
+                </p>
+                <p>
+                  <small className="subtitle has-text-grey">
+                    Album: {props.album.name}
+                  </small>
+                </p>
               </div>
               <div className="level">
                 <div className="level-left">

@@ -5,7 +5,7 @@ import ImageUpload from '../upload/ImageUpload'
 import useForm from '../../hooks/useForm'
 
 
-function NewPlaylistForm(stopPushHistory) {
+function NewPlaylistForm({ stopPushHistory, expandWidth, toggleNewPlaylistModal }) {
   const history = useHistory()
   const [showSuccessMessage, setShowSuccessMessage] = React.useState(false)
   const { formdata, handleChange } = useForm({
@@ -29,15 +29,18 @@ function NewPlaylistForm(stopPushHistory) {
     try {
       if (!formdata.cover) formdata.cover = undefined
       const res = await createPlaylist(formdata)
+      setTimeout(() => {
+        toggleNewPlaylistModal && toggleNewPlaylistModal()
+      }, 2000)
       !stopPushHistory ? history.push(`/playlist/${res.data._id}`) : setShowSuccessMessage(true)
     } catch (err) {
       console.log(err.response.data)
     }
   }
   return (
-    <main className="section">
-      <div className="columns is-mobile">
-        <div className="column is-4-tablet is-offset-4-tablet is-8-mobile is-offset-2-mobile box">
+    <main className="section has-background-black">
+      <div className="columns is-mobile ">
+        <div className={`column ${expandWidth ? 'is-6-tablet is-offset-4-tablet' : 'is-4-tablet is-offset-4-tablet'}  is-8-mobile is-offset-2-mobile box`}>
           {!showSuccessMessage ? (
             <form className="form" onSubmit={handleSubmit}>
               <label className="label has-text-centered">Create Playlist</label>
