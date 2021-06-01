@@ -24,18 +24,18 @@ function Register() {
   }
 
   return (
-    <section className="section">
-      <div className="container">
+    <section  className="section">
+      <div  className="container">
         <div className="columns">
-          <form
+          <form id="register"
             className="column is-half is-offset-one-quarter box"
             onSubmit={handleSubmit}
           >
             <div className="field">
-              <label className="label">Username</label>
+              <label className="label has-text-light">Username</label>
               <div className="control">
                 <input
-                  className={`input ${formErrors.username ? 'is-danger' : ''}`}
+                  className={`input ${formErrors.username ? 'is-danger' : ''} `}
                   placeholder="Username"
                   onChange={handleChange}
                   name="username"
@@ -47,7 +47,7 @@ function Register() {
               )}
             </div>
             <div className="field">
-              <label className="label">Email</label>
+              <label className="label has-text-light">Email</label>
               <div className="control">
                 <input
                   className={`input ${formErrors.email ? 'is-danger' : ''}`}
@@ -60,7 +60,7 @@ function Register() {
               {formErrors.email && <p className="help is-danger">{formErrors.email}</p>}
             </div>
             <div className="field">
-              <label className="label">Password</label>
+              <label className="label has-text-light">Password</label>
               <div className="control">
                 <input
                   type="password"
@@ -76,7 +76,7 @@ function Register() {
               )}
             </div>
             <div className="field">
-              <label className="label">Password Confirmation</label>
+              <label className="label has-text-light">Password Confirmation</label>
               <div className="control">
                 <input
                   type="password"

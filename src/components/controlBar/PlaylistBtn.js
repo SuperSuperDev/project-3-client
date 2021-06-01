@@ -12,6 +12,7 @@ function PlaylistBtn(props) {
       <div className={`dropdown is-right ${dropDownIsActive && 'is-active'}`}>
         <div className="dropdown-trigger">
           <button
+            id="add-button"
             onClick={toggleDropDown}
             className="button"
             aria-haspopup="true"

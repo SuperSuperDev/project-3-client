@@ -44,7 +44,7 @@ function SongListItem(props) {
                   {props.singer.name}
                 </small>
                 <br />
-                <small>{props.album.name}</small>
+                <small className="has-text-light">{props.album.name}</small>
               </div>
               <div className="level">
                 <div className="level-left">

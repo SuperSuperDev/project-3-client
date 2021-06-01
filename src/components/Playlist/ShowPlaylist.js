@@ -56,10 +56,10 @@ function ShowPlaylist() {
   
   return (
     <>
-      <section className="hero is-primary">
-        <div className="columns">
+      <section>
+        <div id="show-playlist" className="columns">
           <div className="hero-body">
-            <p className="title">{playlist?.name} Playlist</p>
+            <p className="title has-text-light">{playlist?.name} Playlist</p>
             <p className="subtitle">{playlist?.artists && (
               playlist.songs.map(song => <span key={song._id}>{song.name} </span>)
             )}</p>
@@ -67,7 +67,7 @@ function ShowPlaylist() {
             <div className="field is-grouped">
               <div className="control">
                 <input
-                  className="input"
+                  className="input "
                   type="text"
                   placeholder="Search this playlist"
                   onChange={handleInput}
