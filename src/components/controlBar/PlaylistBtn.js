@@ -23,7 +23,7 @@ function PlaylistBtn(props) {
         </div>
         <div className="dropdown-menu" id="dropdown-menu" role="menu">
           <div className="dropdown-content">
-            {dropDownIsActive && <PlaylistBtnDropdown {...props} />}
+            {dropDownIsActive && <PlaylistBtnDropdown props={props} toggleDropDown={toggleDropDown} />}
           </div>
         </div>
       </div>

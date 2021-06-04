@@ -15,13 +15,27 @@ function SongListItem(props) {
   }
 
   const [shadowDeleted, setShadowDeleted] = React.useState(false)
+  const [openModal, setOpenModal] = React.useState(false)
+
   const handleShadowDelete = async () => {
     setShadowDeleted(!shadowDeleted)
     try {
       await editSong(props._id, { ...props, isDeleted: true })
+      setOpenModal(false)
     } catch (e) {
       console.log(e?.response.data)
     }
+  }
+  const handleConfirm = () => {
+    handleShadowDelete()
+  }
+
+  const handleReject = () => {
+    setOpenModal(false)
+  }
+
+  const handleOpenModal = () => {
+    setOpenModal(true)
   }
 
   return (
@@ -36,15 +50,26 @@ function SongListItem(props) {
             </figure>
             <div className="media-content">
               <div className="content">
-                <strong id="song-title" className="title has-text-light">
-                  {props.name}
-                </strong>
-                <br />
-                <small className="subtitle has-text-light">
-                  {props.singer.name}
-                </small>
-                <br />
-                <small className="has-text-light">{props.album.name}</small>
+                <p>
+                  <strong id="song-title" className="title has-text-light">
+                    {props.name}
+                  </strong>
+                </p>
+                <p>
+                  <small className="subtitle has-text-grey">
+                    Artist: {props.singer.name}
+                  </small>
+                </p>
+                <p>
+                  <small className="subtitle has-text-grey">
+                    Genre: {props.genre}
+                  </small>
+                </p>
+                <p>
+                  <small className="subtitle has-text-grey">
+                    Album: {props.album.name}
+                  </small>
+                </p>
               </div>
               <div className="level">
                 <div className="level-left">
@@ -78,23 +103,41 @@ function SongListItem(props) {
                 </div>
               )}
             </div>
-
             <div className="field has-addons">
               <div className="media-right">
                 {isOwner(props.user) && (
                   <span>
                     <button
-                      onClick={handleShadowDelete}
+                      onClick={handleOpenModal}
                       id="delete-song-button"
                       className="button is-danger"
                     >🗑</button>
                   </span>
                 )}
+                <div className={`modal ${openModal && 'is-active'}`}>
+                  <div className="modal-background" onClick={handleReject}></div>
+                  <div className="modal-content">
+                    <div className="box">
+                      <label className="label has-text-centered">Are you sure you want to delete this song?</label>
+                      <br />
+                      <div className="buttons is-centered">
+                        <button className="button is-danger" onClick={handleConfirm}>Yes</button>
+                        <button className="button is-warning" onClick={handleReject}>No</button>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={handleReject}
+                    className="modal-close is-large"
+                    aria-label="close"
+                  ></button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      )}
+      )
+      }
     </>
   )
 }

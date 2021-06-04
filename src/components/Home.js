@@ -10,6 +10,7 @@ function Home() {
             <h1 className="title is-1 has-text-centered has-text-white">
               Cloudify
             </h1>
+            
           </Link>
         </div>
       </section>

@@ -38,7 +38,7 @@ function AlbumIndex() {
   const handleCreateAlbum = () => {
     history.push('/albums/new')
   }
-  
+
   return (
     <>
       <section className="hero">

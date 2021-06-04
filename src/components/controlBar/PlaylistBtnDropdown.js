@@ -5,7 +5,7 @@ import LoginMini from '../auth/LoginMini'
 import Loader from 'react-loader-spinner'
 import NewPlaylistForm from '../forms/NewPlaylistForm'
 
-function PlaylistBtnDropdown(props) {
+function PlaylistBtnDropdown({ props, toggleDropDown }) {
   const [modalIsActive, setModalIsActive] = React.useState(false)
   const [usersPlaylists, setUsersPlaylists] = React.useState(null)
   const [playlistUpdated, setPlaylistUpdated] = React.useState(false)
@@ -43,6 +43,9 @@ function PlaylistBtnDropdown(props) {
       if (loggedIn) {
         await addSongToPlaylist(playlistId, songId)
         setPlaylistUpdated(true)
+        setTimeout(() => {
+          toggleDropDown()
+        }, 2000)
       }
     } catch (err) {
       console.log(err.response.data)
@@ -106,7 +109,12 @@ function PlaylistBtnDropdown(props) {
           onClick={toggleNewPlaylistModal}
         ></div>
         <div className="modal-content">
-          ${modalIsActive && <NewPlaylistForm stopPushHistory />}
+          {modalIsActive &&
+            <NewPlaylistForm
+              stopPushHistory={true}
+              expandWidth={true}
+              toggleNewPlaylistModal={toggleNewPlaylistModal}
+            />}
         </div>
         <button
           onClick={toggleNewPlaylistModal}
