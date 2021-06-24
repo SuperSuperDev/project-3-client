@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { getToken } from './auth'
-const baseUrl = '/api'
+const baseUrl = process.env.REACT_APP_PROD_URL || '/api'
 
 
 function headers() {
@@ -13,7 +13,7 @@ export function getUsersPlaylist() {
   return axios.get(`${baseUrl}/getusersplaylist`, headers())
 }
 export function addSongToPlaylist(playlistId, songId) {
-  return axios .post(`${baseUrl}/playlist/${playlistId}/songs/${songId}`, null, headers())
+  return axios.post(`${baseUrl}/playlist/${playlistId}/songs/${songId}`, null, headers())
 }
 // * Song Requests
 
