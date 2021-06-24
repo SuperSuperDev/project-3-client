@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { getToken } from './auth'
-const baseUrl = process.env.REACT_APP_PROD_URL || '/api'
-
+import { baseUrl } from '../config.js'
 
 function headers() {
   return {
