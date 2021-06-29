@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { getToken } from './auth'
-import { baseUrl } from '../config.js'
+import { baseUrl } from '../config'
+
+console.log(process.env.NODE_ENV)
+console.log(baseUrl)
 
 function headers() {
   return {
