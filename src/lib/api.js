@@ -1,7 +1,9 @@
 import axios from 'axios'
 import { getToken } from './auth'
-const baseUrl = '/api'
+import { baseUrl } from '../config'
 
+console.log(process.env.NODE_ENV)
+console.log(baseUrl)
 
 function headers() {
   return {
@@ -13,7 +15,7 @@ export function getUsersPlaylist() {
   return axios.get(`${baseUrl}/getusersplaylist`, headers())
 }
 export function addSongToPlaylist(playlistId, songId) {
-  return axios .post(`${baseUrl}/playlist/${playlistId}/songs/${songId}`, null, headers())
+  return axios.post(`${baseUrl}/playlist/${playlistId}/songs/${songId}`, null, headers())
 }
 // * Song Requests
 
