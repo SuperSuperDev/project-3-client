@@ -12,7 +12,6 @@ function PlaylistGrid({ playlistList }) {
                 <PlaylistCard  {...playlist} />
               </div>
             ))
-
           ) : (
             <div id="loader">
               <Loader

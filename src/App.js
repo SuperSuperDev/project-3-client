@@ -22,7 +22,7 @@ export const AudioQueueContext = createContext(null)
 
 
 function App() {
-  //! Player que list 
+  //* Player que list 
   const [audioQueue, setAudioQueue] = React.useState(null)
 
   const updateAudioQueue = (song, playnow) => {

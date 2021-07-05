@@ -7,17 +7,21 @@ function Nav() {
   const history = useHistory()
   const isLoggedIn = isAuthenticated()
   const [menuIsActive, setMenuIsActive] = React.useState(false)
+
   const toggleMenu = () => {
     setMenuIsActive(!menuIsActive)
   }
+
   const handleLogout = () => {
     removeToken()
     removeLikes()
     history.push('/')
   }
+
   React.useEffect(() => {
     setMenuIsActive(false)
   }, [location.pathname])
+
   return (
     <nav id="nav" className="navbar">
       <div className="container">
@@ -41,7 +45,7 @@ function Nav() {
           <div className="navbar-start">
             <Link to="/songs" className="navbar-item">
               {' '}
-               Songs
+              Songs
             </Link>
             <Link to="/albums" className="navbar-item">
               {' '}
@@ -55,15 +59,15 @@ function Nav() {
               <>
                 <Link to="/upload-song" className="navbar-item">
                   {' '}
-              Upload Song
+                  Upload Song
                 </Link>
                 <Link to="/albums/new" className="navbar-item">
                   {' '}
-              Create Album
+                  Create Album
                 </Link>
                 <Link to="/playlist/new" className="navbar-item">
                   {' '}
-              Create Playlist
+                  Create Playlist
                 </Link>
               </>
             }

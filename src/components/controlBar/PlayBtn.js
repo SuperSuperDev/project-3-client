@@ -10,9 +10,7 @@ function PlayBtn(props) {
       cover: props.cover,
       musicSrc: props.musicSrc,
     }
-
     updateAudioQueue([song], true)
-
   }
 
   return (

@@ -9,7 +9,6 @@ function UserAlbums() {
   const [albums, setAllAlbums] = React.useState(null)
   const [searchTerm, setSearchTerm] = React.useState('')
 
-  
   React.useEffect(() => {
     const getData = async () => {
       try {

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import Creatable from 'react-select/creatable'
 import ImageUpload from '../upload/ImageUpload.js'

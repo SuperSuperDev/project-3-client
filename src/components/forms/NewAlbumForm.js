@@ -1,16 +1,14 @@
+import Creatable from 'react-select/creatable'
 import { useState } from 'react'
 import { useHistory } from 'react-router'
-import Creatable from 'react-select/creatable'
-import useForm from '../../hooks/useForm'
 import { createAlbum } from '../../lib/api'
 import ImageUpload from '../upload/ImageUpload'
 import ArtistForm from './ArtistForm'
+import useForm from '../../hooks/useForm'
 
 function NewAlbumForm() {
   const history = useHistory()
-
   const [selectedArtists, setSelectedArtists] = useState(null)
-
   const { formdata, handleChange } = useForm({
     name: '',
     year: '',
@@ -39,6 +37,7 @@ function NewAlbumForm() {
   const handleSelect = target => {
     handleChange({ target: { name: 'leadArtist', value: target.value } })
   }
+
   return (
     <main className="section">
       <div className="columns is-mobile">

@@ -7,21 +7,11 @@ function SongsIndex() {
   const history = useHistory()
   const [songs, setAllSongs] = React.useState(null)
   const [searchTerm, setSearchTerm] = React.useState('')
-  // const [genres, setGenres] = React.useState(null)
-  // const [genre, setGenre] = React.useState('')
 
   React.useEffect(() => {
     const getData = async () => {
       try {
         const response = await getAllSongs()
-        // const allGenres = response.data.map(song => song.genre.toLowerCase())
-        // const filteredGenres = Array()
-        // for (let i = 0; i < allGenres.length; i++) {
-        //   if (!filteredGenres.includes(allGenres[i].toLowerCase())) {
-        //     filteredGenres.push(allGenres[i])
-        //   }
-        // }
-        // setGenres(filteredGenres)
         setAllSongs(response.data)
       } catch (err) {
         console.log(err)
@@ -40,21 +30,12 @@ function SongsIndex() {
     setSearchTerm('')
   }
 
-  // const handleGenreFilter = ({ target }) => {
-  //   console.log(target.value)
-  //   setGenre(target.value)
-  // }
-
   const filteredSongs = songs?.filter((song) => {
     return (
       song.name?.toLowerCase().includes(searchTerm)
-      // song.genre?.toLowerCase().includes(genre)
     )
   })
-  // const songList = { filteredSongs }
-  // console.log(searchTerm)
-  // console.log('filtered songs', songList)
-  // console.log('sorea songlist: ', { ...songList })
+
   return (
     <>
       <section className="hero">
@@ -79,17 +60,6 @@ function SongsIndex() {
               </button>
             </div>
           </div>
-          {/* <div className="field" id="genre-filter">
-            <div className="buttons">
-              {genres && genres.map(genre => {
-                return (
-                  <>
-                    <button className="button is-black has-text-white" onClick={handleGenreFilter} value={genre}>{genre}</button>
-                  </>
-                )
-              })}
-            </div>
-          </div> */}
         </div>
       </section>
       <SongList songList={filteredSongs} />

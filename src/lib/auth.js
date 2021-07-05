@@ -9,6 +9,7 @@ export function getToken() {
 export function removeToken() {
   localStorage.removeItem('token')
 }
+
 // * Current User Playlists (LocalStorage)
 export function setPlaylists(playlists){
   localStorage.setItem('playlists', JSON.stringify(playlists))
@@ -22,8 +23,7 @@ export function removePlaylists() {
   return localStorage.removeItem('playlists')
 }
 
-
-//! Current User Likes
+//* Current User Likes
 export function setLikes(likes){
   localStorage.setItem('likes', JSON.stringify(likes) )
 }
