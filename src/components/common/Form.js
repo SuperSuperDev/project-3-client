@@ -22,12 +22,14 @@ function Form() {
     artists: [],
     album: '',
   })
+
   const { formdata: albumdata, handleChange: handleAlbumChange } = useForm({
     cover: '',
     artists: [],
     album: '',
   })
-  console.log(songdata)
+
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -35,7 +37,7 @@ function Form() {
         const convertedArtists = resArtists.data.map(artist => {
           return {
             value: artist._id,
-            label: artist.name
+            label: artist.name,
           }
         })
         setArtists(convertedArtists)
@@ -43,7 +45,7 @@ function Form() {
         const convertedAlbums = resAlbums.data.map(album => {
           return {
             value: album._id,
-            label: album.name
+            label: album.name,
           }
         })
         setAlbums(convertedAlbums)
@@ -77,7 +79,6 @@ function Form() {
     setValueOfNewArtist(props)
     setCreateArtist(true)
   }
-
 
 
   return (
@@ -133,7 +134,5 @@ function Form() {
     </main>
   )
 }
-
-
 
 export default Form

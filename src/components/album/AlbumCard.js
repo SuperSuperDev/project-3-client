@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import { getAllSongsInAlbum } from '../../lib/api'
 import { AudioQueueContext } from '../../App.js'
+
 
 function AlbumCard({ _id, name, cover, artists, leadArtist }) {
   const { updateAudioQueue } = React.useContext(AudioQueueContext)
@@ -19,6 +19,7 @@ function AlbumCard({ _id, name, cover, artists, leadArtist }) {
     getData()
   }, [_id])
 
+
   const addAlbumToQueue = () => {
     const songsToPlay = songs.map(song => {
       return {
@@ -31,6 +32,7 @@ function AlbumCard({ _id, name, cover, artists, leadArtist }) {
     updateAudioQueue(songsToPlay, false)
   }
 
+  
   return (
     <div id="album-card" className="card">
       <Link to={`albums/${_id}`}>

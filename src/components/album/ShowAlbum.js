@@ -54,6 +54,7 @@ function ShowAlbum() {
     }
   }
 
+
   return (
     <>
       <section id="album-show">
@@ -63,7 +64,6 @@ function ShowAlbum() {
             <p className="subtitle has-text-light">{album?.artists && (
               album.artists.map(artist => <span key={artist._id}>{artist.name} </span>)
             )}</p>
-
             <div className="field is-grouped">
               <div className="control">
                 <input

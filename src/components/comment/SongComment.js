@@ -37,8 +37,8 @@ function SongComment({ id }) {
       await addCommentToSong(formdata, id)
       setSubmit(!submit)
     } catch (err) {
-      if (err.repsonse) {
-        console.log(err.repsonse.data)
+      if (err.response) {
+        console.log(err.response.data)
       } else {
         console.log(err)
       }

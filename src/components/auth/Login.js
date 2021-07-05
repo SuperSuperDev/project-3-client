@@ -4,6 +4,7 @@ import { loginUser } from '../../lib/api'
 import { setToken, setLikes, setPlaylists } from '../../lib/auth'
 import useForm from '../../hooks/useForm'
 
+
 function Login() {
   const history = useHistory()
   const [isError, setIsError] = React.useState(false)
@@ -22,7 +23,6 @@ function Login() {
       setToken(res.data.token)
       setLikes(res.data.likes)
       setPlaylists(res.data.playlists)
-
       log.push(res.data)
       history.push('/')
 
@@ -30,6 +30,7 @@ function Login() {
       setIsError(true)
     }
   }
+
 
   return (
     <section  className="section">

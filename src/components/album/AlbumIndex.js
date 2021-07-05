@@ -39,6 +39,7 @@ function AlbumIndex() {
     history.push('/albums/new')
   }
 
+  
   return (
     <>
       <section className="hero">
