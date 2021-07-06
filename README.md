@@ -229,11 +229,11 @@ The result is an elegant looking music library.
 <a name="frontend"></a>
 
 ### Frontend
-Once the backend was finished, Ali and I joined Steven to work on the frontend. At this time Steven has already written majority of the components and has successfully connected our backend to the frontend. Additionally Steven has done some styling using Bulma making it easier for Ali and I to understand what has been done and even set up the Jinke React Music Player. While Steven continued working on the functionality for creating albums and playlist Ali worked on user registration and song uploading. 
+Once the backend was finished, Ali and I joined Steven to work on the frontend. At this time Steven has already written majority of the components and has successfully connected our backend to the frontend. Additionally Steven has done some styling using Bulma, making it easier for Ali and I to navigate the app, and even set up the Jinke React Music Player. While Steven continued working on the functionality for creating albums and playlist Ali worked on user registration and song uploading. 
 
 I worked on implementing the song index page, the comment section for authenticated users and song deletion functionality for the owner of the song (see below). 
 
-Additionally Ali and I worked on setting up the music player to accept our music library. 
+Additionally Ali and I worked on setting up the music player to accept our music library.
 
 <a name="song-index"></a>
 
@@ -265,7 +265,7 @@ Our `songs` are then filtered through for users to be able to search through the
   })
 ```
 
-The `filteredSongs` are the passed to the `SongList` component which we call in the HTML.
+The `filteredSongs` are then passed to the `SongList` component.
 
 ```js
     <>
@@ -291,7 +291,7 @@ The `SongList` maps through our filtered songs and for each of them creates a `<
   )}
 ```
 
-Finally, since in `<SongListItem>` we spread the `{...song}` object, in our last component we create our `song-item` by retrieving the data from the props.
+Finally, a `song-item` is created for each song by retrieving the data from the props in `<SongListItem>`.
 
 ```js
   <p>
@@ -311,7 +311,53 @@ Finally, since in `<SongListItem>` we spread the `{...song}` object, in our last
 
 #### Comments
 
-`SongListItem` also calls `<SongComment>` component with the functionality to post, edit and delete comments on a song, checking if you are the owner and an authenticated user. 
+`SongListItem` also calls `<SongComment>` component with CRUD functionality for comments, checking if you are the owner and an authenticated user. 
+
+```js
+{comments && comments.map(comment => (
+          <div key={comment._id} className="box is-primary">
+            <p>{comment.username.username}</p>
+            <p>{comment.text}</p>
+            {isOwner(comment.username._id) &&
+              <span>
+                <button type="button" value={`${comment._id}-${comment.text}`} onClick={editComment}>Edit</button>
+                <button type="button" value={comment._id} onClick={handleDeleteComment}>Delete</button>
+              </span>
+            }
+          </div>
+        ))}
+      </div>
+      <div>
+      </div>
+      {isAuthenticated() &&
+        <section id="add-comment">
+          <div className="columns is-mobile">
+            <div className="column box">
+              <form className="form" onSubmit={handleAddComment}>
+                <div className="field">
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="input"
+                      placeholder="Add a comment"
+                      name="text"
+                      value={formdata.text}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  {!commentEdit ?
+                    <button type="submit" className="button is-link">Add Comment</button>
+                    : <button type="button" onClick={handleEditComment} className="button is-warning">Edit Comment</button>
+                  }
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      }
+```
 
 ![](/readme-img/comment-demo.gif)
 
@@ -323,7 +369,7 @@ Finally, since in `<SongListItem>` we spread the `{...song}` object, in our last
 
 ### Wins
 
-- **Teamwork**: we did an excellent job to support each other, particularly in the process of debugging. We manage to implement most of the features we desired and are happy with the final product. 
+- **Teamwork**: we did an excellent job in supporting one another, particularly in the process of debugging. We managed to implement most of the features we desired and are happy with the final product. 
 
 - **Passing Data**: At points I struggled to understand how data is being passed between components, however with the help of my teammates and their patience I was able to overcome this hurdle.
 
@@ -332,7 +378,7 @@ Finally, since in `<SongListItem>` we spread the `{...song}` object, in our last
 <a name="challenges"></a>
 
 ### Challenges
-- **Communication**: Although we split our work well, by the time Ali and I finished with the backend a lot has been done in the frontend by Steven. I believe we could have implemented an additional discussion in our stand-ups with the goal to discuss what has been accomplished since the last time we spoke. This would have made the transition from the backend easier as Ali and I had trouble understanding some of the code and the relationships between components. 
+- **Communication**: Although we split our work well, by the time Ali and I finished with the backend a lot has been done in the frontend by Steven. I believe we could have implemented an additional discussion in our stand-ups with the goal to detail what has been accomplished since the last time we spoke. This would have made the transition from the backend easier as Ali and I had trouble understanding some of the code and the relationships between components. 
 
 - **Populating Data**: At many times we would encounter a barrier where instead of getting a correct response, certain items would return `undefined` which  was due to us not populating certain fields in the backend correctly. On many occasions this has frustrated the flow of work and could have been prevented if we were more thorough in our work. 
 
@@ -342,7 +388,7 @@ Finally, since in `<SongListItem>` we spread the `{...song}` object, in our last
 
 ### Lessons Learned
 
-- **Communication is KEY**. While working in a team of three I have realized how important it is to have thorough discussions of what has been accomplished by different members. This not only makes transitioning from frontend and backend easier but also helps when you have work with someone elses code.
+- **Communication is KEY**. While working in a team of three I have realized how important it is to have thorough discussions of what has been accomplished by different members. This not only makes transitioning from frontend and backend easier but also helps when you have to work with someone elses code.
 
 - I learned a lot about building the backend and found it very satisfying seeing it all come together in the frontend. Although working with Express was a challenge I now better understand how elements function together.
 
