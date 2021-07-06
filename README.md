@@ -294,9 +294,15 @@ Finally, since in `<SongListItem>` we spread the `{...song}` object, in our last
 
 - **Deleting Songs**: As we ended up with many models referencing one another we encountered an issue where deleting a song would break certain parts of the app. My sloppy solution was a "shadow delete" function which hides the song permanently, however it stays in the database. This is something I would like to comeback to in the future and refactor as originally intended. 
 
-### Key Learnings
+### Lessons Learned
+
 - **Communication is KEY**. While working in a team of three I have realized how important it is to have thorough discussions of what has been accomplished by different members. This not only makes transitioning from frontend and backend easier but also helps when you have work with someone elses code.
 
-- **
+- I learned a lot about building the backend and found it very satisfying seeing it all come together in the frontend. Although working with Express was a challenge I now better understand how elements function together.
+
+- As this was our first time using Git I have learned how to work in different branches and resolve conflicts with the rest of the team.
+
 
 ### Potential Features
+
+- **User Dashboard**: Although it was not a part of our MVP we started working on a Dashboard which would have been our homepage displaying logged in user's playlist, liked songs and songs user has uploaded. This is something we would like to comeback to in the future to finish as it would really complete the product.
