@@ -28,7 +28,7 @@ Project backend can be found [here](https://github.com/guykozlovskij/project-3-s
 <a name="overview"></a>
 
 ## Overview
-For our third Project at **General Assembly's Software Engineering Immersive Course** we had 10 days to build a fullstack web app in group a of three. The scale of this project has been the biggest one so far in the course, and this has also been the first time we worked collaboratively using Git.
+For our third Project at **General Assembly's Software Engineering Immersive Course** we had 10 days to build a fullstack web app in a group of three. The scale of this project has been the biggest one so far in the course, and this has also been the first time we worked collaboratively using Git.
 
 Our project was inspired by two of the internet's biggest music platforms - **Spotify** and **Soundcloud**. The goal was to build a music listening service with a social media aspect to it. Users can upload, comment, like and share songs as well as build playlist, albums, create artists and manage artist profiles. 
 
@@ -38,7 +38,7 @@ Our project was inspired by two of the internet's biggest music platforms - **Sp
 
 ## Brief
 - Build a full-stack application by making our own backend and frontend
-- Work in a team using git to code collaboratively
+- Work in a team using Git to code collaboratively
 - Use an Express API to serve our data from a Mongo database
 - Consume the API with a frontend built with REACT
 - Have a complete product with multiple relationships and CRUD functionality for at least a couple of models
@@ -66,7 +66,7 @@ As we knew the scale of our project would not be small, our initial step was to 
 
 ![](/readme-img/whiteboard.gif)
 
-Once we understood our steps and planned out the development, we split our workload, with Steven starting the work on the frontend and myself and Ali working on the backend.
+Once we understood our steps and planned out the development, we split the workload, with Steven starting the work on the frontend and myself and Ali working on the backend.
 
 After finishing the backend in 4 days we joined Steven and split into working on different React components in the frontend on different Git branches. 
 
@@ -149,7 +149,7 @@ As a user is uploading a song we get a list of all of the artists with an option
 <a name="middleware"></a>
 
 #### Middleware
-While Ali worked on the secure route, I implemented a custom error handler to help with identify different types of errors the backend might encounter when requests are being made. 
+While Ali worked on the secure route, I implemented a custom error handler to help  identify different types of errors the backend might encounter when requests are being made. 
 
 ```js
 function errorHandler(err, req, res, next) {
@@ -194,7 +194,7 @@ function errorHandler(err, req, res, next) {
 <a name="seeding"></a>
 
 #### Seeding
-To make our project stand out visually we wanted to start off our music library already having some royalty free songs with some beautiful artwork. In our search we discovered [Bensound](https://www.bensound.com/) and proceed to work on building our build our database with free songs available on the website. We seeded over 50 songs by me uploading them to [Cloudinary](https://cloudinary.com/) and giving Ali the song data which he typed out one by one. 
+To make our project stand out visually we wanted to start off our music library already having some royalty free songs with some beautiful artwork. In our search we discovered [Bensound](https://www.bensound.com/) and proceed to work on building our database with free songs available on the website. We seeded over 50 songs by me uploading them to [Cloudinary](https://cloudinary.com/) and giving Ali the song data which he typed out one by one. 
 
 We also used Cloudinary as designated storage for users to upload songs. 
 
@@ -378,9 +378,9 @@ Finally, a `song-item` is created for each song by retrieving the data from the 
 <a name="challenges"></a>
 
 ### Challenges
-- **Communication**: Although we split our work well, by the time Ali and I finished with the backend a lot has been done in the frontend by Steven. I believe we could have implemented an additional discussion in our stand-ups with the goal to detail what has been accomplished since the last time we spoke. This would have made the transition from the backend easier as Ali and I had trouble understanding some of the code and the relationships between components. 
+- **Communication**: Although we split our work well, by the time Ali and I finished with the backend a lot had been done in the frontend by Steven. I believe we could have implemented an additional discussion in our stand-ups with the goal to detail what has been accomplished since the last time we spoke. This would have made the transition from the backend easier as Ali and I had trouble understanding some of the code and the relationships between components. 
 
-- **Populating Data**: At many times we would encounter a barrier where instead of getting a correct response, certain items would return `undefined` which  was due to us not populating certain fields in the backend correctly. On many occasions this has frustrated the flow of work and could have been prevented if we were more thorough in our work. 
+- **Populating Data**: At many times we would encounter a barrier where instead of getting a correct response, certain items would return `undefined` which  was due to us not populating certain fields in the backend correctly. On many occasions this frustrated the flow of work and could have been prevented if we were more thorough in our work. 
 
 - **Deleting Songs**: As we ended up with many models referencing one another we encountered an issue where deleting a song would break certain parts of the app. My sloppy solution was a "shadow delete" function which hides the song permanently, however it stays in the database. This is something I would like to comeback to in the future and refactor as originally intended. 
 
