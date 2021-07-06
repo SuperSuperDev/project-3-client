@@ -15,7 +15,7 @@ Our project was inspired by two of the internet's biggest music platforms - Spot
 
 
 
-![](/readme-img/intro_image.png)
+![](/readme-img/tour.gif)
 
 ## Brief
 - Build a full-stack application by making our own backend and frontend
@@ -292,8 +292,11 @@ Finally, since in `<SongListItem>` we spread the `{...song}` object, in our last
 
 - **Populating Data**: At many times we would encounter a barrier where instead of getting a correct response, certain items would return `undefined` which  was due to us not populating certain fields in the backend correctly. On many occasions this has frustrated the flow of work and could have been prevented if we were more thorough in our work. 
 
-- **Deleting Songs**: As we ended up with many models referencing one another we encountered an issue where deleting a song would break certain parts of the app. Our sloppy solution was a "shadow delete" function which hides the song permanently, however it stays in the database 
+- **Deleting Songs**: As we ended up with many models referencing one another we encountered an issue where deleting a song would break certain parts of the app. My sloppy solution was a "shadow delete" function which hides the song permanently, however it stays in the database. This is something I would like to comeback to in the future and refactor as originally intended. 
 
 ### Key Learnings
+- **Communication is KEY**. While working in a team of three I have realized how important it is to have thorough discussions of what has been accomplished by different members. This not only makes transitioning from frontend and backend easier but also helps when you have work with someone elses code.
+
+- **
 
 ### Potential Features
