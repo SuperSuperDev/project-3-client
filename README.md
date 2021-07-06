@@ -19,7 +19,7 @@ Project backend can be found [here](https://github.com/guykozlovskij/project-3-s
   * [Frontend](#frontend)
     * [Song Index](#song-index)
     * [Comments](#comments)
-* [Final Thoughts](final-thoughts)
+* [Final Thoughts](#final-thoughts)
   * [Wins](#wins)
   * [Challenges](#challenges)
   * [Lessons Learned](#lessons-learned)
