@@ -4,6 +4,8 @@
 # Cloudify 
 By [Guy Kozlovskij](https://github.com/guykozlovskij), [Ali Shan](https://github.com/Aliwebs) and [Steven Saunders](https://github.com/SuperSuperStore).
 
+Project backend can be found [here](https://github.com/guykozlovskij/project-3-server).
+
 ## Table of Contents
 
 ## Overview
@@ -11,13 +13,15 @@ For our third Project at General Assembly's Software Engineering Immersive Cours
 
 Our project was inspired by two of the internet's biggest music platforms - Spotify and Soundcloud. The goal was to build a music listening service with a social media aspect to it. Users can upload, comment, like and share songs as well as build playlist, albums, create artists and manage artist profiles. 
 
+
+
 ![](/readme-img/intro_image.png)
 
 ## Brief
-- Build a full-stack application by making our own back-end and front-end
+- Build a full-stack application by making our own backend and frontend
 - Work in team using git to code collaboratively
 - Use an Express API to serve our data from a Mongo database
-- Consume the API with a front-end built with REACT
+- Consume the API with a frontend built with REACT
 - Have a complete product with multiple relationships and CRUD functionality for at least a couple of models
 
 ## Technologies Used
@@ -40,9 +44,9 @@ As we knew the scale of our project would be quite big, our initial step was to 
 
 ![](/readme-img/whiteboard.gif)
 
-After understanding our steps and planning out the development, we split our workload, with Steven starting the work on the front-end and myself and Ali working on the back-end.
+After understanding our steps and planning out the development, we split our workload, with Steven starting the work on the frontend and myself and Ali working on the backend.
 
-Once we finished the back-end in three days we joined Steven and split into working on different React components in the front-end on different Git branches. 
+Once we finished the backend in 4 days we joined Steven and split into working on different React components in the frontend on different Git branches. 
 
 We would spend 1 to 2 hours a day on debugging and  would continuously assist one another where required. 
 
@@ -115,7 +119,7 @@ As a user is uploading a song we get a list of all of the artists with an option
 
 
 #### Middleware
-While Ali worked on the secure route, I implemented a custom error handler to help with identify different types of errors the back-end might encounter when requests are being made. 
+While Ali worked on the secure route, I implemented a custom error handler to help with identify different types of errors the backend might encounter when requests are being made. 
 
 ```js
 function errorHandler(err, req, res, next) {
@@ -185,8 +189,111 @@ export default [
   /* ... */
 ]
 ```
-The result is a elegant looking music library.
+
+The result is an elegant looking music library.
+
 ![](/readme-img/song-scroll.gif)
 
 ### Frontend
+Once the backend was finished, Ali and I joined Steven to work on the frontend. At this time Steven has already written majority of the components and has successfully connected our backend to the frontend. Additionally Steven has done some styling using Bulma making it easier for Ali and I to understand what has been done and even set up the Jinke React Music Player. While Steven continued working on the functionality for creating albums and playlist Ali worked on user registration and song uploading. 
 
+I worked on implementing the song index page, the comment section for authenticated users and song deletion functionality for the owner of the song (see below). 
+
+Additionally Ali and I worked on setting up the music player to accept our music library. 
+
+#### Song Index
+As with most of our views, song index is split into three components. `SongIndex.js` is the main component where we call our `getAllSongs` request. 
+
+```js
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await getAllSongs()
+        setAllSongs(response.data)
+      } catch (err) {
+        console.log(err)
+        history.push('./error')
+      }
+    }
+    getData()
+  }, [setAllSongs, history])
+```
+
+Our `songs` are then filtered through for users to be able to search through the library.
+
+```js
+  const filteredSongs = songs?.filter((song) => {
+    return (
+      song.name?.toLowerCase().includes(searchTerm)
+    )
+  })
+```
+
+The `filteredSongs` are the passed to the `SongList` component which we call in the HTML.
+
+```js
+    <>
+      <section className="hero">
+        //  ...  //
+      </section>  
+      <SongList songList={filteredSongs} />
+    </>
+```
+
+The `SongList` maps through our filtered songs and for each of them creates a `<SongListItem>`. While the songs are being loaded we display an elegant loader implemented by Ali.
+
+```js
+  {filteredSongList ? (
+    filteredSongList.map((song) => (
+      <div key={song._id} className="column is-full">
+        <SongListItem  {...song} />
+      </div>
+    )) ) : (
+    <div id="loader">
+      <Loader type="Puff" color="#00BFFF" height={150} width={150} timeout={3000}/>
+    </div>
+  )}
+```
+
+Finally, since in `<SongListItem>` we spread the `{...song}` object, in our last component we create our `song-item` by retrieving the data from the props.
+
+```js
+  <p>
+    <strong id="song-title" className="title has-text-light">
+      {props.name}
+    </strong>
+  </p>
+  <p>
+    <small className="subtitle has-text-grey">
+      Artist: {props.singer.name}
+    </small>
+  </p>
+  // ... ///
+```
+
+#### Comments
+
+`SongListItem` also calls `<SongComment>` component with the functionality to post, edit and delete comments on a song, checking if you are the owner and an authenticated user. 
+
+![](/readme-img/comment-demo.gif)
+
+
+## Final Thoughts 
+### Wins
+
+- **Teamwork**: we did an excellent job to support each other, particularly in the process of debugging. We manage to implement most of the features we desired and are happy with the final product. 
+
+- **Passing Data**: At points I struggled to understand how data is being passed between components, however with the help of my teammates and their patience I was able to overcome this hurdle.
+
+- **The Prep**: I believe that at no point in the project we felt particularly lost and knew which direction we are head. Since we spent a lot of time on our whiteboard each one of us knew what we were doing and could always go back to it in case we needed course correction. 
+
+### Challenges
+- **Communication**: Although we split our work well, by the time Ali and I finished with the backend a lot has been done in the frontend by Steven. I believe we could have implemented an additional discussion in our stand-ups with the goal to discuss what has been accomplished since the last time we spoke. This would have made the transition from the backend easier as Ali and I had trouble understanding some of the code and the relationships between components. 
+
+- **Populating Data**: At many times we would encounter a barrier where instead of getting a correct response, certain items would return `undefined` which  was due to us not populating certain fields in the backend correctly. On many occasions this has frustrated the flow of work and could have been prevented if we were more thorough in our work. 
+
+- **Deleting Songs**: As we ended up with many models referencing one another we encountered an issue where deleting a song would break certain parts of the app. Our sloppy solution was a "shadow delete" function which hides the song permanently, however it stays in the database 
+
+### Key Learnings
+
+### Potential Features
