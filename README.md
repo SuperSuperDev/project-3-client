@@ -28,9 +28,9 @@ Project backend can be found [here](https://github.com/guykozlovskij/project-3-s
 <a name="overview"></a>
 
 ## Overview
-For our third Project at General Assembly's Software Engineering Immersive Course we had 10 days to build a fullstack web app in group of three. The scale of this project has been the biggest one so far in the course, and this has also been the first time we worked collaboratively using Git.
+For our third Project at **General Assembly's Software Engineering Immersive Course** we had 10 days to build a fullstack web app in group a of three. The scale of this project has been the biggest one so far in the course, and this has also been the first time we worked collaboratively using Git.
 
-Our project was inspired by two of the internet's biggest music platforms - Spotify and Soundcloud. The goal was to build a music listening service with a social media aspect to it. Users can upload, comment, like and share songs as well as build playlist, albums, create artists and manage artist profiles. 
+Our project was inspired by two of the internet's biggest music platforms - **Spotify** and **Soundcloud**. The goal was to build a music listening service with a social media aspect to it. Users can upload, comment, like and share songs as well as build playlist, albums, create artists and manage artist profiles. 
 
 ![](/readme-img/tour.gif)
 
@@ -38,7 +38,7 @@ Our project was inspired by two of the internet's biggest music platforms - Spot
 
 ## Brief
 - Build a full-stack application by making our own backend and frontend
-- Work in team using git to code collaboratively
+- Work in a team using git to code collaboratively
 - Use an Express API to serve our data from a Mongo database
 - Consume the API with a frontend built with REACT
 - Have a complete product with multiple relationships and CRUD functionality for at least a couple of models
@@ -62,13 +62,13 @@ Our project was inspired by two of the internet's biggest music platforms - Spot
 <a name="approach"></a>
 
 ## Approach
-As we knew the scale of our project would be quite big, our initial step was to focus on a thorough whiteboarding process, creating all of our models, sketching out components and discussing in detail the complex relationships between our schemas. We used [Excalidraw](https://excalidraw.com/) to plan out our project. 
+As we knew the scale of our project would not be small, our initial step was to focus on a thorough whiteboarding process, creating all of our models, sketching out components and discussing in detail the complex relationships between our schemas. We used [Excalidraw](https://excalidraw.com/) to plan out our project. 
 
 ![](/readme-img/whiteboard.gif)
 
-After understanding our steps and planning out the development, we split our workload, with Steven starting the work on the frontend and myself and Ali working on the backend.
+Once we understood our steps and planned out the development, we split our workload, with Steven starting the work on the frontend and myself and Ali working on the backend.
 
-Once we finished the backend in 4 days we joined Steven and split into working on different React components in the frontend on different Git branches. 
+After finishing the backend in 4 days we joined Steven and split into working on different React components in the frontend on different Git branches. 
 
 We would spend 1 to 2 hours a day on debugging and  would continuously assist one another where required. 
 
@@ -98,11 +98,11 @@ const albumSchema = new mongoose.Schema({
 })
 ```
 
-The picture below shows the possible complexity of references you could have in our application. 
+The example below shows the possible complexity of references you could have in our application. "User1" uploads a song titled "User1s Song" and the assigns "LeadArtist" created by "User2". The song then has to be assigned to an album, in this case created by "User4" containing a required artist "LeadArtist" and optional featuring artists. Our song has also been assigned to a playlist created by "User3". 
 
 ![](/readme-img/references-example.png)
 
-"User1" uploads a song titled "User1s Song" and the assigns "LeadArtist" created by "User2". The song then has to be assigned to an album, in this case created by "User4" containing a required artist "LeadArtist" and optional featuring artists. Our song has also been assigned to a playlist created by "User3". 
+
 
 <a name="controllers"></a>
 
