@@ -32,6 +32,8 @@ For our third Project at **General Assembly's Software Engineering Immersive Cou
 
 Our project was inspired by two of the internet's biggest music platforms - **Spotify** and **Soundcloud**. The goal was to build a music listening service with a social media aspect to it. Users can upload, comment, like and share songs as well as build playlist, albums, create artists and manage artist profiles. 
 
+The project was deployed using [Heroku](https://www.heroku.com/) and [Netlify](https://www.netlify.com/) and can be hound [here](https://cloudify-player.netlify.app/)(it may be necessary to give the app 1 minute to wake up).
+
 ![](/readme-img/tour.gif)
 
 <a name="brief"></a>
