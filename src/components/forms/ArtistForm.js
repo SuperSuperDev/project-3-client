@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react'
 import Creatable from 'react-select/creatable'
-
-import useForm from '../../hooks/useForm.js'
+import { useEffect, useState } from 'react'
 import { createArtist, getAllArtists } from '../../lib/api.js'
+import useForm from '../../hooks/useForm.js'
 import ImageUpload from '../upload/ImageUpload.js'
-
 
 function ArtistForm({ setSelectedArtists }) {
   const [artists, setArtists] = useState(null)
@@ -61,6 +59,7 @@ function ArtistForm({ setSelectedArtists }) {
       setHasArtist(false)
     }
   }
+
   return (
     <>
       <label className="label has-text-centered">Select Artist</label>

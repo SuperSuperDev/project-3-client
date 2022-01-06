@@ -7,7 +7,6 @@ function LikeBtn({ id, type, likesCount }) {
   const loggedIn = isAuthenticated()
   const [likesNum, setLikesNum] = React.useState(likesCount)
 
-  //! Check if user likes this Item
   React.useEffect(() => {
     if (loggedIn === true && getLikes().includes(id)) {
       setIsLiked(true)

@@ -4,7 +4,7 @@ const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET_IMAGE
 
 function ImageUpload({ onUpload }) {
   const [image, setImage] = React.useState('')
-
+  
   function handleUpload() {
     window.cloudinary
       .createUploadWidget(

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import { useHistory } from 'react-router-dom'
 import { getAllPlaylists } from '../../lib/api'
 import { isAuthenticated } from '../../lib/auth'
 import Error from '../common/Error'

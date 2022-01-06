@@ -5,14 +5,12 @@ import { isOwner } from '../../lib/auth'
 import Error from '../common/Error'
 import SongList from '../song/SongList'
 
-
 function ShowPlaylist() {
   const history = useHistory()
   const { playlistId } = useParams()
   const [playlist, setPlaylist] = React.useState(null)
   const [isError, setIsError] = React.useState(false)
   const [searchTerm, setSearchTerm] = React.useState('')
-
 
   React.useEffect(() => {
     const getData = async () => {
@@ -55,6 +53,7 @@ function ShowPlaylist() {
     }
   }
   const user = playlist?.users[0]._id || playlist?.user._id
+  
   return (
     <>
       <section>

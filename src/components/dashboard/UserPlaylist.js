@@ -4,7 +4,6 @@ import PlaylistGrid from '../Playlist/PlaylistGrid'
 import { getAllPlaylists } from '../../lib/api'
 import { isAuthenticated, isOwner } from '../../lib/auth'
 
-
 function UserPlaylist() {
   const [playlists, setAllPlaylists] = React.useState(null)
   const [searchTerm, setSearchTerm] = React.useState('')

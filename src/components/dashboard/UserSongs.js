@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom'
 import { getAllSongs } from '../../lib/api'
 import { isOwner } from '../../lib/auth'
 
-
 function UserSongs() {
   const history = useHistory()
   const [songs, setAllSongs] = React.useState(null)

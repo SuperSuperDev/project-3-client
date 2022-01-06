@@ -4,7 +4,6 @@ import { createPlaylist } from '../../lib/api'
 import ImageUpload from '../upload/ImageUpload'
 import useForm from '../../hooks/useForm'
 
-
 function NewPlaylistForm({ stopPushHistory, expandWidth, toggleNewPlaylistModal }) {
   const history = useHistory()
   const [showSuccessMessage, setShowSuccessMessage] = React.useState(false)
@@ -15,7 +14,7 @@ function NewPlaylistForm({ stopPushHistory, expandWidth, toggleNewPlaylistModal 
     public: false,
   })
 
-
+  
   const handleUpload = (url) => {
     handleChange({ target: { name: 'cover', value: url } })
   }
@@ -37,6 +36,7 @@ function NewPlaylistForm({ stopPushHistory, expandWidth, toggleNewPlaylistModal 
       console.log(err.response.data)
     }
   }
+
   return (
     <main className="section has-background-black">
       <div className="columns is-mobile ">

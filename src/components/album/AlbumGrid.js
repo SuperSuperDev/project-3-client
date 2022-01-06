@@ -1,6 +1,7 @@
 import AlbumCard from './AlbumCard'
 import Loader from 'react-loader-spinner'
 
+
 function AlbumGrid({ albumList }) {
   return (
     <div className="container">

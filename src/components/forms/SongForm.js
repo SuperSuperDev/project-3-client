@@ -8,12 +8,10 @@ import ImageUpload from '../upload/ImageUpload.js'
 import AlbumForm from './AlbumForm.js'
 import ArtistForm from './ArtistForm.js'
 
-
 function SongForm() {
   // eslint-disable-next-line no-unused-vars
   const [songs, setSongs] = useState(null)
   const history = useHistory()
-
   const [selectedArtists, setSelectedArtists] = useState(null)
   const [selectedAlbum, setSelectedAlbum] = useState(null)
 
@@ -62,7 +60,6 @@ function SongForm() {
       console.log(err.response.data)
     }
   }
-
 
   const handleSelect = selectedArtist => {
     handleChange({ target: { name: 'singer', value: selectedArtist.value } })

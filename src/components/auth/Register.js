@@ -3,6 +3,7 @@ import useForm from '../../hooks/useForm'
 import { registerUser } from '../../lib/api'
 import { useHistory } from 'react-router-dom'
 
+
 function Register() {
   const history = useHistory()
   const { formdata, formErrors, handleChange, setFormErrors } = useForm({
@@ -17,11 +18,14 @@ function Register() {
     try {
       await registerUser(formdata)
       history.push('/login')
-
     } catch (err) {
+      console.log(err.response.data)
       setFormErrors(err.response.data.errors)
+      
     }
   }
+
+
   return (
     <section  className="section">
       <div  className="container">
@@ -34,7 +38,7 @@ function Register() {
               <label className="label has-text-light">Username</label>
               <div className="control">
                 <input
-                  className={`input ${formErrors.username ? 'is-danger' : ''} `}
+                  className={`input ${formErrors && formErrors.username ? 'is-danger' : ''} `}
                   placeholder="Username"
                   onChange={handleChange}
                   name="username"

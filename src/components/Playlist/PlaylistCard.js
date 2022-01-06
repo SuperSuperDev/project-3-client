@@ -17,6 +17,7 @@ function PlaylistCard({ _id, name, cover }) {
     })
     updateAudioQueue(songsToAddToQueue, false)
   }
+
   React.useEffect(() => {
     const getData = async () => {
       try {
@@ -28,6 +29,7 @@ function PlaylistCard({ _id, name, cover }) {
     }
     getData()
   }, [_id])
+
   return (
     <div id="playlist-card" className="card">
       <Link to={`playlists/${_id}`}>
@@ -35,12 +37,6 @@ function PlaylistCard({ _id, name, cover }) {
           <div className="card-header-title ">
             <div className="title has-text-light">{name}</div>
           </div>
-          {/* <p className="subtitle">
-              {playlists &&
-                playlists.map((playlist) => (
-                  <span key={playlist._id}>{playlist.name} </span>
-                ))}
-            </p> */}
         </div>
         <div className="card-content is-flex is-horizontal-center">
           <img src={cover} />
