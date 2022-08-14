@@ -7,5 +7,7 @@ COPY package*.json ./
 RUN npm install -qy
 # Copy app to container
 COPY . .
+# build and run app
+RUN npm run build
 # Run the "start" script in package.json
 CMD ["npm", "run", "start"]
