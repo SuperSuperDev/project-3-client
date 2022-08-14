@@ -6,6 +6,6 @@ WORKDIR /usr/app
 COPY package*.json ./
 RUN npm install -qy
 # Copy app to container
-COPY . .
-# Run the "dev" script in package.json
-CMD ["npm", "run", "dev"]
+COPY ./ ./
+# Run the "start" script in package.json
+CMD ["npm", "run", "start"]
