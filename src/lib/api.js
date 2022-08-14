@@ -2,8 +2,8 @@ import axios from 'axios'
 import { getToken } from './auth'
 import { baseUrl } from '../config'
 
-console.log(process.env.NODE_ENV)
-console.log(baseUrl)
+console.log('ENV', process.env.NODE_ENV)
+console.log('BaseUrl', baseUrl)
 
 function headers() {
   return {
@@ -15,11 +15,17 @@ export function getUsersPlaylist() {
   return axios.get(`${baseUrl}/getusersplaylist`, headers())
 }
 export function addSongToPlaylist(playlistId, songId) {
-  return axios.post(`${baseUrl}/playlist/${playlistId}/songs/${songId}`, null, headers())
+  return axios.post(
+    `${baseUrl}/playlist/${playlistId}/songs/${songId}`,
+    null,
+    headers()
+  )
 }
 
 //! Song Requests
 export function getAllSongs() {
+  console.log(process.env.NODE_ENV)
+  console.log(baseUrl)
   return axios.get(`${baseUrl}/songs`)
 }
 
@@ -38,7 +44,6 @@ export function editSong(id, formdata) {
 export function deleteSong(id) {
   return axios.delete(`${baseUrl}/songs/${id}`, headers())
 }
-
 
 //! Album Requests
 export function getAllAlbums() {
@@ -66,11 +71,19 @@ export function deleteAlbum(id) {
 }
 
 export function addSongToAlbum(albumId, songId) {
-  return axios.post(`${baseUrl}/albums/${albumId}/songs/${songId}`, null, headers())
+  return axios.post(
+    `${baseUrl}/albums/${albumId}/songs/${songId}`,
+    null,
+    headers()
+  )
 }
 
 export function addArtistToAlbum(albumId, artistId) {
-  return axios.post(`${baseUrl}/albums/${albumId}/artists/${artistId}`, null, headers())
+  return axios.post(
+    `${baseUrl}/albums/${albumId}/artists/${artistId}`,
+    null,
+    headers()
+  )
 }
 
 //! Playlists
@@ -94,7 +107,6 @@ export function removePlaylist(playlistId) {
   return axios.delete(`${baseUrl}/playlist/${playlistId}`, headers())
 }
 
-
 //! Artist
 export function getAllArtists() {
   return axios.get(`${baseUrl}/artists`)
@@ -105,13 +117,20 @@ export function createArtist(data) {
 }
 
 export function addSongToArtist(artistId, songId) {
-  return axios.post(`${baseUrl}/artists/${artistId}/songs/${songId}`, null, headers())
+  return axios.post(
+    `${baseUrl}/artists/${artistId}/songs/${songId}`,
+    null,
+    headers()
+  )
 }
 
 export function addAlbumToArtist(artistId, albumId) {
-  return axios.post(`${baseUrl}/artists/${artistId}/albums/${albumId}`, null, headers())
+  return axios.post(
+    `${baseUrl}/artists/${artistId}/albums/${albumId}`,
+    null,
+    headers()
+  )
 }
-
 
 //! Comments
 export function getCommentsForSong(songId) {
@@ -123,13 +142,19 @@ export function addCommentToSong(formdata, songId) {
 }
 
 export function editCommentInSong(formdata, songId, commentId) {
-  return axios.put(`${baseUrl}/songs/${songId}/comments/${commentId}`, formdata, headers())
+  return axios.put(
+    `${baseUrl}/songs/${songId}/comments/${commentId}`,
+    formdata,
+    headers()
+  )
 }
 
 export function deleteCommentInSong(songId, commentId) {
-  return axios.delete(`${baseUrl}/songs/${songId}/comments/${commentId}`, headers())
+  return axios.delete(
+    `${baseUrl}/songs/${songId}/comments/${commentId}`,
+    headers()
+  )
 }
-
 
 //! Auth Requests
 export function registerUser(formdata) {
@@ -140,5 +165,9 @@ export function loginUser(formdata) {
   return axios.post(`${baseUrl}/login`, formdata)
 }
 export function addLike(type, id, plusOrMinus) {
-  return axios.post(`${baseUrl}/like/${type}/${id}/${plusOrMinus}`, null, headers())
+  return axios.post(
+    `${baseUrl}/like/${type}/${id}/${plusOrMinus}`,
+    null,
+    headers()
+  )
 }
