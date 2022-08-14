@@ -10,5 +10,7 @@ COPY . .
 # build and run app
 RUN node -v
 RUN npm run build
+RUN npm install -g serve
+CMD ["serve" "-s" "build"]
 # Run the "start" script in package.json
-CMD ["npm", "run", "start"]
+# CMD ["npm", "run", "start"]
