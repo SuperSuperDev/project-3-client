@@ -8,7 +8,7 @@ RUN npm install -qy
 # Copy app to container
 COPY . .
 # build and run app
-RUN nvm use 16.13.0
+RUN node -v
 RUN npm run build
 # Run the "start" script in package.json
 CMD ["npm", "run", "start"]
