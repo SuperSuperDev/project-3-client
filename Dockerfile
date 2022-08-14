@@ -20,7 +20,7 @@ RUN npm run build
 # CMD ["npm", "run", "start"]
 
 # production build
-FROM nginx:alpine-stable
+FROM nginx:stable-alpine
 COPY --from=build /usr/app/build /usr/share/nginx/html
 EXPOSE 4000
 CMD nginx -g 'daemon off;'
