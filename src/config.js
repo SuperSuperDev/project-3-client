@@ -4,5 +4,4 @@
 // export const baseUrl = process.env.NODE_ENV === 'production' ? prodUrl : devUrl
 import dotenv from 'dotenv'
 dotenv.config()
-export const baseUrl =
-  process.env.REACT_APP_PROD_URL || 'http://localhost:4000/api'
+export const baseUrl = process.env.API_URL || 'http://localhost:4000/api'
