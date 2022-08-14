@@ -24,4 +24,4 @@ yarn-error.log*
 
 /.vscode
 /.env
-/build
+build
