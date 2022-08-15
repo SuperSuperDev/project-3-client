@@ -37,6 +37,7 @@ RUN npm run build
 
 # production environment
 FROM nginx:stable-alpine
+ENV API_URL http://cloudify-server.capt.nonovium.com/api
 RUN rm -rf /etc/nginx/conf.d
 RUN mkdir -p /etc/nginx/conf.d
 COPY ./default.conf /etc/nginx/conf.d/
