@@ -26,7 +26,7 @@
 # EXPOSE 4000
 # CMD nginx -g 'daemon off;'
 FROM node:16.13.0-alpine3.14 as builder
-RUN mkdir /usr/src/app
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY . /usr/src/app
