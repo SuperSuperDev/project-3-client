@@ -29,6 +29,8 @@ FROM node:16.13.0-alpine3.14 as builder
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
+ENV NODE_ENV production
+ENV API_URL http://cloudify-server.capt.nonovium.com/api
 COPY . /usr/src/app
 RUN npm install
 RUN npm run build
