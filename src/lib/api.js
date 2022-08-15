@@ -2,9 +2,6 @@ import axios from 'axios'
 import { getToken } from './auth'
 import { baseUrl } from '../config'
 
-console.log('ENV', process.env.NODE_ENV)
-console.log('BaseUrl', baseUrl)
-
 function headers() {
   return {
     headers: { Authorization: `Bearer ${getToken()}` },
@@ -24,8 +21,6 @@ export function addSongToPlaylist(playlistId, songId) {
 
 //! Song Requests
 export function getAllSongs() {
-  console.log(process.env.NODE_ENV)
-  console.log(baseUrl)
   return axios.get(`${baseUrl}/songs`)
 }
 
