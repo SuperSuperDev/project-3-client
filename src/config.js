@@ -4,4 +4,6 @@
 // export const baseUrl = process.env.NODE_ENV === 'production' ? prodUrl : devUrl
 // const dotenv = require('dotenv')
 // dotenv.config()
+const apiUrl = process.env.API_URL
+console.log('apiUrl :', apiUrl)
 export const baseUrl = process.env.API_URL
