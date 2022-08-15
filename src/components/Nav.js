@@ -28,7 +28,12 @@ function Nav() {
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             {' '}
-            🎶 {' '}Cloudify
+            <img
+              src="/img/cloudify-logo.svg"
+              alt="logo"
+              className="image is-32x32"
+            />
+            Cloudify{' '}
           </Link>
           <span
             className={`navbar-burger ${menuIsActive ? 'is-active' : ''} `}
@@ -55,7 +60,7 @@ function Nav() {
               {' '}
               Playlists
             </Link>
-            {isAuthenticated() &&
+            {isAuthenticated() && (
               <>
                 <Link to="/upload-song" className="navbar-item">
                   {' '}
@@ -70,7 +75,7 @@ function Nav() {
                   Create Playlist
                 </Link>
               </>
-            }
+            )}
           </div>{' '}
           <div className="navbar-end">
             <div className="navbar-item">
